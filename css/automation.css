@@ -1,0 +1,658 @@
+#content .select {
+  display: none;
+  background: #fff;
+  padding: 1rem 2rem;
+  /* padding: 1rem; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0px 0 30px rgb(1 41 112 / 10%); */
+  text-align: center;
+  min-height: 96vh;
+}
+
+#content .runbook.select{
+  padding:0px;
+}
+
+#content .wizard-ui{
+  /*padding: 1rem 2rem;*/
+}
+
+.left-panel {
+  text-align: center;
+}
+
+.left-panel img {
+  width: 130px;
+  border-radius: 50%;
+  box-shadow: 13px 15px 31px -11px rgb(0 0 0 / 75%);
+}
+
+.left-panel h4,
+.left-panel h5 {
+  color: #fff;
+  margin: 0;
+}
+
+.left-panel h4 {
+  font-size: 20px;
+}
+
+.left-panel h5 {
+  font-size: 14px;
+}
+
+span.button {
+  border-top: none;
+  background: none;
+  color: #fff;
+  padding: 10px 0;
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+#sidebar ul li > a.active,
+span.button.active {
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+#sidebar .list-unstyled i.bi {
+  margin-right: 0.25rem;
+}
+
+.input-group-text {
+  border: none;
+  background: none;
+  font-size: 14px;
+}
+
+#ntp-install .input-group-text,
+#ntp-install-form .input-group-text,
+#dns-install .input-group-text,
+#dns-install-form .input-group-text {
+  width: 120px;
+}
+
+#cr-install .input-group-text,
+#cs-integrate .input-group-text,
+#ddve-integrate .input-group-text,
+#networker-install .input-group-text,
+#networker-install-form .input-group-text,
+#proxy-install .input-group-text,
+#proxy-install-form .input-group-text,
+#cr-form .input-group-text,
+#power-scale-form .input-group-text,
+
+#power-edge-form-1 .input-group-text
+ {
+  width: 180px;
+}
+
+#cs-install .input-group-text,
+#cs-install-form .input-group-text,
+#ave-install .input-group-text,
+#ave-install-form .input-group-text,
+#ppdm-install .input-group-text,
+#networker-proxy-install .input-group-text,
+#ppdm-install-form .input-group-text,
+#networker-proxy-install-form .input-group-text,
+#power-store-install-form .input-group-text {
+  width: 205px;
+}
+
+#ave-integrate .input-group-text {
+  width: 220px;
+}
+
+#ddve-install .input-group-text,
+#ddve-install-form .input-group-text {
+  width: 165px;
+}
+
+#ave-passwords .input-group-text {
+  width: 240px;
+}
+
+.mandatory {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 3px;
+}
+
+.not-mandatory {
+  padding-left: 23px;
+}
+
+.form-buttons,
+.form-buttons-cs {
+  text-align: right;
+  /* margin-top: 20px; */
+}
+
+.form-buttons .btn,
+.form-buttons-cs .btn {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+.form-buttons-cs {
+  text-align: right;
+}
+
+.form-buttons-cs .skip-btn{
+  float:left;
+}
+
+.section-heading,
+.form-normal {
+  color: #888;
+  font-weight: bold;
+  /*margin-bottom: 1rem;
+   text-transform: uppercase; */
+  font-size: 30px;
+}
+
+.form-control {
+  font-size: 14px;
+}
+
+.card-title {
+  font-size: 12px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  /* text-decoration: underline; */
+  /* margin-left: 10px; */
+  color: grey;
+  /* margin-top: -35px; */
+  background: #fff;
+  padding: 1px;
+  border-radius: 4px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  padding-left: 1rem;
+}
+
+input:invalid {
+  outline: none;
+}
+
+.mb-3 {
+  margin-bottom: 8px !important;
+}
+
+#sidebarCollapse {
+  font-size: 16px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-top: 5px;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+
+input[type="file"] {
+  padding: 0;
+  background: #fff;
+}
+
+.table thead th,
+.table th,
+.table td {
+  border: none;
+}
+
+.table tbody tr th {
+  text-align: left;
+  width: 160px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #495057;
+}
+
+.table thead th {
+  font-weight: normal;
+  font-size: 14px;
+  color: #495057;
+  padding: 0;
+}
+
+.disabled {
+  pointer-events: none;
+  background: #e9ecef;
+}
+
+.not-required {
+  visibility: hidden;
+}
+
+.mb-4,
+.my-4 {
+  margin-bottom: 1rem !important;
+}
+
+.nav-link {
+  display: block;
+  padding: 5px 10px;
+}
+
+.switch-field input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+.switch-field label {
+  background-color: #e4e4e4;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 13px;
+  line-height: 1;
+  text-align: center;
+  padding: 6px 7px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+
+.switch-field input:checked + label {
+  background-color: #a5dc86;
+}
+
+.dl-wizard-panel .card {
+  background-color: #fff;
+  padding: 0px;
+  line-height: 1.3;
+  border:0px!important;
+  
+}
+
+.dl-wizard-panel .card-body{
+  padding: 0em;
+}
+
+.dl-wizard-panel p{
+  font-size: 13px;
+  line-height: 1.6em;
+}
+
+
+
+.iconSelect {
+  width: 100%;
+}
+.iconSelect.custom-control { padding-left: 0; }
+  
+.iconSelect-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .custom-control-label {
+    background-color: #eee;
+    width: 100%;
+    text-align: left;
+    border-radius: .2rem;
+    padding: 1rem 1rem 1.2rem;
+    font-size: 1.4rem;
+    transition: background-color .1s linear, color .1s linear;
+  }
+       
+  .custom-control-label h5{
+    font-weight: 600;
+    margin-bottom:0px;
+    font-size: 21px;
+  }
+    .custom-control-label:hover {
+      background-color: #ccc;
+    }
+    
+    .custom-control-label::before, .custom-control-label::after {
+      /* top: auto;
+      left: 0;
+      right: 0;
+      bottom: 1rem;
+      margin: auto;
+      display:block; */
+      top: -66px;
+    left: inherit;
+    right: 0;
+    bottom: 1rem;
+    margin: auto;
+    display: block;
+    margin-right: 12px;
+    }
+  
+  .custom-control-input:checked~.custom-control-label {
+    background: #1d5bc8;
+    color: #fff;
+  }
+
+  .custom-control-input:checked~.custom-control-label h5{
+    color:#fff;
+  }
+
+  :root {
+    --dur: 300ms;
+  }
+  
+  
+  input.custom-control-input {
+    position: relative;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+            display:inline;
+  }
+
+  div.dl-custom-label-div{
+    display: none;
+  }
+  input.custom-control-input:checked + label div.dl-custom-label-div {
+    background-color: white;
+  }
+  input.custom-control-input:checked + label div.dl-custom-label-div::before {
+    translate: -240% -20%;
+    rotate: -45deg;
+  }
+  input.custom-control-input:checked + label div.dl-custom-label-div::after {
+    rotate: 45deg;
+  }
+  input.custom-control-input:checked + label div.dl-custom-label-div::after, input:checked + label div.dl-custom-label-div::before {
+    -webkit-animation: scale-rev var(300ms) 1 ease-in-out both;
+            animation: scale-rev var(300ms) 1 ease-in-out both;
+  }
+  label.custom-control-label {
+    /* position: relative;
+    padding-left: 1rem;
+    margin-left: 4rem;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    font-size: 5rem;
+    letter-spacing: -1px;
+    font-weight: bold;
+    color: white;
+    transition-duration: var(--dur);
+    cursor: pointer; */
+  }
+  label.custom-control-label:hover {
+    letter-spacing: 0;
+  }
+  label.custom-control-label:hover div.dl-custom-label-div {
+    /* right: calc(100% - 4px); */
+  }
+  label.custom-control-label div.dl-custom-label-div {
+    /* position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90px;
+    aspect-ratio: 1/1;
+    border: 10px solid white;
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition-duration: var(--dur); */
+    position: absolute;
+    right: 14px;
+    top: 28px;
+    transform: translateY(-50%);
+    width: 25px;
+    aspect-ratio: 1/1;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    transition-duration: var(--dur);
+  }
+  label.custom-control-label div.dl-custom-label-div::after, label.custom-control-label div.dl-custom-label-div::before {
+    content: "";
+    position: absolute;
+     top: 50%;
+    left: 50%;
+    width:3px;
+    background-color: #dadada;
+    -webkit-animation: scale var(300ms) 1 ease-in-out calc(var(300ms) * 2) both;
+            animation: scale var(300ms) 1 ease-in-out calc(var(300ms) * 2) both;
+    transition-duration: var(300ms);
+    transition-delay: var(300ms);
+  }
+  label.custom-control-label div.dl-custom-label-div::after {
+    rotate: 90deg;
+    /* height: 60px;
+    translate: 30% -50%; */
+    height: 17px;
+    translate: 30% -50%;
+  }
+  label.custom-control-label div.dl-custom-label-div::before {
+    /* rotate: -90deg;
+    translate: -370% -15px;
+    height: 30px; */
+    rotate: -90deg;
+    translate: -370% -15px;
+    height: 9px;
+  }
+  
+
+  @-webkit-keyframes scale {
+    to {
+      scale: 8;
+    }
+  }
+  
+  @keyframes scale {
+    to {
+      scale: 8;
+    }
+  }
+  @-webkit-keyframes scale-rev {
+    from {
+      scale: 8;
+    }
+    to {
+      scale: 1;
+      background-color: #0078D4;
+    }
+  }
+  @keyframes scale-rev {
+    from {
+      scale: 8;
+    }
+    to {
+      scale: 1;
+      background-color: #0078D4;
+    }
+  }
+
+  .dl-finaldeployment{
+    padding:2.7rem 2rem!important;
+    background-image: url(../images/db_final.JPEG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 204px;
+    border-radius: 0px;
+    position: relative;
+    margin-bottom: 0px;
+  }
+  .dl-finaldeployment h1{
+    font-size: 3rem;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .dl-finaldeployment p{
+text-align: left;
+color: #fff;
+  }
+
+  .dl-finaldeployment .logoimg{
+    background-image: url(../images/dell-logo.png);
+    /* float: right; */
+    width: 397px;
+    height: 67px;
+    background-repeat: no-repeat;
+    position: absolute;
+    /* z-index: 999; */
+    background-size: contain;
+    /* top: 0px; */
+    right: 0;
+    opacity: 0.3;
+    bottom: 0px;
+  }
+
+  
+
+  .logoimg span{
+    position: relative;
+    bottom: 6px;
+    right: 16px;
+  }
+
+  .dl-deployment-state .card{
+    padding:0.5rem;
+  }
+
+  .dl-deployment-state .spinner-border {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-bottom;
+    border: 0.2em solid #0078d4;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner-border 0.75s linear infinite;
+    animation: spinner-border 0.75s linear infinite;
+  }
+
+  .dl-msg span{
+    display: inline-block;
+    padding-left:5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .dl-deployment-state .dep-icon{
+    font-size: 24px;
+  }
+
+
+  .dl-deployment-state .card-body{
+    padding:0px;
+  }
+
+  .dl-deployment-state h5{
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .dl-deployment-state .dl-msg{
+    display: inline-block;
+    width: 100%;
+    margin-top: 7px;
+  }
+
+  .dl-inactive{
+    background: #e9e9e9;
+    color: #bbb8b8;
+  }
+
+  .dl-inactive h5{
+    color: #bbb8b8;
+  }
+
+  .dl-success{
+    background: #46b55f;
+    color: #fff;
+  }
+
+  .dl-success h5{
+    color:#fff;
+  }
+
+  .dl-error{
+    background: #fd6473;
+    color: #fff;
+  }
+
+  .dl-error h5{
+    color:#fff;
+  }
+
+  .dl-inactive .dl-msg{
+    width: 100%;
+    background-color: #efefef
+  }
+
+  .dl-progress .dl-msg {
+    width: 100%;
+    background-color: #ADD8E6;
+  }
+
+  .dl-success .dl-msg{
+    background: #39a151;
+  }
+
+  
+  .dl-running{
+    background: #338ea4;
+    color: #fff;
+  }
+
+  .dl-running h5{
+    color:#fff;
+  }
+
+  .dl-running .dl-msg{
+    background: #338ea4;
+  }
+
+  .dl-error .dl-msg{
+    background: #ed5664;;
+  }
+
+  /*.p-31{
+    background-image: url(../images/background.jpg) no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    border-radius: 0px;
+    position: relative;
+    margin-bottom: 0px;
+    position: relative;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: url(images/bg.jpg) no-repeat center center fixed;*/
+    /*background-size: cover;
+    height: 600px;
+    overflow: hidden;
+  }*/
+
+  .dl-msg a {
+    color: #fff;
+  }

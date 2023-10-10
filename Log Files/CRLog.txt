@@ -1,0 +1,338 @@
+06/08/2023 03:42:41 : [INFO] 10.118.168.80 successfully connected
+
+06/08/2023 03:45:40 : [INFO] CR Deployment is successful
+06/08/2023 03:45:40 : [ERROR] Cannot validate argument on parameter 'Name'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+06/08/2023 03:52:06 : [INFO] 10.118.168.80 successfully connected
+
+06/08/2023 03:54:54 : [INFO] CR Deployment is successful
+06/08/2023 03:54:55 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/08/2023 04:02:19 : [INFO] CR Deployment is Successful
+06/08/2023 04:02:19 : [INFO] 10.118.168.80 successfully disconnected
+
+06/15/2023 00:28:34 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 00:31:29 : [INFO] CR Deployment is successful
+06/15/2023 00:31:29 : [INFO] @{VMName=test_cyber_r2; IPAddress=; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=Datastore_2TB}
+06/15/2023 00:34:15 : [ERROR] No connection could be made because the target machine actively refused it. (10.118.168.234:14777)
+06/15/2023 00:52:18 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 00:55:29 : [INFO] CR Deployment is successful
+06/15/2023 00:55:29 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=Datastore_2TB}
+06/15/2023 01:02:14 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 01:05:05 : [INFO] CR Deployment is successful
+06/15/2023 01:05:05 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=Datastore_2TB}
+06/15/2023 01:09:09 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 01:10:31 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 01:13:23 : [INFO] CR Deployment is successful
+06/15/2023 01:13:23 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=Datastore_2TB}
+06/15/2023 01:20:20 : [INFO] CR Deployment is Successful
+06/15/2023 01:20:21 : [INFO] 10.118.168.80 successfully disconnected
+
+06/15/2023 01:23:19 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 01:49:41 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 01:52:34 : [INFO] CR Deployment is successful
+06/15/2023 01:52:35 : [INFO] @{VMName=test_cyber; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/15/2023 01:54:24 : [ERROR] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (10.118.168.234:14777)
+06/15/2023 01:54:53 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 01:57:44 : [INFO] CR Deployment is successful
+06/15/2023 01:57:45 : [INFO] @{VMName=test_cyber; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/15/2023 02:05:08 : [INFO] CR Deployment is Successful
+06/15/2023 02:05:08 : [INFO] 10.118.168.80 successfully disconnected
+
+06/15/2023 03:18:44 : [ERROR] 6/15/2023 3:18:44 AM	Connect-VIServer		No such host is known. (sdfmbsdmn:443)	
+06/15/2023 03:21:12 : [ERROR] 6/15/2023 3:21:12 AM	Connect-VIServer		No such host is known. (sdfmbsdmn:443)	
+06/15/2023 03:22:35 : [ERROR] 6/15/2023 3:22:35 AM	Connect-VIServer		No such host is known. (sdjfsjdf:443)	
+06/15/2023 03:33:30 : [ERROR] 6/15/2023 3:33:30 AM	Connect-VIServer		No such host is known. (sjdgfjsd:443)	
+06/15/2023 03:33:45 : [ERROR] 6/15/2023 3:33:45 AM	Connect-VIServer		No such host is known. (sjdgfjsd:443)	
+06/15/2023 03:41:37 : [ERROR] 6/15/2023 3:41:37 AM	Connect-VIServer		No such host is known. (sdfsjdh:443)	
+06/15/2023 03:41:47 : [ERROR] 6/15/2023 3:41:47 AM	Connect-VIServer		No such host is known. (sdfsjdh:443)	
+06/15/2023 03:43:54 : [ERROR] 6/15/2023 3:43:54 AM	Connect-VIServer		No such host is known. (sdfkhsdk:443)	
+06/15/2023 03:47:48 : [ERROR] 6/15/2023 3:47:48 AM	Connect-VIServer		No such host is known. (sdjfjsdf:443)	
+06/15/2023 04:05:06 : [ERROR] 6/15/2023 4:05:06 AM	Connect-VIServer		No such host is known. (sdjfsjkdfh:443)	
+06/15/2023 04:05:27 : [ERROR] 6/15/2023 4:05:27 AM	Connect-VIServer		No such host is known. (sdjfsjkdfh:443)	
+06/15/2023 05:50:54 : [ERROR] 6/15/2023 5:50:54 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:53:05 : [ERROR] 6/15/2023 5:53:05 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:53:40 : [ERROR] 6/15/2023 5:53:40 AM	Connect-VIServer		No such host is known. (esxi:443)	
+06/15/2023 05:54:12 : [ERROR] 6/15/2023 5:54:12 AM	Connect-VIServer		No such host is known. (sjdfg:443)	
+06/15/2023 06:14:34 : [ERROR] 6/15/2023 6:14:34 AM	Connect-VIServer		No such host is known. (sdjfgjsd:443)	
+06/15/2023 06:15:27 : [ERROR] 6/15/2023 6:15:27 AM	Connect-VIServer		No such host is known. (sdfsd:443)	
+06/15/2023 06:32:28 : [ERROR] 6/15/2023 6:32:28 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 06:32:29 : [ERROR] 6/15/2023 6:32:29 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 06:43:15 : [ERROR] 6/15/2023 6:43:15 AM	Connect-VIServer		No such host is known. (esxi:443)	
+06/15/2023 06:43:15 : [ERROR] 6/15/2023 6:43:15 AM	Connect-VIServer		No such host is known. (esxi:443)	
+06/15/2023 06:44:02 : [ERROR] 6/15/2023 6:44:02 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 06:46:00 : [ERROR] 6/15/2023 6:46:00 AM	Connect-VIServer		No such host is known. (esxi:443)	
+06/15/2023 06:53:04 : [ERROR] 6/15/2023 6:53:04 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 06:53:05 : [ERROR] 6/15/2023 6:53:05 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 07:02:10 : [ERROR] 6/15/2023 7:02:10 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 07:05:15 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 07:06:34 : [ERROR] 6/15/2023 7:06:34 AM	Connect-VIServer		Cannot complete login due to an incorrect user name or password.	
+06/15/2023 07:11:06 : [INFO] 10.118.168.80 successfully connected
+
+06/15/2023 07:14:09 : [INFO] CR Deployment is successful
+06/15/2023 07:14:09 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/15/2023 07:21:06 : [INFO] CR Deployment is Successful
+06/15/2023 07:21:06 : [INFO] 10.118.168.80 successfully disconnected
+
+06/15/2023 07:45:15 : [INFO] Successfully connected to 10.118.168.23
+
+06/15/2023 07:50:44 : [INFO] CR Deployment is successful
+06/15/2023 07:50:44 : [INFO] @{VMName=test_cyber_r2; IPAddress=fe80::250:56ff:fe8b:44df; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/15/2023 07:52:02 : [INFO] CR Deployment is Successful
+06/15/2023 07:52:03 : [INFO] 10.118.168.23 successfully disconnected
+
+06/15/2023 08:02:25 : [INFO] Successfully connected to 10.118.168.23
+
+06/15/2023 08:05:03 : [INFO] CR Deployment is successful
+06/15/2023 08:05:04 : [INFO] @{VMName=test_cyber_r2; IPAddress=fe80::250:56ff:fe8b:dee0; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/15/2023 08:06:38 : [ERROR] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (10.118.168.233:14777)
+06/15/2023 08:18:10 : [ERROR] 6/15/2023 8:18:10 AM	Connect-VIServer		Cannot complete login due to an incorrect user name or password.	
+06/15/2023 08:23:05 : [ERROR] 6/15/2023 8:23:05 AM	Connect-VIServer		No such host is known. (jdfjsdf:443)	
+06/15/2023 08:24:45 : [INFO] Successfully connected to 10.118.168.23
+
+06/15/2023 08:27:46 : [INFO] CR Deployment is successful
+06/15/2023 08:27:46 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/15/2023 08:34:05 : [ERROR] 6/15/2023 8:34:05 AM	Invoke-VMScript		Failed to authenticate with the guest operating system using the supplied credentials.	
+06/16/2023 01:30:49 : [INFO] 10.118.168.80 successfully connected
+
+06/16/2023 01:34:07 : [INFO] CR Deployment is successful
+06/16/2023 01:34:08 : [INFO] @{VMName=test_cyber_r2; IPAddress=; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/16/2023 01:36:55 : [ERROR] No connection could be made because the target machine actively refused it. (10.118.168.234:14777)
+06/16/2023 01:49:05 : [ERROR] No connection could be made because the target machine actively refused it. (10.118.168.83:8443)
+06/16/2023 01:59:58 : [INFO] 10.118.168.80 successfully connected
+
+06/16/2023 02:02:58 : [INFO] CR Deployment is successful
+06/16/2023 02:02:58 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/16/2023 02:10:22 : [ERROR] 6/16/2023 2:10:21 AM	Invoke-VMScript		Failed to authenticate with the guest operating system using the supplied credentials.	
+06/16/2023 02:17:36 : [ERROR] No connection could be made because the target machine actively refused it. (10.118.168.83:443)
+06/19/2023 05:54:07 : [INFO] 10.118.168.80 successfully connected
+
+06/19/2023 05:57:02 : [INFO] CR Deployment is successful
+06/19/2023 05:57:02 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/19/2023 06:04:31 : [ERROR] 6/19/2023 6:04:31 AM	Invoke-VMScript		Failed to authenticate with the guest operating system using the supplied credentials.	
+06/19/2023 08:42:46 : [INFO] 10.118.168.80 successfully connected
+
+06/19/2023 08:45:42 : [INFO] CR Deployment is successful
+06/19/2023 08:45:43 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/19/2023 08:53:11 : [ERROR] 6/19/2023 8:53:11 AM	Invoke-VMScript		Failed to authenticate with the guest operating system using the supplied credentials.	
+06/19/2023 09:38:32 : [INFO] 10.118.168.80 successfully connected
+
+06/19/2023 09:41:25 : [INFO] CR Deployment is successful
+06/19/2023 09:41:25 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/19/2023 09:48:52 : [ERROR] 6/19/2023 9:48:52 AM	Invoke-VMScript		Failed to authenticate with the guest operating system using the supplied credentials.	
+06/19/2023 09:57:59 : [INFO] 10.118.168.80 successfully connected
+
+06/19/2023 10:01:04 : [INFO] CR Deployment is successful
+06/19/2023 10:01:04 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/19/2023 10:08:12 : [INFO] CR Deployment is Successful
+06/19/2023 10:08:13 : [INFO] 10.118.168.80 successfully disconnected
+
+06/19/2023 10:11:51 : [INFO] 10.118.168.80 successfully connected
+
+06/19/2023 10:14:57 : [INFO] CR Deployment is successful
+06/19/2023 10:14:57 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/19/2023 10:22:56 : [ERROR] 6/19/2023 10:22:56 AM	Invoke-VMScript		Failed to authenticate with the guest operating system using the supplied credentials.	
+06/19/2023 10:29:25 : [INFO] Successfully connected to 10.118.168.23
+
+06/19/2023 10:31:58 : [INFO] CR Deployment is successful
+06/19/2023 10:31:58 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/19/2023 10:38:20 : [ERROR] 6/19/2023 10:38:20 AM	Invoke-VMScript		Failed to authenticate with the guest operating system using the supplied credentials.	
+06/20/2023 02:10:54 : [INFO] Successfully connected to 10.118.168.23
+
+06/20/2023 02:14:55 : [INFO] CR Deployment is successful
+06/20/2023 02:14:56 : [INFO] @{VMName=cyber_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/20/2023 02:21:49 : [INFO] CR Deployment is Successful
+06/20/2023 02:21:49 : [INFO] 10.118.168.23 successfully disconnected
+
+0 6 / 2 0 / 2 0 2 3   0 2 : 2 3 : 4 5   :   [ E R R O R ]   C a n n o t   b i n d   a r g u m e n t   t o   p a r a m e t e r   ' S t r i n g '   b e c a u s e   i t   i s   n u l l .  
+ 06/20/2023 02:32:20 : [INFO] Successfully connected to 10.118.168.23
+
+06/20/2023 02:34:50 : [INFO] CR Deployment is successful
+06/20/2023 02:34:51 : [INFO] @{VMName=cyber_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/20/2023 02:41:54 : [INFO] CR Deployment is Successful
+06/20/2023 02:41:54 : [INFO] 10.118.168.23 successfully disconnected
+
+06/20/2023 03:06:29 : [INFO] Successfully connected to 10.118.168.23
+
+06/20/2023 03:10:44 : [INFO] CR Deployment is successful
+06/20/2023 03:10:44 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/20/2023 03:17:32 : [INFO] CR Deployment is Successful
+06/20/2023 03:17:32 : [INFO] 10.118.168.23 successfully disconnected
+
+06/22/2023 01:09:54 : [ERROR] 6/22/2023 1:09:54 AM	Connect-VIServer		No such host is known. (sjdfgsd:443)	
+06/22/2023 01:09:57 : [ERROR] 6/22/2023 1:09:57 AM	Connect-VIServer		No such host is known. (sjdfgsd:443)	
+06/22/2023 06:19:46 : [INFO] Successfully connected to 10.118.168.23
+
+06/22/2023 06:22:35 : [INFO] CR Deployment is successful
+06/22/2023 06:22:35 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/22/2023 06:28:58 : [INFO] CR Deployment is Successful
+06/22/2023 06:28:58 : [INFO] 10.118.168.23 successfully disconnected
+
+06/23/2023 01:12:35 : [INFO] 10.118.168.80 successfully connected
+
+06/23/2023 01:12:36 : [ERROR]  is invalid
+
+06/23/2023 01:12:36 : [INFO] 10.118.168.80 successfully disconnected
+
+06/23/2023 01:16:07 : [INFO] 10.118.168.80 successfully connected
+
+06/23/2023 01:16:08 : [ERROR]  is invalid
+
+06/23/2023 01:16:08 : [INFO] 10.118.168.80 successfully disconnected
+
+06/23/2023 01:18:07 : [INFO] 10.118.168.23 successfully connected
+
+06/23/2023 01:18:08 : [ERROR]  is invalid
+
+06/23/2023 01:18:08 : [INFO] 10.118.168.23 successfully disconnected
+
+06/23/2023 01:20:06 : [INFO] Successfully connected to 10.118.168.23
+
+06/23/2023 01:20:07 : [ERROR]  is invalid
+
+06/23/2023 01:20:07 : [INFO] 10.118.168.23 successfully disconnected
+
+06/23/2023 01:23:51 : [INFO] Successfully connected to 10.118.168.23
+
+06/23/2023 01:23:52 : [ERROR] VM Networ is invalid
+
+06/23/2023 01:23:52 : [INFO] 10.118.168.23 successfully disconnected
+
+06/23/2023 01:27:11 : [ERROR] 6/23/2023 1:27:11 AM	Connect-VIServer		Cannot complete login due to an incorrect user name or password.	
+06/23/2023 01:28:23 : [INFO] Successfully connected to 10.118.168.23
+
+06/23/2023 01:28:24 : [ERROR] datastore is invalid
+
+06/23/2023 01:28:24 : [INFO] 10.118.168.23 successfully disconnected
+
+06/23/2023 01:38:54 : [INFO] Successfully connected to 10.118.168.23
+
+06/23/2023 01:38:55 : [ERROR] datastore is invalid
+
+06/23/2023 01:38:55 : [INFO] 10.118.168.23 successfully disconnected
+
+06/23/2023 01:39:50 : [INFO] 10.118.168.80 successfully connected
+
+06/23/2023 01:39:51 : [ERROR] datastore is invalid
+
+06/23/2023 01:39:51 : [INFO] 10.118.168.80 successfully disconnected
+
+06/23/2023 01:41:23 : [INFO] 10.118.168.80 successfully connected
+
+06/23/2023 01:41:24 : [ERROR] VM Networ is invalid
+
+06/23/2023 01:41:24 : [INFO] 10.118.168.80 successfully disconnected
+
+06/26/2023 05:36:43 : [INFO] Successfully connected to 10.118.168.23
+
+06/26/2023 05:39:23 : [INFO] CR Deployment is successful
+06/26/2023 05:39:23 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+06/26/2023 05:46:01 : [INFO] CR Deployment is Successful
+06/26/2023 05:46:01 : [INFO] 10.118.168.23 successfully disconnected
+
+07/06/2023 23:56:08 : [INFO] Successfully connected to 10.118.168.23
+
+07/06/2023 23:58:59 : [INFO] CR Deployment is successful
+07/06/2023 23:58:59 : [INFO] @{VMName=cr_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+07/07/2023 00:05:37 : [INFO] CR Deployment is Successful
+07/07/2023 00:05:37 : [INFO] 10.118.168.23 successfully disconnected
+
+07/07/2023 00:25:47 : [INFO] Successfully connected to 10.118.168.23
+
+07/07/2023 00:29:11 : [INFO] CR Deployment is successful
+07/07/2023 00:29:11 : [INFO] @{VMName=cr_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+07/07/2023 00:36:09 : [INFO] CR Deployment is Successful
+07/07/2023 00:36:10 : [INFO] 10.118.168.23 successfully disconnected
+
+07/07/2023 01:02:33 : [INFO] Successfully connected to 10.118.168.23
+
+07/07/2023 01:06:38 : [INFO] CR Deployment is successful
+07/07/2023 01:06:38 : [INFO] @{VMName=cr_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+07/07/2023 01:13:11 : [INFO] CR Deployment is Successful
+07/07/2023 01:13:11 : [INFO] 10.118.168.23 successfully disconnected
+
+07/07/2023 05:49:44 : [INFO] Successfully connected to 10.118.168.23
+
+07/07/2023 05:52:20 : [INFO] CR Deployment is successful
+07/07/2023 05:52:20 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+07/07/2023 05:58:53 : [INFO] CR Deployment is Successful
+07/07/2023 05:58:53 : [INFO] 10.118.168.23 successfully disconnected
+
+07/13/2023 01:36:37 : [INFO] Successfully connected to 10.118.168.23
+
+07/13/2023 01:39:22 : [INFO] CR Deployment is successful
+07/13/2023 01:39:22 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=24576; Datastore=vsanDatastore}
+07/13/2023 01:45:55 : [INFO] CR Deployment is Successful
+07/13/2023 01:45:55 : [INFO] 10.118.168.23 successfully disconnected
+
+07/13/2023 01:50:06 : [INFO] 10.118.168.80 successfully connected
+
+07/13/2023 01:50:07 : [ERROR] vsanDatastore is invalid
+
+07/13/2023 01:50:07 : [INFO] 10.118.168.80 successfully disconnected
+
+07/13/2023 01:53:30 : [INFO] 10.118.168.80 successfully connected
+
+07/13/2023 01:56:45 : [INFO] CR Deployment is successful
+07/13/2023 01:56:45 : [INFO] @{VMName=test_cyber_r2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=24576; Datastore=datastore1}
+07/13/2023 02:04:19 : [INFO] CR Deployment is Successful
+07/13/2023 02:04:19 : [INFO] 10.118.168.80 successfully disconnected
+
+07/17/2023 07:29:39 : [ERROR] The process cannot access the file 'C:\Users\crauser\AppData\Roaming\VMware\PowerCLI\PowerCLI_Settings.xml' because it is being used by another process.
+08/22/2023 01:26:43 : [INFO] Successfully connected to 10.118.168.23
+
+08/22/2023 01:29:17 : [INFO] CR Deployment is successful
+08/22/2023 01:29:18 : [INFO] @{VMName=cr _test; IPAddress=10.118.168.63; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+08/22/2023 01:36:00 : [INFO] CR Deployment is Successful
+08/22/2023 01:36:00 : [INFO] 10.118.168.23 successfully disconnected
+
+08/22/2023 02:07:49 : [ERROR] 8/22/2023 2:07:49 AM	Connect-VIServer		No such host is known. (sdjfh:443)	
+08/22/2023 02:12:10 : [ERROR] 8/22/2023 2:12:10 AM	Connect-VIServer		No such host is known. (sdjfh:443)	
+08/22/2023 02:15:49 : [ERROR] 8/22/2023 2:15:48 AM	Connect-VIServer		No such host is known. (sdfhg:443)	
+08/22/2023 02:22:00 : [ERROR] 8/22/2023 2:22:00 AM	Connect-VIServer		No such host is known. (skjdfh:443)	
+08/22/2023 02:39:20 : [ERROR] 8/22/2023 2:39:20 AM	Connect-VIServer		No such host is known. (sdjf:443)	
+08/22/2023 02:45:54 : [ERROR] 8/22/2023 2:45:54 AM	Connect-VIServer		No such host is known. (sdajgf:443)	
+08/22/2023 02:48:29 : [ERROR] 8/22/2023 2:48:29 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+08/22/2023 02:51:06 : [ERROR] 8/22/2023 2:51:06 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+08/22/2023 04:22:00 : [ERROR] 8/22/2023 4:22:00 AM	Connect-VIServer		No such host is known. (rtyy:443)	
+08/22/2023 04:31:58 : [INFO] Successfully connected to 10.118.168.23
+
+08/22/2023 04:35:22 : [INFO] CR Deployment is successful
+08/22/2023 04:35:22 : [INFO] @{VMName=cr_test; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+08/22/2023 04:41:44 : [INFO] CR Deployment is Successful
+08/22/2023 04:41:44 : [INFO] 10.118.168.23 successfully disconnected
+
+08/23/2023 09:41:57 : [ERROR] 8/23/2023 9:41:57 AM	Connect-VIServer		No such host is known. (a:443)	
+08/24/2023 04:37:54 : [ERROR] 8/24/2023 4:37:54 AM	Get-OvfConfiguration		E:\Workspace\UIAutomation\CR_Automation_FilesPPDM_ovadellemc-ppdm-sw-19.12.0-19.ova	
+08/24/2023 04:43:26 : [ERROR] 8/24/2023 4:43:26 AM	Get-OvfConfiguration		E:\CR_Automation_FilesPPDM_ovadellemc-ppdm-sw-19.12.0-19.ova	
+08/24/2023 04:44:21 : [ERROR] 8/24/2023 4:44:21 AM	Get-OvfConfiguration		Cannot find path 'C:\Users\crauser\Documents\CS\E\CR_Automation_Files\PPDM_ova\dellemc-ppdm-sw-19.12.0-19.ova' because it does not exist.	
+08/24/2023 05:03:37 : [ERROR] Response status code does not indicate success: 403 (Forbidden).
+09/19/2023 01:14:14 : [ERROR] The process cannot access the file 'C:\Users\crauser\AppData\Roaming\VMware\PowerCLI\PowerCLI_Settings.xml' because it is being used by another process.
+09/19/2023 01:22:50 : [INFO] Successfully connected to 10.118.168.23
+
+09/19/2023 01:25:30 : [INFO] CR Deployment is successful
+09/19/2023 01:25:31 : [INFO] @{VMName=cr; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+09/19/2023 01:32:04 : [INFO] CR Deployment is Successful
+09/19/2023 01:32:04 : [INFO] 10.118.168.23 successfully disconnected
+
+09/21/2023 07:03:27 : [INFO] Successfully connected to 10.118.168.23
+
+09/21/2023 07:06:02 : [INFO] CR Deployment is successful
+09/21/2023 07:06:03 : [INFO] @{VMName=cr; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+09/21/2023 07:12:50 : [INFO] CR Deployment is Successful
+09/21/2023 07:12:50 : [INFO] 10.118.168.23 successfully disconnected
+
+09/21/2023 07:39:54 : [INFO] Successfully connected to 10.118.168.23
+
+09/21/2023 07:42:47 : [INFO] CR Deployment is successful
+09/21/2023 07:42:47 : [INFO] @{VMName=test_cr; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=vsanDatastore}
+09/21/2023 07:49:14 : [INFO] CR Deployment is Successful
+09/21/2023 07:49:14 : [INFO] 10.118.168.23 successfully disconnected
+

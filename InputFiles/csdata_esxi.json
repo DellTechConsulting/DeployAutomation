@@ -1,0 +1,25 @@
+{
+	"esxidata": [{
+		"esxiServer": "10.118.168.80",
+		"username": "root",
+		"password": "Welcome@123"
+	}],
+	"csdata": [{
+		"ovaPath": "E:\\CR_Automation_Files\\dellemc-cyber-sense-8.2.0-1.23_15.ova",
+		"ovaName": "test_cybersense2",
+                "vmHost": "10.118.168.21",
+		"myDatastore": "Datastore_2TB",
+		"DeploymentOption": "medium",
+		"ip_cs": "10.118.168.234",
+		"gateway": "10.118.168.1",
+		"Network0": "VM Network",
+		"netmask0": "255.255.254.0",
+		"fqdn": "CS.localhost",
+                "DNS": "10.118.168.1",
+                "NTP": "10.118.168.1",
+		"DiskStorageFormat": "thin",
+		"timezone": "Etc/GMT-6",
+		"defaultadminpass": "admin",
+		"newadminpass": "Veena@0racle"
+	}]
+}

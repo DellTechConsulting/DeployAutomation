@@ -1,0 +1,24 @@
+{
+	"esxidata": [{
+		"esxiServer": "10.118.168.80",
+		"username": "root",
+		"password": "Welcome@123"
+	}],
+	"crdata": [{
+		"ovaPath": "E:\\CR_Automation_Files\\dellemc-cyber-recovery-19.12.0.1-166.ova",
+		"ovaName": "test_cyber_r2",
+		"gateway": "10.118.168.1",
+		"myDatastore": "datastore1",
+		"ip_cr": "10.118.168.234",
+		"Network": "VM Network",
+		"netmask": "255.255.254.0",
+		"fqdn": "CR.localhost",
+                "DNS": "",
+                "NTP": "",
+		"DiskStorageFormat": "thin",
+		"timezone": "Etc/GMT-6",
+		"lockboxpassword": "Charl1E#2022",
+		"MongoDbpassword": "Charl1E#2022",
+		"crsopassword": "Charl1E#2022"
+	}]
+}

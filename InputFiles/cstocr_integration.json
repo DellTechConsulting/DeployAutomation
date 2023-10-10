@@ -1,0 +1,14 @@
+{
+	"cs_crdata": [{
+		"cr_ip": "10.118.168.234",
+		"cruser": "crso",
+		"crpassword": "Charl1E#2022",
+		"applicationname": "mycs",
+		"cshostname": "10.118.168.43",
+		"cshostUsername": "admin",
+		"cshostPassword": "admin",
+		"osType": "Unix",
+		"type": "IndexEngines",
+		"tags": "tag"
+	}]
+}

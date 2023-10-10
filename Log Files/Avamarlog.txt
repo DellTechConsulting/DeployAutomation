@@ -1,0 +1,136 @@
+06/11/2023 23:46:21 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:46:22 : [ERROR] Provided VMName testing_avamar1 already exists
+
+06/11/2023 23:46:22 : [INFO] 10.118.168.23 successfully disconnected
+
+06/11/2023 23:46:59 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:47:00 : [ERROR] Provided ipaddress 10.118.168.41 is already in use
+
+06/11/2023 23:47:00 : [INFO] 10.118.168.23 successfully disconnected
+
+06/11/2023 23:50:27 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:50:27 : [ERROR] Provided datastore vsanDatastore2 is invalid
+
+06/11/2023 23:50:27 : [INFO] 10.118.168.23 successfully disconnected
+
+06/11/2023 23:50:56 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:50:57 : [ERROR] Provided network VM Network5 is invalid
+
+06/11/2023 23:50:57 : [INFO] 10.118.168.23 successfully disconnected
+
+06/11/2023 23:51:29 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:51:30 : [ERROR] Provided Esxi value 10.118.168.23 is invalid
+
+06/11/2023 23:51:30 : [ERROR] Avamar Deployment is failed
+06/11/2023 23:51:30 : [INFO] 10.118.168.23 successfully disconnected
+
+06/11/2023 23:53:33 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:53:35 : [ERROR] Provided cluster name Cluster2 is invalid
+
+06/11/2023 23:53:35 : [ERROR] Avamar Deployment is failed
+06/11/2023 23:53:35 : [INFO] 10.118.168.23 successfully disconnected
+
+06/11/2023 23:57:08 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:57:09 : [INFO] Initiating Avamar Deployment
+06/11/2023 23:57:09 : [ERROR] The term 'Import-vA' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+06/11/2023 23:59:34 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/11/2023 23:59:35 : [INFO] Initiating Avamar Deployment
+06/11/2023 23:59:35 : [ERROR] The term 'Impor-vAp' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+06/12/2023 00:03:22 : [ERROR] 6/12/2023 12:03:22 AM	Connect-VIServer		Cannot complete login due to an incorrect user name or password.	
+06/12/2023 00:04:59 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 00:05:00 : [INFO] Initiating Avamar Deployment
+06/12/2023 00:20:19 : [ERROR] Exception calling "EndExecute" with "1" argument(s): "Command '/opt/emc-tools/0.20.0/bin/avi-cli 10.118.168.41 --user root --password changeme --port 7543 --userinput Installconfig_test.yaml --backtrace --install ave-config' has timed out."
+06/12/2023 06:03:47 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 06:03:48 : [INFO] Initiating Avamar Deployment
+06/12/2023 06:19:19 : [ERROR] Exception calling "EndExecute" with "1" argument(s): "Command '/opt/emc-tools/0.20.0/bin/avi-cli 10.118.168.41 --user root --password changeme --port 7543 --userinput Installconfig_test.yaml --backtrace --install ave-config' has timed out."
+06/12/2023 06:25:32 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 06:25:33 : [ERROR] Provided VMName testing_avamar already exists
+
+06/12/2023 06:25:33 : [INFO] 10.118.168.23 successfully disconnected
+
+06/12/2023 06:25:59 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 06:26:00 : [INFO] Initiating Avamar Deployment
+06/12/2023 06:45:24 : [ERROR] Exception calling "EndExecute" with "1" argument(s): "Command '/opt/emc-tools/0.20.0/bin/avi-cli 10.118.168.41 --user root --password changeme --port 7543 --userinput Installconfig_test.yaml --backtrace --install ave-config' has timed out."
+06/12/2023 07:03:21 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 07:03:22 : [INFO] Initiating Avamar Deployment
+06/12/2023 10:34:08 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 10:34:08 : [ERROR] Provided datastore dfg is invalid
+
+06/12/2023 10:34:08 : [INFO] 10.118.168.23 successfully disconnected
+
+06/12/2023 11:16:32 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 11:16:33 : [INFO] Initiating Avamar Deployment
+06/12/2023 12:02:43 : [INFO] Avamar Deployment is successfull
+06/12/2023 12:02:43 : [INFO] @{VMName=test_avamar; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=6144; Datastore=vsanDatastore}
+06/12/2023 12:03:43 : [INFO] 10.118.168.23 successfully disconnected
+
+06/12/2023 12:53:20 : [INFO] esxiServer 10.118.168.80 successfully connected
+
+06/12/2023 12:53:21 : [INFO] Initiating Avamar Deployment
+06/12/2023 13:35:06 : [INFO] Avamar Deployment is successfull
+06/12/2023 13:35:06 : [INFO] @{VMName=test_avamar; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=6144; Datastore=datastore1}
+06/13/2023 01:02:05 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 01:02:10 : [INFO] Initiating Avamar Deployment
+06/13/2023 01:15:40 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 01:15:44 : [INFO] Initiating Avamar Deployment
+06/13/2023 01:52:56 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 01:53:00 : [INFO] Initiating Avamar Deployment
+06/13/2023 02:08:13 : [ERROR] failed to update ave configuration
+06/13/2023 02:09:13 : [INFO] 10.118.168.23 successfully disconnected
+
+06/13/2023 03:55:37 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 03:55:40 : [INFO] Initiating Avamar Deployment
+06/13/2023 04:44:28 : [INFO] Avamar Deployment is successfull
+06/13/2023 04:44:28 : [INFO] @{VMName=testing_avamar1; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=6144; Datastore=vsanDatastore}
+06/13/2023 04:45:28 : [INFO] 10.118.168.23 successfully disconnected
+
+06/15/2023 07:45:17 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/15/2023 07:45:20 : [INFO] Initiating Avamar Deployment
+06/19/2023 02:20:25 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/19/2023 02:36:41 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/19/2023 02:36:42 : [INFO] Initiating Avamar Deployment
+06/19/2023 06:58:34 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/19/2023 06:58:35 : [INFO] Initiating Avamar Deployment
+06/30/2023 10:32:25 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/30/2023 10:32:26 : [ERROR] Provided Esxi value 10.118.168.23 is invalid
+
+06/30/2023 10:32:26 : [ERROR] Avamar Deployment is failed
+06/30/2023 10:32:26 : [INFO] 10.118.168.23 successfully disconnected
+
+06/30/2023 10:34:39 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/30/2023 10:34:40 : [INFO] Initiating Avamar Deployment
+06/30/2023 10:49:51 : [ERROR] Exception calling "EndExecute" with "1" argument(s): "Command '/opt/emc-tools/0.20.0/bin/avi-cli 10.118.168.41 --user root --password changeme --port 7543 --userinput Installconfig_test.yaml --backtrace --install ave-config' has timed out."
+08/31/2023 09:50:22 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/31/2023 09:50:23 : [INFO] Initiating Avamar Deployment
+08/31/2023 10:36:20 : [INFO] Avamar Deployment is successfull
+08/31/2023 10:36:21 : [INFO] @{VMName=ave_test; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=6144; Datastore=vsanDatastore}
+08/31/2023 10:37:21 : [INFO] 10.118.168.23 successfully disconnected
+

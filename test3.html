@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .loader {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 50px auto;
+}
+
+.loader-inner {
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  width: 15px;
+  height: 15px;
+  margin: -15px 0 0 -15px;
+  border: 15px solid #f3f3f3;
+  border-top-color: #007bff;
+  border-bottom-color: #007bff;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.status {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.status i.fa-check-circle {
+  font-size: 48px;
+  color: #32de84;
+}
+
+.status i.fa-times-circle {
+  font-size: 48px;
+  color: #e74c3c;
+}
+
+.status p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #555555;
+}
+
+.status.success {
+  display: block;
+}
+
+.status.error {
+  display: block;
+  color: #e74c3c;
+}
+
+    </style>
+
+
+<div class="loader">
+    <div class="loader-inner"></div>
+  </div>
+  
+  <div class="status success">
+    <i class="fa fa-check-circle"></i>
+    <p>Success!</p>
+  </div>
+  
+  <div class="status error">
+    <i class="fa fa-times-circle"></i>
+    <p>Error!</p>
+  </div>
+  

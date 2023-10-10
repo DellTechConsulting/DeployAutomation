@@ -1,0 +1,21 @@
+{
+	"aveproxydata": [{
+		"ip_aveproxy": "10.118.168.231",
+		"myDatastore": "vsanDatastore",
+		"datacenter": "CRS",
+		"gateway": "10.118.168.1",
+		"NTP": "10.118.168.1",
+		"ovaPath": "E:\\CR_Automation_Files\\AvamarCombinedProxy-linux-sles12sp5_64-19.8.100-83.ova",
+		"fqdn": "Avamar_Proxy.localhost",
+		"netmask": "255.255.254.0",
+                "mycluster": "Cluster",
+		"VMName": "aveproxy_test",
+		"DiskStorageFormat": "thin",
+		"Network": "VM Network"
+	}],
+	"vcenterdata": [{
+		"username": "administrator@vsphere.local",
+		"password": "appMOD@12345678",
+		"vCenterServer": "10.118.168.23"
+	}]
+}

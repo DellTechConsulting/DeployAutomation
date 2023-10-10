@@ -1,0 +1,19 @@
+{
+	"aveproxydata": [{
+		"ip_aveproxy": "10.118.168.85",
+		"myDatastore": "datastore1",
+		"gateway": "10.118.168.1",
+		"NTP": "10.118.168.1",
+		"ovaPath": "E:\\CR_Automation_Files\\AvamarCombinedProxy-linux-sles12sp5_64-19.8.100-83.ova",
+		"fqdn": "Avamar_Proxy.localhost",
+		"netmask": "255.255.254.0",
+		"VMName": "aveproxy_test",
+		"DiskStorageFormat": "thin",
+		"Network": "VM Network"
+	}],
+	"esxidata": [{
+		"esxiServer": "10.118.168.80",
+		"username": "root",
+		"password": "Welcome@123"
+	}]
+}

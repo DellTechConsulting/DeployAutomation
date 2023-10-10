@@ -1,0 +1,24 @@
+﻿{
+	"nvedata": [{
+		"ip_nve": "10.118.168.232",
+		"DNS": "10.118.168.1",
+		"myDatastore": "vsanDatastore",
+		"datacenter": "CRS",
+		"gateway": "10.118.168.1",
+		"NTP": "10.118.168.1",
+		"ovaPath": "E:\\CR_Automation_Files\\Networker_Ova\\ova-19.8-40_19.8.0-23.tar\\NVE-19.8.0.23.ova",
+		"fqdn": "NVE.localhost",
+		"VMName": "nve_test",
+		"esxiHost": "10.118.168.21",
+		"DiskStorageFormat": "thin",
+		"timezone": "Asia/Kolkata",
+		"Network": "VM Network",
+		"ddip": "10.118.168.40"
+
+	}],
+	"vcenterdata": [{
+		"username": "administrator@vsphere.local",
+		"password": "appMOD@12345678",
+		"vCenterServer": "10.118.168.23"
+	}]
+}

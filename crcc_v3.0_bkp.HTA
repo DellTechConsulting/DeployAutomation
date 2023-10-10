@@ -1,0 +1,3736 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cyber Recovery Component Catalog</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/automation.css" />
+    <link href="./fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <script src="./js/automation.js"></script>
+  </head>
+  <body>
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <div class="custom-menu">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+        </div>
+        <div class="p-3">
+          <div class="left-panel">
+            <img src="./images/dell_logo.jpg" alt="dell logo" />
+            <h4>Cyber Recovery</h4>
+            <h5>Component Catalog</h5>
+          </div>
+          <ul class="list-unstyled components mt-4">
+            <li class="active">
+              <a href="#" id="cr"><i class="bi bi-snow3"></i> Cyber Recovery</a>
+            </li>
+            <li>
+              <a
+                href="#csSubMenu"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                id="cs"
+                ><i class="bi bi-shield-lock"></i> CyberSense</a
+              >
+              <ul class="collapse list-unstyled" id="csSubMenu">
+                <li>
+                  <span class="button" id="cs_install"
+                    ><i class="bi bi-download"></i> Install</span
+                  >
+                </li>
+                <li>
+                  <span class="button" id="cs_integrate"
+                    ><i class="bi bi-link-45deg"></i> Integrate</span
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="#avamarSubMenu"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                id="avamar"
+                ><i class="bi bi-pc-display"></i> Avamar</a
+              >
+              <ul class="collapse list-unstyled" id="avamarSubMenu">
+                <li>
+                  <span class="button" id="ave_install"
+                    ><i class="bi bi-download"></i> Install</span
+                  >
+                </li>
+                <li>
+                  <span class="button" id="ave_integrate"
+                    ><i class="bi bi-link-45deg"></i> Integrate</span
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="#ddveSubMenu"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+                id="ddve"
+                ><i class="bi bi-hdd"></i> Data Domain</a
+              >
+              <ul class="collapse list-unstyled" id="ddveSubMenu">
+                <li>
+                  <span class="button" id="ddve_install"
+                    ><i class="bi bi-wrench"></i> Configure</span
+                  >
+                </li>
+                <li>
+                  <span class="button" id="ddve_integrate"
+                    ><i class="bi bi-link-45deg"></i> Integrate</span
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="networker"
+                ><i class="bi bi-diagram-2"></i> Networker</a
+              >
+            </li>
+            <li>
+              <a href="#" id="proxy"
+                ><i class="bi bi-hdd-rack"></i> Avamar Proxy</a
+              >
+            </li>
+            <li>
+              <a href="#" id="ppdm"
+                ><i class="bi bi-database-gear"></i> Data Manager</a
+              >
+            </li>
+            <li>
+              <a href="#" id="ntp"><i class="bi bi-hdd-network"></i> NTP</a>
+            </li>
+            <li>
+              <a href="#" id="dns"><i class="bi bi-globe"></i> DNS</a>
+            </li>
+            <li>
+              <a href="#" id="runbook"><i class="bi bi-book"></i> Runbook</a>
+            </li>
+          </ul>
+        </div>
+        <p class="copyright">© DELL Inc. All Rights Reserved</p>
+      </nav>
+
+      <!-- Page Content  -->
+      <div id="content" class="section">
+        <!-- Cyber Recovery -->
+        <div class="cr select">
+          <h2 class="section-heading">PowerProtect Cyber Recovery</h2>
+          <form
+            id="cr-install"
+            onsubmit="Run_Automation_Script('cr-install');return false"
+          >
+            <!-- CR vCenter & ESXI-->
+            <ul class="nav nav-tabs" id="crTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="cr-tab1" type="button">
+                  vCenter Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cr-tab2" type="button">
+                  ESXi Details
+                </button>
+              </li>
+            </ul>
+
+            <!-- CR Tab panes -->
+            <div class="tab-content">
+              <input
+                type="hidden"
+                name="DeploymentType"
+                id="cr-deployment-type"
+                value="vCenter"
+              />
+              <div class="tab-pane active" id="cr-vCenter">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="vCenter"
+                          ><span class="mandatory">*</span>vCenter</span
+                        >
+
+                        <input
+                          type="text"
+                          name="vCenter"
+                          class="form-control"
+                          id="cr-vCenter-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="cr-vCenter-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="cr-vCenter-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="cr-ESXi">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="ESXi"
+                          ><span class="mandatory">*</span>ESXi Host</span
+                        >
+                        <input
+                          type="text"
+                          name="ESXi"
+                          class="form-control"
+                          id="cr-ESXi-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="cr-ESXi-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="cr-ESXi-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 120px; text-align: center; font-size: 12px"
+              >
+                CR Details
+              </h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="VMName"
+                      ><span class="mandatory">*</span>VM Name</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="VMName"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ovaPath"
+                      ><span class="mandatory">*</span>OVA Path</span
+                    >
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="ovaPath-cr-install"
+                      required
+                    />
+                    <input
+                      type="hidden"
+                      name="ovaPath"
+                      id="hiddenpath-cr-install"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6" id="cr_esxiHost">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="host-value"
+                      ><span class="mandatory">*</span>
+                      <div class="switch-field">
+                        <input
+                          type="radio"
+                          id="cr-radio-one"
+                          name="host-type"
+                          value="esxiHost"
+                          checked
+                        />
+                        <label for="cr-radio-one">ESXi Host</label>
+                        <input
+                          type="radio"
+                          id="cr-radio-two"
+                          name="host-type"
+                          value="cluster"
+                        />
+                        <label for="cr-radio-two">Cluster</label>
+                      </div></span
+                    >
+                    <input
+                      type="text"
+                      id="cr-host-input"
+                      class="form-control"
+                      name="host-value"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="fqdn"
+                      ><span class="mandatory">*</span>FQDN</span
+                    >
+                    <input
+                      type="text"
+                      name="fqdn"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="DiskStorageFormat"
+                      ><span class="mandatory">*</span>Disk Storage Format</span
+                    >
+                    <input
+                      type="text"
+                      name="DiskStorageFormat"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Network"
+                      ><span class="mandatory">*</span>Network</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Network"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ip_cr"
+                      ><span class="mandatory">*</span>IP</span
+                    >
+                    <input
+                      type="text"
+                      name="ip_cr"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="netmask"
+                      ><span class="mandatory">*</span>Netmask</span
+                    >
+                    <input
+                      type="text"
+                      name="netmask"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="gateway"
+                      ><span class="mandatory">*</span>Gateway</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="gateway"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Datastore"
+                      ><span class="mandatory">*</span>Datastore</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Datastore"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text not-mandatory" for="DNS"
+                      >DNS</span
+                    >
+                    <input type="text" name="DNS" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text not-mandatory" for="NTP"
+                      >NTP</span
+                    >
+                    <input type="text" name="NTP" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="timezone"
+                      ><span class="mandatory">*</span>Timezone</span
+                    >
+                    <input
+                      type="text"
+                      name="timezone"
+                      list="timezone_cr"
+                      class="form-control"
+                      placeholder="Search for timezone"
+                      required
+                    />
+                    <datalist id="timezone_cr"></datalist>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="lockboxpassword"
+                      ><span class="mandatory">*</span>Lockbox Password</span
+                    >
+                    <input
+                      type="password"
+                      name="lockboxpassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <span class="input-group-text" for="MongoDbpassword"
+                      ><span class="mandatory">*</span>DB Password</span
+                    >
+                    <input
+                      type="password"
+                      name="MongoDbpassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <span class="input-group-text" for="crsopassword"
+                      ><span class="mandatory">*</span>CRSO Password</span
+                    >
+                    <input
+                      type="password"
+                      name="crsopassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-play"></i> Run
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onClick="ResetForm('cr-install');"
+              >
+                <i class="bi bi-arrow-counterclockwise"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Cyber Sense -->
+        <div class="cs select">
+          <h2 class="section-heading">CyberSense</h2>
+          <div class="install-section">
+            <form
+              id="cs-install"
+              onsubmit="Run_Automation_Script('cs-install');return false"
+            >
+              <div class="alert alert-danger alert-dismissable alert-cs">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-hidden="true"
+                >
+                  &times;
+                </button>
+                New Admin Password and Confirm Password are not same.
+              </div>
+
+              <!-- CS vCenter & ESXI-->
+              <ul class="nav nav-tabs" id="csTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="cs-tab1" type="button">
+                    vCenter Details
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="cs-tab2" type="button">
+                    ESXi Details
+                  </button>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <input
+                  type="hidden"
+                  name="DeploymentType"
+                  id="cs-deployment-type"
+                  value="vCenter"
+                />
+                <div class="tab-pane active" id="cs-vCenter">
+                  <div class="card mb-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="vCenter"
+                            ><span class="mandatory">*</span>vCenter</span
+                          >
+
+                          <input
+                            type="text"
+                            name="vCenter"
+                            class="form-control"
+                            id="cs-vCenter-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="username"
+                            ><span class="mandatory">*</span>Username</span
+                          >
+                          <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            id="cs-vCenter-username-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group">
+                          <span class="input-group-text" for="password"
+                            ><span class="mandatory">*</span>Password</span
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            id="cs-vCenter-password-text"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="cs-ESXi">
+                  <div class="card mb-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="ESXi"
+                            ><span class="mandatory">*</span>ESXi Host</span
+                          >
+                          <input
+                            type="text"
+                            name="ESXi"
+                            class="form-control"
+                            id="cs-ESXi-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="username"
+                            ><span class="mandatory">*</span>Username</span
+                          >
+                          <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            id="cs-ESXi-username-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group">
+                          <span class="input-group-text" for="password"
+                            ><span class="mandatory">*</span>Password</span
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            id="cs-ESXi-password-text"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 120px; text-align: center; font-size: 12px"
+                >
+                  CS Details
+                </h5>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="VMName"
+                        ><span class="mandatory">*</span>VM Name</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="VMName"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ovaPath"
+                        ><span class="mandatory">*</span>OVA Path</span
+                      >
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="ovaPath-cs-install"
+                        required
+                      />
+                      <input
+                        type="hidden"
+                        name="ovaPath"
+                        id="hiddenpath-cs-install"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6" id="cs_esxiHost">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="host-value"
+                        ><span class="mandatory">*</span>
+                        <div class="switch-field">
+                          <input
+                            type="radio"
+                            id="cs-radio-one"
+                            name="host-type"
+                            value="esxiHost"
+                            checked
+                          />
+                          <label for="cs-radio-one">ESXi Host</label>
+                          <input
+                            type="radio"
+                            id="cs-radio-two"
+                            name="host-type"
+                            value="cluster"
+                          />
+                          <label for="cs-radio-two">Cluster</label>
+                        </div></span
+                      >
+                      <input
+                        type="text"
+                        id="cs-host-input"
+                        class="form-control"
+                        name="host-value"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="fqdn"
+                        ><span class="mandatory">*</span>FQDN</span
+                      >
+                      <input
+                        type="text"
+                        name="fqdn"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="DiskStorageFormat"
+                        ><span class="mandatory">*</span>Disk Storage
+                        Format</span
+                      >
+                      <input
+                        type="text"
+                        name="DiskStorageFormat"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="Network0"
+                        ><span class="mandatory">*</span>Network 0</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="Network0"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="Network1"
+                        ><span class="mandatory">*</span>Network 1</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="Network1"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="Network2"
+                        ><span class="mandatory">*</span>Network 2</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="Network2"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="Network3"
+                        ><span class="mandatory">*</span>Network 3</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="Network3"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="netmask0"
+                        ><span class="mandatory">*</span>Netmask 0</span
+                      >
+                      <input
+                        type="text"
+                        name="netmask0"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="gateway"
+                        ><span class="mandatory">*</span>Gateway</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="gateway"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text not-mandatory" for="DNS"
+                        >DNS</span
+                      >
+                      <input
+                        type="text"
+                        name="DNS"
+                        id="notMandatory"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text not-mandatory" for="NTP"
+                        >NTP</span
+                      >
+                      <input
+                        type="text"
+                        name="NTP"
+                        id="notMandatory"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="Datastore"
+                        ><span class="mandatory">*</span>Datastore</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="Datastore"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="DeploymentOption"
+                        ><span class="mandatory">*</span>Deployment Option</span
+                      >
+                      <select
+                        class="form-select form-control"
+                        name="DeploymentOption"
+                        required
+                      >
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ip_cs"
+                        ><span class="mandatory">*</span>IP</span
+                      >
+                      <input
+                        type="text"
+                        name="ip_cs"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="timezone"
+                        ><span class="mandatory">*</span>Timezone</span
+                      >
+                      <input
+                        name="timezone"
+                        list="timezone_cs"
+                        class="form-control"
+                        placeholder="Search for timezone"
+                        required
+                      />
+                      <datalist id="timezone_cs"></datalist>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="defaultadminpass"
+                        ><span class="mandatory">*</span>Default Admin
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        name="defaultadminpass"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text" for="newadminpass"
+                        ><span class="mandatory">*</span>New Admin
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        name="newadminpass"
+                        class="form-control"
+                        id="newadminpass"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text" for="confirmPassword"
+                        ><span class="mandatory">*</span>Confirm Password</span
+                      >
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        class="form-control"
+                        id="confirmPassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-buttons-cs">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-download"></i> Install
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick="ResetForm('cs-install');"
+                >
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="integrate-section">
+            <form
+              id="cs-integrate"
+              onsubmit="Run_Automation_Script('cs-integrate');return false"
+            >
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 120px; text-align: center; font-size: 12px"
+                >
+                  CR Details
+                </h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cr_ip"
+                        ><span class="mandatory">*</span>CR IP/Hostname</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="cr_ip"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cruser"
+                        ><span class="mandatory">*</span>CR Username</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="cruser"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="crpassword"
+                        ><span class="mandatory">*</span>CR Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="crpassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="nickName"
+                        ><span class="mandatory">*</span>Nick Name</span
+                      >
+                      <input
+                        type="text"
+                        name="nickName"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 120px; text-align: center; font-size: 12px"
+                >
+                  CS Details
+                </h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cshostname"
+                        ><span class="mandatory">*</span>CS Hostname</span
+                      >
+                      <input
+                        type="text"
+                        name="cshostname"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cshostUsername"
+                        ><span class="mandatory">*</span>CS Host Username</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="cshostUsername"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cshostPassword"
+                        ><span class="mandatory">*</span>CS Host Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="cshostPassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="osType"
+                        ><span class="mandatory">*</span>OS Type</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="osType"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="type"
+                        ><span class="mandatory">*</span>Type</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="type"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text not-mandatory" for="tags"
+                        >Tags</span
+                      >
+                      <input type="text" class="form-control" name="tags" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-link-45deg"></i> Integrate
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick="ResetForm('cs-integrate');"
+                >
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Avamar -->
+        <div class="avamar select">
+          <h2 class="section-heading">Avamar</h2>
+          <div class="ave-install-section">
+            <form
+              id="ave-install"
+              onsubmit="Run_Automation_Script('ave-install');return false"
+            >
+              <!-- CS vCenter & ESXI-->
+              <ul class="nav nav-tabs" id="aveTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="ave-tab1" type="button">
+                    vCenter Details
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="ave-tab2" type="button">
+                    ESXi Details
+                  </button>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <input
+                  type="hidden"
+                  name="DeploymentType"
+                  id="ave-deployment-type"
+                  value="vCenter"
+                />
+                <div class="tab-pane active" id="ave-vCenter">
+                  <div class="card mb-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="vCenter"
+                            ><span class="mandatory">*</span>vCenter</span
+                          >
+
+                          <input
+                            type="text"
+                            name="vCenter"
+                            class="form-control"
+                            id="ave-vCenter-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="username"
+                            ><span class="mandatory">*</span>Username</span
+                          >
+                          <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            id="ave-vCenter-username-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group">
+                          <span class="input-group-text" for="password"
+                            ><span class="mandatory">*</span>Password</span
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            id="ave-vCenter-password-text"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="ave-ESXi">
+                  <div class="card mb-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="ESXi"
+                            ><span class="mandatory">*</span>ESXi Host</span
+                          >
+                          <input
+                            type="text"
+                            name="ESXi"
+                            class="form-control"
+                            id="ave-ESXi-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" for="username"
+                            ><span class="mandatory">*</span>Username</span
+                          >
+                          <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            id="ave-ESXi-username-text"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group">
+                          <span class="input-group-text" for="password"
+                            ><span class="mandatory">*</span>Password</span
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            id="ave-ESXi-password-text"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 150px; text-align: center; font-size: 12px"
+                >
+                  Avamar Details
+                </h5>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="VMName"
+                        ><span class="mandatory">*</span>VM Name</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="VMName"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ovaPath"
+                        ><span class="mandatory">*</span>OVA Path</span
+                      >
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="ovaPath-ave-install"
+                        required
+                      />
+                      <input
+                        type="hidden"
+                        name="ovaPath"
+                        id="hiddenpath-ave-install"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6" id="ave_esxiHost">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="host-value"
+                        ><span class="mandatory">*</span>
+                        <div class="switch-field">
+                          <input
+                            type="radio"
+                            id="ave-radio-one"
+                            name="host-type"
+                            value="esxiHost"
+                            checked
+                          />
+                          <label for="ave-radio-one">ESXi Host</label>
+                          <input
+                            type="radio"
+                            id="ave-radio-two"
+                            name="host-type"
+                            value="cluster"
+                          />
+                          <label for="ave-radio-two">Cluster</label>
+                        </div></span
+                      >
+                      <input
+                        type="text"
+                        id="ave-host-input"
+                        class="form-control"
+                        name="host-value"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="fqdn"
+                        ><span class="mandatory">*</span>FQDN</span
+                      >
+                      <input
+                        type="text"
+                        name="fqdn"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="DiskStorageFormat"
+                        ><span class="mandatory">*</span>Disk Storage
+                        Format</span
+                      >
+                      <input
+                        type="text"
+                        name="DiskStorageFormat"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="Network"
+                        ><span class="mandatory">*</span>Network</span
+                      >
+                      <input
+                        type="text"
+                        name="Network"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ipwithprefix_ave"
+                        ><span class="mandatory">*</span>IP Prefix</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="ipwithprefix_ave"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ipv4"
+                        ><span class="mandatory">*</span>IPV4</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="ipv4"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="Datastore"
+                        ><span class="mandatory">*</span>Datastore</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="Datastore"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="gateway"
+                        ><span class="mandatory">*</span>Gateway</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="gateway"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="primary_nameserver"
+                        ><span class="mandatory">*</span>Primary
+                        Nameserver</span
+                      >
+                      <input
+                        type="text"
+                        name="primary_nameserver"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ntpserver"
+                        ><span class="mandatory">*</span>NTP server</span
+                      >
+                      <input
+                        type="text"
+                        name="ntpserver"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="timezone"
+                        ><span class="mandatory">*</span>Timezone</span
+                      >
+                      <input
+                        name="timezone"
+                        list="timezone_avamar"
+                        class="form-control"
+                        placeholder="Search for timezone"
+                        required
+                      />
+                      <datalist id="timezone_avamar"></datalist>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="defaultrootpass"
+                        ><span class="mandatory">*</span>Default Root
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        name="defaultrootpass"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text" for="adminpass"
+                        ><span class="mandatory">*</span>OS Admin Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="adminpass"
+                        required
+                      />
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+
+              <!-- Common Password-->
+              <div class="card mb-4" id="ave-passwords" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 190px; text-align: center; font-size: 12px"
+                >
+                  Common Password
+                </h5>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="use_common_password"
+                        ><span class="mandatory">*</span>Use Common
+                        Password</span
+                      >
+                      <select
+                        class="form-select form-control"
+                        name="use_common_password"
+                        id="use_common_password"
+                        required
+                      >
+                        <option selected="selected" disabled>Select</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="common_password"
+                        ><span id="mandatory" class="mandatory">*</span>Common
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        name="common_password"
+                        class="form-control"
+                        id="common_password"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="repl_password"
+                        ><span class="mandatory">*</span>Replication User
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        name="repl_password"
+                        class="form-control"
+                        id="repl_password"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="mcpass"
+                        ><span class="mandatory">*</span>MC User Password</span
+                      >
+                      <input
+                        type="password"
+                        name="mcpass"
+                        class="form-control"
+                        id="mcpass"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="viewuserpass"
+                        ><span class="mandatory">*</span>MC DB Password</span
+                      >
+                      <input
+                        type="password"
+                        name="viewuserpass"
+                        class="form-control"
+                        id="viewuserpass"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="admin_password_os"
+                        ><span class="mandatory">*</span>OS Admin User
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        name="admin_password_os"
+                        class="form-control"
+                        id="admin_password_os"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="root_password_os"
+                        ><span class="mandatory">*</span>OS Root User
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        name="root_password_os"
+                        class="form-control"
+                        id="root_password_os"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="keystore_passphrase"
+                        ><span class="mandatory">*</span>Avamar Keystore
+                        Passphrase</span
+                      >
+                      <input
+                        type="password"
+                        name="keystore_passphrase"
+                        class="form-control"
+                        id="keystore_passphrase"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text" for="avamar_rootpass"
+                        ><span class="mandatory">*</span>Avamar Root
+                        Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="avamar_rootpass"
+                        id="avamar_rootpass"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-download"></i> Install
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick="ResetForm('ave-install');"
+                >
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="ave-integrate-section">
+            <form
+              id="ave-integrate"
+              onsubmit="Run_Automation_Script('ave-integrate');return false"
+            >
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 120px; text-align: center; font-size: 12px"
+                >
+                  CR Details
+                </h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cr_ip"
+                        ><span class="mandatory">*</span>CR IP/Hostname</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="cr_ip"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cruser"
+                        ><span class="mandatory">*</span>CR Username</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="cruser"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="crpassword"
+                        ><span class="mandatory">*</span>CR Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="crpassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="nickName"
+                        ><span class="mandatory">*</span>Nick Name</span
+                      >
+                      <input
+                        type="text"
+                        name="nickName"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 150px; text-align: center; font-size: 12px"
+                >
+                  Avamar Details
+                </h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="avehostname"
+                        ><span class="mandatory">*</span>Avamar FQDN/IP
+                        Address</span
+                      >
+                      <input
+                        type="text"
+                        name="avehostname"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="avehostUsername"
+                        ><span class="mandatory">*</span>Avamar Username</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="avehostUsername"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="avehostPassword"
+                        ><span class="mandatory">*</span>Avamar Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="avehostPassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="osType"
+                        ><span class="mandatory">*</span>OS Type</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="osType"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="type"
+                        ><span class="mandatory">*</span>Type</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="type"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text not-mandatory" for="tags"
+                        >Tags</span
+                      >
+                      <input type="text" class="form-control" name="tags" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-link-45deg"></i> Integrate
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick="ResetForm('ave-integrate');"
+                >
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- DDVE -->
+        <div class="ddve select">
+          <h2 class="section-heading">PowerProtect Data Domain</h2>
+          <div class="ddve-install-section">
+            <div class="alert alert-danger alert-dismissable alert1">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+              Password for CR Admin User is same as Credentials Password. Please
+              enter a different password.
+            </div>
+            <div class="alert alert-danger alert-dismissable alert2">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+              Password for Security Officer1 is same as Credentials Password.
+              Please enter a different password.
+            </div>
+            <div class="alert alert-danger alert-dismissable alert3">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+              Password for Security Officer1 is same as CR Admin User Password.
+              Please enter a different password.
+            </div>
+            <div class="alert alert-danger alert-dismissable alert4">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+              Password for Security Officer2 is same as Credentials Password.
+              Please enter a different password.
+            </div>
+            <div class="alert alert-danger alert-dismissable alert5">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+              Password for Security Officer2 is same as CR Admin User Password.
+              Please enter a different password.
+            </div>
+            <div class="alert alert-danger alert-dismissable alert6">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+              Password for Security Officer2 is same as Security Officer1
+              Password. Please enter a different password.
+            </div>
+            <form
+              id="ddve-install"
+              onsubmit="Run_Automation_Script('ddve-install');return false"
+            >
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 120px; text-align: center; font-size: 12px"
+                >
+                  Credentials
+                </h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ddip"
+                        ><span class="mandatory">*</span>DD IP</span
+                      >
+                      <input
+                        type="text"
+                        name="ddip"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="username"
+                        ><span class="mandatory">*</span>Username</span
+                      >
+                      <input
+                        type="text"
+                        name="username"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group">
+                      <span class="input-group-text" for="password"
+                        ><span class="mandatory">*</span>Password</span
+                      >
+                      <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        id="credentials_pwd"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 100px; text-align: center; font-size: 12px"
+                >
+                  Users
+                </h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">
+                            <span class="mandatory">*</span>Name
+                          </th>
+                          <th scope="col">
+                            <span class="mandatory">*</span>Role
+                          </th>
+                          <th scope="col">
+                            <span class="mandatory">*</span>Password
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                            <span class="mandatory">*</span>CR Admin User
+                          </th>
+                          <td>
+                            <div class="input-group" for="cradminuser_name">
+                              <input
+                                type="text"
+                                name="cradminuser_name"
+                                class="form-control"
+                                value="cradmin"
+                                required
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group" for="cradminuser_role">
+                              <input
+                                type="text"
+                                name="cradminuser_role"
+                                class="form-control"
+                                value="admin"
+                                required
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group" for="cradminuser_password">
+                              <input
+                                type="password"
+                                name="cradminuser_password"
+                                class="form-control"
+                                id="cradminuser_pwd"
+                                required
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">
+                            <span class="mandatory">*</span>Security Officer 1
+                          </th>
+                          <td>
+                            <div class="input-group" for="secofficer1_name">
+                              <input
+                                type="text"
+                                name="secofficer1_name"
+                                class="form-control"
+                                value="secofficer1"
+                                required
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group" for="secofficer1_role">
+                              <input
+                                type="text"
+                                name="secofficer1_role"
+                                class="form-control"
+                                value="security"
+                                required
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group" for="secofficer1_password">
+                              <input
+                                type="password"
+                                name="secofficer1_password"
+                                class="form-control"
+                                id="secofficer1_pwd"
+                                required
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">
+                            <span class="mandatory">*</span>Security Officer 2
+                          </th>
+                          <td>
+                            <div class="input-group" for="secofficer2_name">
+                              <input
+                                type="text"
+                                name="secofficer2_name"
+                                class="form-control"
+                                value="secofficer2"
+                                required
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group" for="secofficer2_role">
+                              <input
+                                type="text"
+                                name="secofficer2_role"
+                                class="form-control"
+                                value="security"
+                                required
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group" for="secofficer2_password">
+                              <input
+                                type="password"
+                                name="secofficer2_password"
+                                class="form-control"
+                                id="secofficer2_pwd"
+                                required
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 190px; text-align: center; font-size: 12px"
+                >
+                  System Passphrase
+                </h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group">
+                      <span class="input-group-text" for="new_pphrase"
+                        ><span class="mandatory">*</span>New Passphrase</span
+                      >
+                      <input
+                        type="password"
+                        name="new_pphrase"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-wrench"></i> Configure
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick="ResetForm('ddve-install');"
+                >
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="ddve-integrate-section">
+            <form
+              id="ddve-integrate"
+              onsubmit="Run_Automation_Script('ddve-integrate');return false"
+            >
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 120px; text-align: center; font-size: 12px"
+                >
+                  CR Details
+                </h5>
+                <div class="row mb-3">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cr_ip"
+                        ><span class="mandatory">*</span>CR IP/Hostname</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="cr_ip"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="cruser"
+                        ><span class="mandatory">*</span>CR Username</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="cruser"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="crpassword"
+                        ><span class="mandatory">*</span>CR Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="crpassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="storagename"
+                        ><span class="mandatory">*</span>Storage Name</span
+                      >
+                      <input
+                        type="text"
+                        name="storagename"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-4" style="padding-top: 0">
+                <h5
+                  class="card-title"
+                  style="width: 120px; text-align: center; font-size: 12px"
+                >
+                  DD Details
+                </h5>
+                <div class="row mb-3">
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ddhostname"
+                        ><span class="mandatory">*</span>DD Hostname</span
+                      >
+                      <input
+                        type="text"
+                        name="ddhostname"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ddhostUsername"
+                        ><span class="mandatory">*</span>DD Username</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="ddhostUsername"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="ddhostPassword"
+                        ><span class="mandatory">*</span>DD Password</span
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="ddhostPassword"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" for="tags"
+                        ><span class="mandatory">*</span>Tags</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="tags"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-link-45deg"></i> Integrate
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick="ResetForm('ddve-integrate');"
+                >
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Networker -->
+        <div class="networker select">
+          <h2 class="section-heading">Networker</h2>
+          <form
+            id="networker-install"
+            onsubmit="Run_Automation_Script('networker-install');return false"
+          >
+            <!-- Networker vCenter & ESXI-->
+            <ul class="nav nav-tabs" id="networkerTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="networker-tab1"
+                  type="button"
+                >
+                  vCenter Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="networker-tab2" type="button">
+                  ESXi Details
+                </button>
+              </li>
+            </ul>
+
+            <!-- Networker Tab panes -->
+            <div class="tab-content">
+              <input
+                type="hidden"
+                name="DeploymentType"
+                id="networker-deployment-type"
+                value="vCenter"
+              />
+              <div class="tab-pane active" id="networker-vCenter">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="vCenter"
+                          ><span class="mandatory">*</span>vCenter</span
+                        >
+
+                        <input
+                          type="text"
+                          name="vCenter"
+                          class="form-control"
+                          id="networker-vCenter-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="networker-vCenter-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="networker-vCenter-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="networker-ESXi">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="ESXi"
+                          ><span class="mandatory">*</span>ESXi Host</span
+                        >
+                        <input
+                          type="text"
+                          name="ESXi"
+                          class="form-control"
+                          id="networker-ESXi-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="networker-ESXi-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="networker-ESXi-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 120px; text-align: center; font-size: 12px"
+              >
+                Networker Details
+              </h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="VMName"
+                      ><span class="mandatory">*</span>VM Name</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="VMName"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ovaPath"
+                      ><span class="mandatory">*</span>OVA Path</span
+                    >
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="ovaPath-networker-install"
+                      required
+                    />
+                    <input
+                      type="hidden"
+                      name="ovaPath"
+                      id="hiddenpath-networker-install"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6" id="networker_esxiHost">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="host-value"
+                      ><span class="mandatory">*</span>
+                      <div class="switch-field">
+                        <input
+                          type="radio"
+                          id="net-radio-one"
+                          name="host-type"
+                          value="esxiHost"
+                          checked
+                        />
+                        <label for="net-radio-one">ESXi Host</label>
+                        <input
+                          type="radio"
+                          id="net-radio-two"
+                          name="host-type"
+                          value="cluster"
+                        />
+                        <label for="net-radio-two">Cluster</label>
+                      </div></span
+                    >
+                    <input
+                      type="text"
+                      id="net-host-input"
+                      class="form-control"
+                      name="host-value"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="fqdn"
+                      ><span class="mandatory">*</span>FQDN</span
+                    >
+                    <input
+                      type="text"
+                      name="fqdn"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="DiskStorageFormat"
+                      ><span class="mandatory">*</span>Disk Storage Format</span
+                    >
+                    <input
+                      type="text"
+                      name="DiskStorageFormat"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Network"
+                      ><span class="mandatory">*</span>Network</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Network"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ddip"
+                      ><span class="mandatory">*</span>DDIP</span
+                    >
+                    <input
+                      type="text"
+                      name="ddip"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ipv4"
+                      ><span class="mandatory">*</span>IPV4</span
+                    >
+                    <input
+                      type="text"
+                      name="ipv4"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Datastore"
+                      ><span class="mandatory">*</span>Datastore</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Datastore"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="gateway"
+                      ><span class="mandatory">*</span>Gateway</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="gateway"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text not-mandatory" for="DNS"
+                      >DNS</span
+                    >
+                    <input type="text" name="DNS" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text not-mandatory" for="NTP"
+                      >NTP</span
+                    >
+                    <input type="text" name="NTP" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="timezone"
+                      ><span class="mandatory">*</span>Timezone</span
+                    >
+                    <input
+                      type="text"
+                      name="timezone"
+                      list="timezone_networker"
+                      class="form-control"
+                      placeholder="Search for timezone"
+                      required
+                    />
+                    <datalist id="timezone_networker"></datalist>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-play"></i> Run
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onClick="ResetForm('networker-install');"
+              >
+                <i class="bi bi-arrow-counterclockwise"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Avamar Proxy -->
+        <div class="proxy select">
+          <h2 class="section-heading">Avamar Proxy</h2>
+          <form
+            id="proxy-install"
+            onsubmit="Run_Automation_Script('proxy-install');return false"
+          >
+            <!-- Avamar Proxy vCenter & ESXI-->
+            <ul class="nav nav-tabs" id="networkerTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="proxy-tab1" type="button">
+                  vCenter Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="proxy-tab2" type="button">
+                  ESXi Details
+                </button>
+              </li>
+            </ul>
+
+            <!-- Avamar Proxy Tab panes -->
+            <div class="tab-content">
+              <input
+                type="hidden"
+                name="DeploymentType"
+                id="proxy-deployment-type"
+                value="vCenter"
+              />
+              <div class="tab-pane active" id="proxy-vCenter">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="vCenter"
+                          ><span class="mandatory">*</span>vCenter</span
+                        >
+
+                        <input
+                          type="text"
+                          name="vCenter"
+                          class="form-control"
+                          id="proxy-vCenter-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="proxy-vCenter-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="proxy-vCenter-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="proxy-ESXi">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="ESXi"
+                          ><span class="mandatory">*</span>ESXi Host</span
+                        >
+                        <input
+                          type="text"
+                          name="ESXi"
+                          class="form-control"
+                          id="proxy-ESXi-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="proxy-ESXi-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="proxy-ESXi-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 120px; text-align: center; font-size: 12px"
+              >
+                Proxy Details
+              </h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="VMName"
+                      ><span class="mandatory">*</span>VM Name</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="VMName"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ovaPath"
+                      ><span class="mandatory">*</span>OVA Path</span
+                    >
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="ovaPath-proxy-install"
+                      required
+                    />
+                    <input
+                      type="hidden"
+                      name="ovaPath"
+                      id="hiddenpath-proxy-install"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6" id="proxy_esxiHost">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="host-value"
+                      ><span class="mandatory">*</span>
+                      <div class="switch-field">
+                        <input
+                          type="radio"
+                          id="proxy-radio-one"
+                          name="host-type"
+                          value="esxiHost"
+                          checked
+                        />
+                        <label for="proxy-radio-one">ESXi Host</label>
+                        <input
+                          type="radio"
+                          id="proxy-radio-two"
+                          name="host-type"
+                          value="cluster"
+                        />
+                        <label for="proxy-radio-two">Cluster</label>
+                      </div></span
+                    >
+                    <input
+                      type="text"
+                      id="proxy-host-input"
+                      class="form-control"
+                      name="host-value"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="fqdn"
+                      ><span class="mandatory">*</span>FQDN</span
+                    >
+                    <input
+                      type="text"
+                      name="fqdn"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="DiskStorageFormat"
+                      ><span class="mandatory">*</span>Disk Storage Format</span
+                    >
+                    <input
+                      type="text"
+                      name="DiskStorageFormat"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Network"
+                      ><span class="mandatory">*</span>Network</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Network"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="netmask"
+                      ><span class="mandatory">*</span>Netmask</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="netmask"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ipv4"
+                      ><span class="mandatory">*</span>IPV4</span
+                    >
+                    <input
+                      type="text"
+                      name="ipv4"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Datastore"
+                      ><span class="mandatory">*</span>Datastore</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Datastore"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="gateway"
+                      ><span class="mandatory">*</span>Gateway</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="gateway"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text not-mandatory" for="NTP"
+                      >NTP</span
+                    >
+                    <input type="text" name="NTP" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-play"></i> Run
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onClick="ResetForm('proxy-install');"
+              >
+                <i class="bi bi-arrow-counterclockwise"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- PPDM -->
+        <div class="ppdm select">
+          <h2 class="section-heading">PowerProtect Data Manager</h2>
+          <form
+            id="ppdm-install"
+            onsubmit="Run_Automation_Script('ppdm-install');return false"
+          >
+            <!-- PPDM vCenter & ESXI-->
+            <ul class="nav nav-tabs" id="ppdmTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="ppdm-tab1" type="button">
+                  vCenter Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ppdm-tab2" type="button">
+                  ESXi Details
+                </button>
+              </li>
+            </ul>
+
+            <!-- PPDM Tab panes -->
+            <div class="tab-content">
+              <input
+                type="hidden"
+                name="DeploymentType"
+                id="ppdm-deployment-type"
+                value="vCenter"
+              />
+              <div class="tab-pane active" id="ppdm-vCenter">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="vCenter"
+                          ><span class="mandatory">*</span>vCenter</span
+                        >
+
+                        <input
+                          type="text"
+                          name="vCenter"
+                          class="form-control"
+                          id="ppdm-vCenter-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="ppdm-vCenter-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="ppdm-vCenter-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="ppdm-ESXi">
+                <div class="card mb-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="ESXi"
+                          ><span class="mandatory">*</span>ESXi Host</span
+                        >
+                        <input
+                          type="text"
+                          name="ESXi"
+                          class="form-control"
+                          id="ppdm-ESXi-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" for="username"
+                          ><span class="mandatory">*</span>Username</span
+                        >
+                        <input
+                          type="text"
+                          name="username"
+                          class="form-control"
+                          id="ppdm-ESXi-username-text"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="input-group">
+                        <span class="input-group-text" for="password"
+                          ><span class="mandatory">*</span>Password</span
+                        >
+                        <input
+                          type="password"
+                          name="password"
+                          class="form-control"
+                          id="ppdm-ESXi-password-text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 120px; text-align: center; font-size: 12px"
+              >
+                PPDM Details
+              </h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="VMName"
+                      ><span class="mandatory">*</span>VM Name</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="VMName"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ovaPath"
+                      ><span class="mandatory">*</span>OVA Path</span
+                    >
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="ovaPath-ppdm-install"
+                      required
+                    />
+                    <input
+                      type="hidden"
+                      name="ovaPath"
+                      id="hiddenpath-ppdm-install"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6" id="ppdm_esxiHost">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="host-value"
+                      ><span class="mandatory">*</span>
+                      <div class="switch-field">
+                        <input
+                          type="radio"
+                          id="ppdm-radio-one"
+                          name="host-type"
+                          value="esxiHost"
+                          checked
+                        />
+                        <label for="ppdm-radio-one">ESXi Host</label>
+                        <input
+                          type="radio"
+                          id="ppdm-radio-two"
+                          name="host-type"
+                          value="cluster"
+                        />
+                        <label for="ppdm-radio-two">Cluster</label>
+                      </div></span
+                    >
+                    <input
+                      type="text"
+                      id="ppdm-host-input"
+                      class="form-control"
+                      name="host-value"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="fqdn"
+                      ><span class="mandatory">*</span>FQDN</span
+                    >
+                    <input
+                      type="text"
+                      name="fqdn"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="DiskStorageFormat"
+                      ><span class="mandatory">*</span>Disk Storage Format</span
+                    >
+                    <input
+                      type="text"
+                      name="DiskStorageFormat"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Network"
+                      ><span class="mandatory">*</span>Network</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Network"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="netmask"
+                      ><span class="mandatory">*</span>Netmask</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="netmask"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ipv4"
+                      ><span class="mandatory">*</span>IPV4</span
+                    >
+                    <input
+                      type="text"
+                      name="ipv4"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="Datastore"
+                      ><span class="mandatory">*</span>Datastore</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Datastore"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="gateway"
+                      ><span class="mandatory">*</span>Gateway</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="gateway"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text not-mandatory" for="DNS"
+                      >DNS</span
+                    >
+                    <input type="text" name="DNS" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text not-mandatory" for="NTP"
+                      >NTP</span
+                    >
+                    <input type="text" name="NTP" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="timezone"
+                      ><span class="mandatory">*</span>Timezone</span
+                    >
+                    <input
+                      type="text"
+                      name="timezone"
+                      list="timezone_ppdm"
+                      class="form-control"
+                      placeholder="Search for timezone"
+                      required
+                    />
+                    <datalist id="timezone_ppdm"></datalist>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="applicationUserPassword"
+                      ><span class="mandatory">*</span>Application User
+                      Password</span
+                    >
+                    <input
+                      type="password"
+                      name="applicationUserPassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span
+                      class="input-group-text"
+                      for="defaultLockboxpassphrase"
+                      ><span class="mandatory">*</span>Default Lockbox
+                      Passphrase</span
+                    >
+                    <input
+                      type="password"
+                      name="defaultLockboxpassphrase"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="newLockboxpassphrase"
+                      ><span class="mandatory">*</span>New Lockbox
+                      Passphrase</span
+                    >
+                    <input
+                      type="password"
+                      name="newLockboxpassphrase"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="defaultRootpassword"
+                      ><span class="mandatory">*</span>Default Root
+                      Password</span
+                    >
+                    <input
+                      type="password"
+                      name="defaultRootpassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="newRootPassword"
+                      ><span class="mandatory">*</span>New Root Password</span
+                    >
+                    <input
+                      type="password"
+                      name="newRootPassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="defaultAdminpassword"
+                      ><span class="mandatory">*</span>Default Admin
+                      Password</span
+                    >
+                    <input
+                      type="password"
+                      name="defaultAdminpassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="newAdminPassword"
+                      ><span class="mandatory">*</span>New Admin Password</span
+                    >
+                    <input
+                      type="password"
+                      name="newAdminPassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-play"></i> Run
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onClick="ResetForm('ppdm-install');"
+              >
+                <i class="bi bi-arrow-counterclockwise"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- NTP -->
+        <div class="ntp select">
+          <h2 class="section-heading">NTP</h2>
+          <form
+            id="ntp-install"
+            onsubmit="Run_Automation_Script('ntp-install');return false"
+          >
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 150px; text-align: center; font-size: 12px"
+              >
+                Vcenter/ESXi Data
+              </h5>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="server"
+                      ><span class="mandatory">*</span>IP</span
+                    >
+                    <input
+                      type="text"
+                      name="server"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="username"
+                      ><span class="mandatory">*</span>Username</span
+                    >
+                    <input
+                      type="text"
+                      name="username"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-text" for="password"
+                      ><span class="mandatory">*</span>Password</span
+                    >
+                    <input
+                      type="password"
+                      name="password"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 150px; text-align: center; font-size: 12px"
+              >
+                Windows Data
+              </h5>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="winVMName"
+                      ><span class="mandatory">*</span>VM Name</span
+                    >
+                    <input
+                      type="text"
+                      name="winVMName"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="winUsername"
+                      ><span class="mandatory">*</span>Username</span
+                    >
+                    <input
+                      type="text"
+                      name="winUsername"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-text" for="winPassword"
+                      ><span class="mandatory">*</span>Password</span
+                    >
+                    <input
+                      type="password"
+                      name="winPassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 120px; text-align: center; font-size: 12px"
+              >
+                NTP Name
+              </h5>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="ntpName"
+                      ><span class="mandatory">*</span>NTP Name</span
+                    >
+                    <input
+                      type="text"
+                      name="ntpName"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-play"></i> Run
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onClick="ResetForm('ntp-install');"
+              >
+                <i class="bi bi-arrow-counterclockwise"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- DNS -->
+        <div class="dns select">
+          <h2 class="section-heading">DNS</h2>
+          <form
+            id="dns-install"
+            onsubmit="Run_Automation_Script('dns-install');return false"
+          >
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 150px; text-align: center; font-size: 12px"
+              >
+                Vcenter/ESXi Data
+              </h5>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="server"
+                      ><span class="mandatory">*</span>IP</span
+                    >
+                    <input
+                      type="text"
+                      name="server"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="username"
+                      ><span class="mandatory">*</span>Username</span
+                    >
+                    <input
+                      type="text"
+                      name="username"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-text" for="password"
+                      ><span class="mandatory">*</span>Password</span
+                    >
+                    <input
+                      type="password"
+                      name="password"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4" style="padding-top: 0">
+              <h5
+                class="card-title"
+                style="width: 150px; text-align: center; font-size: 12px"
+              >
+                Windows Data
+              </h5>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="winVMName"
+                      ><span class="mandatory">*</span>VM Name</span
+                    >
+                    <input
+                      type="text"
+                      name="winVMName"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" for="winUsername"
+                      ><span class="mandatory">*</span>Username</span
+                    >
+                    <input
+                      type="text"
+                      name="winUsername"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-text" for="winPassword"
+                      ><span class="mandatory">*</span>Password</span
+                    >
+                    <input
+                      type="password"
+                      name="winPassword"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-play"></i> Run
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onClick="ResetForm('dns-install');"
+              >
+                <i class="bi bi-arrow-counterclockwise"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Runbook -->
+        <div class="runbook select">
+        <!--  
+	<h2 class="section-heading">Runbook</h2>
+
+<section class="signup-step-container">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8">
+                    <div class="wizard">
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" aria-expanded="true"><span class="round-tab">1 </span> <i>CyberSense</i></a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" aria-expanded="false"><span class="round-tab">2</span> <i>Avamar</i></a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab"><span class="round-tab">3</span> <i>Data Domain</i></a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> <i>Networker</i></a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab"><span class="round-tab">4</span> <i>Avamar Proxy</i></a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab"><span class="round-tab">4</span> <i>Data Manager</i></a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step7" data-toggle="tab" aria-controls="step7" role="tab"><span class="round-tab">4</span> <i>NTP</i></a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step8" data-toggle="tab" aria-controls="step8" role="tab"><span class="round-tab">4</span> <i>DNS</i></a>
+                                </li>
+
+                            </ul>
+                        </div>
+        
+                        <form role="form" action="index.html" class="login-box">
+                            <div class="tab-content" id="main_form">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <h4 class="text-center">Step 1</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                           step 1
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="default-btn next-step">Continue to next step</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step2">
+                                    <h4 class="text-center">Step 2</h4>
+                                    <div class="row">
+                                    <div class="col-md-6">
+						Step 2
+                                   </div>
+                                    </div>
+                                    
+                                    <ul class="list-inline pull-right">
+                                       <!-- <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> -->
+                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step3">
+                                    <h4 class="text-center">Step 3</h4>
+                                     <div class="row">
+						<div class="col-md-6"> Step 3</div>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                       <!-- <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> -->
+                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step4">
+                                    <h4 class="text-center">Step 4</h4>
+                                    <div class="all-info-container">
+					<div>Step 4</div>
+                                    </div>
+                                    
+                                    <ul class="list-inline pull-right">
+                                       <!-- <li><button type="button" class="default-btn prev-step">Back</button></li> -->
+                                        <li><button type="button" class="default-btn next-step">Finish</button></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/timezone_cr.js"></script>
+    <script src="./js/timezone_cs.js"></script>
+    <script src="./js/timezone_avamar.js"></script>
+    <script src="./js/timezone_networker.js"></script>
+    <script src="./js/timezone_ppdm.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script src="./js/wizard.js"></script> 	
+  </body>
+</html>

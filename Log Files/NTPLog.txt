@@ -1,0 +1,4 @@
+06/19/2023 06:08:34 : [ERROR] 6/19/2023 6:08:34 AM	Connect-VIServer		No such host is known. (sdgf:443)	
+06/19/2023 06:47:36 : [ERROR] 6/19/2023 6:47:36 AM	Connect-VIServer		No such host is known. (sdgfjsdf:443)	
+06/19/2023 06:49:32 : [ERROR] 6/19/2023 6:49:32 AM	Connect-VIServer		No such host is known. (sdgfjsdf:443)	
+06/22/2023 01:09:49 : [ERROR] 6/22/2023 1:09:49 AM	Connect-VIServer		No such host is known. (sdfjg:443)	

@@ -1,0 +1,50 @@
+#!/usr/bin/expect -f
+set password [lindex $argv 0];
+set lockpass [lindex $argv 1];
+set mongopass [lindex $argv 2];
+set crsopass [lindex $argv 3];
+    spawn sudo /opt/dellemc/cr/bin/crsetup.sh --deploy
+      expect "password for root:"
+      send "$password\r"
+      sleep 60
+      expect {passphrase requirements:
+       - new password must be different from the previous password
+       - between 9-64 characters
+       - minimum of 1 lowercase character (a-z)
+       - minimum of 1 uppercase character (A-Z)
+       - minimum of 1 number (1-9)
+       - minimum of 1 special character: (~!@#$%^&*()+={}|:";<>?[]-_.,^')
+
+      lockbox's passphrase:}
+      send "$lockpass\r"
+      expect {Confirm lockbox's passphrase:} 
+      send "$lockpass\r"
+      sleep 30
+      expect {password requirements:
+      - new password must be different from the previous password
+      - between 9-64 characters
+      - minimum of 1 lowercase character (a-z)
+      - minimum of 1 uppercase character (A-Z)
+      - minimum of 1 number (1-9)
+      - minimum of 1 special character: (~!@#$%^&*()+={}|:";<>?[]-_.,^')
+
+      MongoDb's password:}
+      send "$mongopass\r"
+      expect {Confirm MongoDb's password:} 
+      send "$mongopass\r"
+      sleep 30
+      expect {password requirements:
+      - new password must be different from the previous password
+      - between 9-64 characters
+      - minimum of 1 lowercase character (a-z)
+      - minimum of 1 uppercase character (A-Z)
+      - minimum of 1 number (1-9)
+      - minimum of 1 special character: (~!@#$%^&*()+={}|:";<>?[]-_.,^')
+
+      crso password:}
+      send "$crsopass\r"
+      sleep 30
+      expect {Confirm crso password:} 
+      send "$crsopass\r"
+      sleep 500
+      expect eof

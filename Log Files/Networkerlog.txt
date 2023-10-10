@@ -1,0 +1,68 @@
+06/22/2023 08:58:46 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/22/2023 08:58:47 : [INFO] Initiating Networker Deployment
+06/22/2023 09:03:17 : [INFO] Networker Deployment is successfull
+06/22/2023 09:03:17 : [INFO] @{VMName=nve_test; IPAddress=10.118.168.231; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
+06/22/2023 09:03:17 : [INFO] 10.118.168.23 successfully disconnected
+
+06/22/2023 23:10:01 : [INFO] esxiServer 10.118.168.80 successfully connected
+
+06/22/2023 23:10:03 : [INFO] Initiating Networker Deployment
+06/22/2023 23:16:04 : [INFO] Networker Deployment is successfull
+06/22/2023 23:16:04 : [INFO] @{VMName=nve_test; IPAddress=10.118.168.231; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=datastore1}
+06/22/2023 23:16:04 : [INFO] 10.118.168.80 successfully disconnected
+
+06/25/2023 12:44:40 : [ERROR] Cannot validate argument on parameter 'Server'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+06/25/2023 12:47:54 : [ERROR] 6/25/2023 12:47:54 PM	Connect-VIServer		No such host is known. (sd:443)	
+06/26/2023 01:09:01 : [ERROR] Cannot validate argument on parameter 'Server'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+06/26/2023 01:59:12 : [ERROR] Cannot validate argument on parameter 'Server'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+06/26/2023 03:01:51 : [ERROR] Cannot validate argument on parameter 'Server'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+06/26/2023 05:47:14 : [ERROR] Cannot validate argument on parameter 'Server'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+06/26/2023 05:56:11 : [INFO] 10.118.168.23 successfully disconnected
+
+06/26/2023 05:59:34 : [ERROR] 6/26/2023 5:59:34 AM	Connect-VIServer		No such host is known. (sjdfg:443)	
+06/27/2023 01:36:27 : [ERROR] 6/27/2023 1:36:27 AM	Connect-VIServer		No such host is known. (sdkjf:443)	
+06/27/2023 06:26:14 : [INFO] 10.118.168.23 successfully disconnected
+
+06/27/2023 07:00:26 : [INFO] 10.118.168.23 successfully disconnected
+
+06/27/2023 07:03:30 : [INFO] 10.118.168.23 successfully disconnected
+
+06/27/2023 07:08:48 : [INFO] 10.118.168.80 successfully disconnected
+
+06/27/2023 07:15:42 : [INFO] Networker Deployment is successfull
+06/27/2023 07:15:42 : [INFO] @{VMName=nveproxy_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/27/2023 07:15:42 : [INFO] 10.118.168.80 successfully disconnected
+
+06/27/2023 07:26:47 : [INFO] Networker Deployment is successfull
+06/27/2023 07:26:48 : [INFO] @{VMName=nveproxy_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
+06/27/2023 07:26:48 : [INFO] 10.118.168.80 successfully disconnected
+
+07/07/2023 01:02:34 : [INFO] vCenter 10.118.168.23 successfully connected
+
+07/07/2023 01:02:36 : [INFO] Initiating Networker Deployment
+07/07/2023 01:08:28 : [INFO] Networker Deployment is successfull
+07/07/2023 01:08:28 : [INFO] @{VMName=nve_test; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
+07/07/2023 01:08:28 : [INFO] 10.118.168.23 successfully disconnected
+
+07/17/2023 07:29:45 : [INFO] vCenter 10.118.168.23 successfully connected
+
+07/17/2023 07:29:46 : [INFO] Initiating Networker Deployment
+07/17/2023 07:33:51 : [INFO] Networker Deployment is successfull
+07/17/2023 07:33:51 : [INFO] @{VMName=test_nve; IPAddress=fe80::250:56ff:fe8b:6a7e; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
+07/17/2023 07:33:51 : [INFO] 10.118.168.23 successfully disconnected
+
+08/22/2023 00:07:49 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/22/2023 00:07:51 : [INFO] Initiating Networker Deployment
+08/22/2023 00:12:17 : [INFO] Networker Deployment is successfull
+08/22/2023 00:12:17 : [INFO] @{VMName=nve_install; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
+08/22/2023 00:12:17 : [INFO] 10.118.168.23 successfully disconnected
+
+08/22/2023 04:32:00 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/22/2023 04:32:02 : [INFO] Initiating Networker Deployment
+08/22/2023 04:37:47 : [INFO] Networker Deployment is successfull
+08/22/2023 04:37:47 : [INFO] @{VMName=nve_install; IPAddress=10.118.168.61; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
+08/22/2023 04:37:47 : [INFO] 10.118.168.23 successfully disconnected
+

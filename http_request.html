@@ -1,0 +1,42 @@
+
+<div id="demo"></div>
+
+<script>
+//function loadDoc() 
+{
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "http://localhost/CRDeploymentStatus.txt");
+  xhttp.send();
+}
+function createXhrRequest( httpMethod, url, callback ) {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open( httpMethod, url );
+
+    xhr.onload = function() {
+        callback( null, xhr.response );
+    }; 
+
+    xhr.onerror = function() {
+        callback( xhr.response );
+    };
+
+    xhr.send();
+
+}
+
+createXhrRequest( "GET", 'http://localhost/CRDeploymentStatus.txt', function( err, response ) {
+
+    // Do your post processing here. 
+    if( err ) { console.log( "Error!" ); }
+	alert(response)
+    // This is just basic code; you can modify it to suit your needs.
+
+});
+</script>
+
+</body>
+</html>

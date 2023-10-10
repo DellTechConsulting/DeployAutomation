@@ -1,0 +1,55 @@
+06/22/2023 08:58:47 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/22/2023 08:58:48 : [INFO] Initiating Avamar_proxy Deployment
+06/22/2023 09:02:26 : [INFO] Avamar_Proxy Deployment is successfull
+06/22/2023 09:02:26 : [INFO] @{VMName=aveproxy_test; IPAddress=10.118.168.232; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=4096; Datastore=vsanDatastore}
+06/22/2023 09:02:26 : [INFO] 10.118.168.23 successfully disconnected
+
+06/22/2023 23:10:01 : [INFO] esxiServer 10.118.168.80 successfully connected
+
+06/22/2023 23:10:03 : [INFO] Initiating Avamar_proxy Deployment
+06/22/2023 23:15:04 : [ERROR] Avamar_Proxy Deployment is failed
+06/22/2023 23:15:04 : [INFO] 10.118.168.80 successfully disconnected
+
+07/07/2023 01:03:03 : [INFO] vCenter 10.118.168.23 successfully connected
+
+07/07/2023 01:03:17 : [INFO] Initiating Avamar_proxy Deployment
+07/07/2023 01:07:24 : [INFO] Avamar_Proxy Deployment is successfull
+07/07/2023 01:07:24 : [INFO] @{VMName=aveproxy_test; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=4096; Datastore=vsanDatastore}
+07/07/2023 01:07:24 : [INFO] 10.118.168.23 successfully disconnected
+
+08/22/2023 00:07:49 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/22/2023 00:07:50 : [INFO] Initiating Avamar_proxy Deployment
+08/22/2023 00:11:38 : [INFO] Avamar_Proxy Deployment is successfull
+08/22/2023 00:11:39 : [INFO] @{VMName=aveproxy; IPAddress=10.118.168.62; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=4096; Datastore=vsanDatastore}
+08/22/2023 00:11:39 : [INFO] 10.118.168.23 successfully disconnected
+
+08/22/2023 04:32:00 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/22/2023 04:32:02 : [INFO] Initiating Avamar_proxy Deployment
+08/22/2023 04:37:02 : [INFO] Avamar_Proxy Deployment is successfull
+08/22/2023 04:37:02 : [INFO] @{VMName=aveproxy; IPAddress=10.118.168.63; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=4096; Datastore=vsanDatastore}
+08/22/2023 04:37:02 : [INFO] 10.118.168.23 successfully disconnected
+
+09/19/2023 01:14:39 : [ERROR] 9/19/2023 1:14:39 AM	Connect-VIServer		A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (10.18.168.23:443)	
+09/19/2023 01:22:52 : [INFO] vCenter 10.118.168.23 successfully connected
+
+09/19/2023 01:22:53 : [INFO] Initiating Avamar_proxy Deployment
+09/19/2023 01:26:23 : [INFO] Avamar_Proxy Deployment is successfull
+09/19/2023 01:26:24 : [INFO] @{VMName=ave; IPAddress=10.118.168.63; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=4096; Datastore=vsanDatastore}
+09/19/2023 01:26:24 : [INFO] 10.118.168.23 successfully disconnected
+
+09/21/2023 07:03:27 : [INFO] vCenter 10.118.168.23 successfully connected
+
+09/21/2023 07:03:28 : [ERROR] Provided VMName ave already exists
+
+09/21/2023 07:03:28 : [INFO] The connection to 10.118.168.23 is still open!
+
+09/21/2023 07:39:54 : [INFO] vCenter 10.118.168.23 successfully connected
+
+09/21/2023 07:39:55 : [INFO] Initiating Avamar_proxy Deployment
+09/21/2023 07:43:31 : [INFO] Avamar_Proxy Deployment is successfull
+09/21/2023 07:43:32 : [INFO] @{VMName=aveproxy_test; IPAddress=10.118.168.61; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=4096; Datastore=vsanDatastore}
+09/21/2023 07:43:32 : [INFO] 10.118.168.23 successfully disconnected
+

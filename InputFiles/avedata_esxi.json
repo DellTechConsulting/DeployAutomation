@@ -1,0 +1,38 @@
+{
+	"esxidata": [{
+		"esxiServer": "10.118.168.80",
+		"username": "root",
+		"password": "Welcome@123"
+	}],
+
+	"avedata": [{
+		"ovaPath": "E:\\CR_Automation_Files\\AVE_OVF\\AVE-19.8.0.83.ovf",
+		"VMName": "testing_avamar1",
+		"guestuser": "root",
+		"defaultrootpass": "changeme",
+		"exsiHost": "10.118.168.22",
+		"myDatastore": "datastore1",
+		"ipwithprefix_ave": "23",
+		"ipv4": "10.118.168.84",
+		"gateway": "10.118.168.1",
+		"Network": "VM Network",
+		"fqdn": "AVE.localhost",
+		"primary_nameserver": "10.118.168.1",
+		"ntpserver": "10.118.168.1",
+		"DiskStorageFormat": "thin",
+		"avamar_rootpass": "Charl1E_2022",
+		"mcpass": "Charl1E_2022",
+		"repl_password": "Charl1E_2022",
+		"viewuserpass": "Charl1E_2022",
+		"admin_password_os": "Charl1E_2022",
+		"root_password_os": "Charl1E_2022",
+		"keystore_passphrase": "Charl1E_2022",
+		"common_password": "Charl1E_2022",
+		"timezone_name": "Asia/Kolkata",
+		"use_common_password": "false"
+
+
+
+	}]
+
+}

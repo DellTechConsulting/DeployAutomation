@@ -1,0 +1,61 @@
+06/09/2023 02:04:24 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/09/2023 02:04:24 : [ERROR] ppdm_test1 already exists
+
+06/09/2023 02:15:35 : [ERROR] Unable to login with defualt credentials
+06/09/2023 09:03:48 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/09/2023 09:03:48 : [ERROR] ppdm_test1 already exists
+
+06/09/2023 09:11:34 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/09/2023 09:11:34 : [ERROR] ppdm_test1 already exists
+
+06/09/2023 09:17:30 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/09/2023 09:17:30 : [ERROR] ppdm_test1 already exists
+
+06/09/2023 09:19:25 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/09/2023 09:19:25 : [ERROR] ppdm_test1 already exists
+
+06/09/2023 10:23:06 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/09/2023 10:23:06 : [ERROR] ppdm_test1 already exists
+
+06/13/2023 01:02:05 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 01:15:39 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 01:26:17 : [INFO] PPDM Deployment is successful
+06/13/2023 01:26:17 : [INFO] @{VMName=ppdm_test; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=vsanDatastore}
+06/13/2023 01:52:49 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 02:03:37 : [INFO] PPDM Deployment is successful
+06/13/2023 02:03:37 : [INFO] @{VMName=ppdm_test; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=vsanDatastore}
+06/13/2023 03:55:34 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 03:55:36 : [ERROR] ppdm_test already exists
+
+06/15/2023 07:45:15 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/15/2023 07:55:12 : [INFO] PPDM Deployment is successful
+06/15/2023 07:55:12 : [INFO] @{VMName=ppdm_test; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=vsanDatastore}
+06/16/2023 01:30:48 : [INFO] 10.118.168.80 successfully connected
+
+06/16/2023 01:38:13 : [INFO] PPDM Deployment is successful
+06/16/2023 01:38:14 : [INFO] @{VMName=ppdm_test; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=datastore1}
+06/16/2023 01:59:58 : [INFO] 10.118.168.80 successfully connected
+
+06/16/2023 02:06:45 : [INFO] PPDM Deployment is successful
+06/16/2023 02:06:45 : [INFO] @{VMName=ppdm_test; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=datastore1}
+08/24/2023 04:37:54 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/24/2023 04:43:26 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/24/2023 04:44:21 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/24/2023 04:47:18 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/24/2023 04:52:47 : [INFO] PPDM Deployment is successful
+08/24/2023 04:52:47 : [INFO] @{VMName=ppdm_test1; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=vsanDatastore}

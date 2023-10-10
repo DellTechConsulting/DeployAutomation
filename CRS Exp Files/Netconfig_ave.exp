@@ -1,0 +1,71 @@
+#!/usr/bin/expect -f
+set ipv4 [lindex $argv 0];
+set gateway [lindex $argv 1];
+set fqdn [lindex $argv 2];
+set primarynameserver [lindex $argv 3];
+set ntp [lindex $argv 4];
+spawn /usr/local/avamar/bin/avenetconfig
+sleep 30
+      expect {Enter selection from menu (1-6):}
+      send "1\r"
+      expect {Enter selection from menu (1-4):}
+      send "1\r"
+      expect {IPv4 Address and Prefix ():} 
+      send "$ipv4\r"
+      sleep 2
+      expect {Enter selection from menu (1-4):}
+      send "2\r"
+      expect {IPv4 Default Gateway () :} 
+      send "$gateway\r"
+      sleep 2
+      expect {Enter selection from menu (1-4):}
+      send "4\r"
+      sleep 2
+      expect {Enter selection from menu (1-6):} 
+      send "3\r"
+      sleep 2
+      expect {Enter selection from menu (1-7):} 
+      send "5\r"
+      sleep 2
+      expect {Hostname/FQDN ():} 
+      send "$fqdn\r"
+      sleep 2
+      expect {Enter selection from menu (1-7):} 
+      send "7\r"
+      sleep 2
+      expect {Enter selection from menu (1-6):} 
+      send "3\r"
+      sleep 2
+      expect {Enter selection from menu (1-7) :} 
+      send "1\r"
+      sleep 2
+      expect {Primary Nameserver () :} 
+      send "$primarynameserver\r"
+      sleep 2
+      expect {Enter selection from menu (1-7):} 
+      send "7\r"
+      sleep 2
+      expect {Enter selection from menu (1-6):} 
+      send "4\r"
+      sleep 2
+      expect {Enter selection from menu (1-2):} 
+      send "1\r"
+      sleep 2
+      expect {Add new NTP Server:} 
+      send "$ntp\r"
+      sleep 2
+      expect {Enter selection from menu (1-4):} 
+      send "4\r"
+      sleep 2
+      expect {Enter selection from menu (1-6):} 
+      send "5\r"
+      sleep 30
+      expect { NTP is currently disabled. Do you want to enable it if host time sync is not available (Y/N) [N]? } 
+      send "y\r"
+      sleep 5
+      expect { Press return to continue}
+      send "\n"
+      expect {Apply all changes and exit (Y/N) [N]?}
+      send "y\r"
+      sleep 240
+      expect eof

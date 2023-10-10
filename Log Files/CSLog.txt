@@ -1,0 +1,182 @@
+06/08/2023 05:56:19 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:02:03 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:03:46 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:05:06 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:05:06 : [ERROR] test_cybersense3 already exists
+
+06/08/2023 06:05:07 : [INFO] 10.118.168.80 successfully disconnected
+
+06/08/2023 06:06:06 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:10:42 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:12:12 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:13:39 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:18:56 : [INFO] CS Deployment is completed
+06/08/2023 06:18:57 : [INFO] 10.118.168.80 successfully disconnected
+
+06/08/2023 06:20:51 : [INFO]  connected to Esxi Host
+
+06/08/2023 06:20:52 : [ERROR] test_cybersense3 already exists
+
+06/08/2023 06:20:52 : [INFO] 10.118.168.80 successfully disconnected
+
+06/08/2023 06:23:19 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/08/2023 07:13:29 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/08/2023 07:13:29 : [ERROR] @{vcenterdata=System.Object[]; csdata=System.Object[]; deploymentType=vCenter}.csdata.VMName already exists
+
+06/08/2023 07:13:29 : [INFO] 10.118.168.23 successfully disconnected
+
+06/08/2023 07:17:53 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/08/2023 07:17:53 : [ERROR] test_cybersense3 already exists
+
+06/08/2023 07:17:53 : [INFO] 10.118.168.23 successfully disconnected
+
+06/12/2023 04:57:43 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 07:54:51 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 07:57:22 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 08:03:13 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 08:18:37 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 08:23:14 : [INFO] CS Deployment is completed
+06/12/2023 08:23:14 : [INFO] 10.118.168.23 successfully disconnected
+
+06/12/2023 22:36:53 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 22:41:19 : [INFO] CS Deployment is completed
+06/12/2023 22:41:19 : [INFO] 10.118.168.23 successfully disconnected
+
+06/12/2023 23:22:10 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 23:23:29 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/12/2023 23:23:29 : [ERROR] test_sense_r2 already exists
+
+06/12/2023 23:23:29 : [INFO] 10.118.168.23 successfully disconnected
+
+06/13/2023 00:23:16 : [ERROR] 6/13/2023 12:23:16 AM	Connect-VIServer		No such host is known. (wead:443)	
+06/13/2023 00:36:04 : [ERROR] 6/13/2023 12:36:04 AM	Connect-VIServer		No such host is known. (dsa:443)	
+06/13/2023 00:42:07 : [ERROR] 6/13/2023 12:42:07 AM	Connect-VIServer		No such host is known. (ds:443)	
+06/13/2023 01:02:03 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 01:15:41 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 01:24:06 : [INFO] CS Deployment is successful
+06/13/2023 01:24:07 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=192000; Datastore=vsanDatastore}
+06/13/2023 01:24:48 : [INFO] CS Deployment is completed
+06/13/2023 01:24:51 : [INFO] 10.118.168.23 successfully disconnected
+
+06/13/2023 01:52:54 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 02:00:48 : [INFO] CS Deployment is successful
+06/13/2023 02:00:49 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=192000; Datastore=vsanDatastore}
+06/13/2023 02:01:31 : [INFO] CS Deployment is completed
+06/13/2023 02:01:35 : [INFO] 10.118.168.23 successfully disconnected
+
+06/13/2023 03:55:31 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/13/2023 04:01:48 : [INFO] CS Deployment is successful
+06/13/2023 04:01:48 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=192000; Datastore=vsanDatastore}
+06/13/2023 04:02:29 : [INFO] CS Deployment is completed
+06/13/2023 04:02:30 : [INFO] 10.118.168.23 successfully disconnected
+
+06/15/2023 03:33:42 : [ERROR] 6/15/2023 3:33:42 AM	Connect-VIServer		No such host is known. (sjdgfjsd:443)	
+06/15/2023 03:41:47 : [ERROR] 6/15/2023 3:41:47 AM	Connect-VIServer		No such host is known. (sdfsjdh:443)	
+06/15/2023 04:05:28 : [ERROR] 6/15/2023 4:05:28 AM	Connect-VIServer		No such host is known. (sdjfsjkdfh:443)	
+06/15/2023 05:23:29 : [ERROR] 6/15/2023 5:23:29 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:26:37 : [ERROR] 6/15/2023 5:26:37 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:29:45 : [ERROR] 6/15/2023 5:29:45 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:32:46 : [ERROR] 6/15/2023 5:32:46 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:37:17 : [ERROR] 6/15/2023 5:37:17 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:43:08 : [ERROR] 6/15/2023 5:43:08 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 05:56:58 : [ERROR] 6/15/2023 5:56:58 AM	Connect-VIServer		No such host is known. (esxi:443)	
+06/15/2023 06:32:18 : [ERROR] 6/15/2023 6:32:18 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 06:43:03 : [ERROR] 6/15/2023 6:43:03 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 06:46:56 : [ERROR] 6/15/2023 6:46:55 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 06:48:02 : [ERROR] 6/15/2023 6:48:02 AM	Connect-VIServer		No such host is known. (esxi:443)	
+06/15/2023 06:52:56 : [ERROR] 6/15/2023 6:52:56 AM	Connect-VIServer		No such host is known. (vcenter:443)	
+06/15/2023 07:45:15 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/15/2023 07:51:53 : [INFO] CS Deployment is successful
+06/15/2023 07:51:53 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=192000; Datastore=vsanDatastore}
+06/15/2023 07:53:29 : [INFO] CS Deployment is completed
+06/15/2023 07:53:32 : [INFO] 10.118.168.23 successfully disconnected
+
+06/16/2023 01:30:48 : [INFO]  connected to Esxi Host
+
+06/16/2023 01:36:27 : [INFO] CS Deployment is successful
+06/16/2023 01:36:28 : [INFO] @{VMName=test_cybersense2; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=datastore1}
+06/16/2023 01:36:55 : [INFO] CS Deployment is completed
+06/16/2023 01:36:55 : [INFO] 10.118.168.80 successfully disconnected
+
+06/20/2023 02:10:54 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/20/2023 02:16:13 : [INFO] CS Deployment is successful
+06/20/2023 02:16:13 : [INFO] @{VMName=cybersense_test; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+06/20/2023 02:16:37 : [INFO] CS Deployment is completed
+06/20/2023 02:16:37 : [INFO] 10.118.168.23 successfully disconnected
+
+06/20/2023 03:06:29 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/20/2023 03:11:46 : [INFO] CS Deployment is successful
+06/20/2023 03:11:47 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+06/20/2023 03:12:04 : [INFO] CS Deployment is completed
+06/20/2023 03:12:05 : [INFO] 10.118.168.23 successfully disconnected
+
+06/22/2023 01:09:54 : [ERROR] 6/22/2023 1:09:54 AM	Connect-VIServer		No such host is known. (sjdfgsd:443)	
+06/22/2023 06:19:46 : [INFO] vCenter 10.118.168.23 successfully connected
+
+06/22/2023 06:23:52 : [INFO] CS Deployment is successful
+06/22/2023 06:23:53 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=192000; Datastore=vsanDatastore}
+06/22/2023 06:24:34 : [INFO] CS Deployment is completed
+06/22/2023 06:24:34 : [INFO] 10.118.168.23 successfully disconnected
+
+07/06/2023 23:56:03 : [ERROR] The process cannot access the file 'C:\Users\crauser\AppData\Roaming\VMware\PowerCLI\PowerCLI_Settings.xml' because it is being used by another process.
+07/07/2023 00:25:46 : [INFO] vCenter 10.118.168.23 successfully connected
+
+07/07/2023 00:29:54 : [INFO] CS Deployment is successful
+07/07/2023 00:29:54 : [INFO] @{VMName=cs_test; IPAddress=10.118.168.232; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+07/07/2023 00:30:11 : [WARNING] CS Deployment is completed but password hasn't changed
+07/07/2023 00:30:11 : [INFO] 10.118.168.23 successfully disconnected
+
+07/07/2023 01:02:40 : [INFO] vCenter 10.118.168.23 successfully connected
+
+07/07/2023 01:08:04 : [INFO] CS Deployment is successful
+07/07/2023 01:08:04 : [INFO] @{VMName=cs_test; IPAddress=10.118.168.232; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+07/07/2023 01:08:22 : [INFO] CS Deployment is completed
+07/07/2023 01:08:23 : [INFO] 10.118.168.23 successfully disconnected
+
+07/11/2023 08:44:01 : [INFO] vCenter 10.118.168.23 successfully connected
+
+07/11/2023 08:47:27 : [INFO] CS Deployment is successful
+07/11/2023 08:47:27 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+07/11/2023 08:47:52 : [INFO] CS Deployment is completed
+07/11/2023 08:47:52 : [INFO] 10.118.168.23 successfully disconnected
+
+07/13/2023 02:14:34 : [INFO]  connected to Esxi Host
+
+07/13/2023 02:19:50 : [INFO] CS Deployment is successful
+07/13/2023 02:19:51 : [INFO] @{VMName=test_cybersense2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=Datastore_2TB}
+07/13/2023 02:20:13 : [INFO] CS Deployment is completed
+07/13/2023 02:20:13 : [INFO] 10.118.168.80 successfully disconnected
+
+08/22/2023 06:18:44 : [INFO] vCenter 10.118.168.23 successfully connected
+
+08/22/2023 06:22:13 : [INFO] CS Deployment is successful
+08/22/2023 06:22:14 : [INFO] @{VMName=cs_test; IPAddress=10.118.168.61; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+08/22/2023 06:22:43 : [INFO] CS Deployment is completed
+08/22/2023 06:22:43 : [INFO] 10.118.168.23 successfully disconnected
+

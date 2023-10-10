@@ -1,0 +1,42 @@
+<!-- input type="file" id="file-input" />
+<button id="read-button">Read File</button>
+<pre id="file-contents"></pre>
+
+<script>
+	document.querySelector("#read-button").addEventListener('click', function() {
+        let file = document.querySelector("#file-input").files[0];
+        console.log(file)
+		let reader = new FileReader();
+		reader.addEventListener('load', function(e) {
+	    		let text = e.target.result;
+	    		document.querySelector("#file-contents").textContent = text;
+		});
+		reader.readAsText('file:///C:/Users/GuruRaja_Joshi/Downloads/UIAutomation/Statusfiles/CRDeploymentStatus.txt');
+	});
+
+    
+
+</script -->
+
+
+<input type="file" id="fileInput" style="display: none;">
+<script>
+  var fileInput = document.getElementById("fileInput");
+
+  function handleFile(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      var fileContents = event.target.result;
+      console.log(fileContents);
+      // Do something with the file contents
+    };
+
+    reader.readAsText(file); // Read the file as text
+  }
+
+  // Programmatically trigger file selection
+  fileInput.addEventListener("change", handleFile);
+  fileInput.click();
+</script>

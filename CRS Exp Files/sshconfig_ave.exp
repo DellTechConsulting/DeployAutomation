@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+set rootpass [lindex $argv 0];
+spawn su - 
+expect "Password:"
+send "$rootpass\r"
+send "sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config\r"
+send "sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config\r"
+send "service sshd restart\r"
+expect eof

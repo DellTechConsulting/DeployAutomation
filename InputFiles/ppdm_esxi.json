@@ -1,0 +1,33 @@
+{
+  "esxidata": [
+    {
+      "esxiServer": "10.118.168.80",
+      "username": "root",
+      "password": "Welcome@123"
+    }
+  ],
+  "deploymentType": "ESXi",
+  "ppdmdata": [
+    {
+      "VMName": "ppdm_test1",
+      "ovaPath": "E:\\CR_Automation_Files\\PPDM_ova\\dellemc-ppdm-sw-19.12.0-19.ova",
+      "fqdn": "PPDM.localhost",
+      "DiskStorageFormat": "thin",
+      "Network": "VM Network",
+      "netmask": "255.255.254.0",
+      "ipv4": "10.118.168.234",
+      "Datastore": "vsanDatastore",
+      "gateway": "10.118.168.1",
+      "dns": "",
+      "ntp": "",
+      "timezone": "Africa/Dar_es_Salaam",
+      "applicationUserPassword": "Charl1E#2022",
+      "defaultLockboxpassphrase": "Ch@ngeme1",
+      "newLockboxpassphrase": "Charl1E#2022",
+      "defaultRootpassword": "changeme",
+      "newRootPassword": "Charl1E#2022",
+      "defaultAdminpassword": "@ppAdm1n",
+      "newAdminPassword": "Charl1E#2022"
+    }
+  ]
+}
