@@ -3336,9 +3336,9 @@ input[type="button"].btn-block {
   opacity: 0;
 }
 
-.collapse:not(.show) {
+/* .collapse:not(.show) {
   display: none;
-}
+} */
 
 .collapsing {
   position: relative;
@@ -4537,6 +4537,7 @@ input[type="button"].btn-block {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  width: 100%;
 }
 .navbar > .container,
 .navbar > .container-fluid {
@@ -11075,6 +11076,10 @@ span.round-tab i{
 .wizard .tab-pane {
     position: relative;
     padding-top: 20px;
+}
+
+.error-msg{
+  color: red;
 }
 
 

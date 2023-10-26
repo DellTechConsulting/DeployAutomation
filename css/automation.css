@@ -112,7 +112,8 @@ span.button.active {
 }
 
 #ddve-install .input-group-text,
-#ddve-install-form .input-group-text {
+#ddve-install-form .input-group-text,
+#open-stack-provisioning-install-form .input-group-text {
   width: 165px;
 }
 

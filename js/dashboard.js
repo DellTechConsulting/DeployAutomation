@@ -1,24 +1,6 @@
 $(document).ready(function () {
-  
-/*var randomChars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var result1 = "";
-  var randomLength = 10
-  for (var i = randomLength; i > 0; --i)
-      result1 += randomChars[Math.floor(Math.random() * randomChars.length)];
-
-  var scripts =  document.getElementsByTagName('script');
-  var torefreshs = ['automation.js', 'dashboard.js'] ; // list of js to be refresh
-  var key = result1; // change this key every time you want force a refresh
-  for(var i=0;i<scripts.length;i++){ 
-    for(var j=0;j<torefreshs.length;j++){ 
-        alert(scripts[i].src)
-        if(scripts[i].src && (scripts[i].src.indexOf(torefreshs[j]) > -1)){
-          new_src = scripts[i].src.replace(torefreshs[j],torefreshs[j] + '?k=' + result1 );
-          scripts[i].src = new_src; // change src in order to refresh js
-        } 
-    }
-  }*/
-
+  // $("#logs").modal()
+  // $("#status-ABORTED").show()
   $("#cr-form-1 > input[type='hidden']").each(function(){ $(this).val('') })
   $("#runbook").click(function(){
     var formStepElements = document.querySelectorAll(".form-step");
@@ -1053,7 +1035,7 @@ $(document).ready(function () {
     $("#step-1").attr('is-modified',1)
     $("#final-step").attr('is-modified',1)
 
-    if($(".components1.active > a").attr('val') != "Storage"){     
+    if($(".components1.active > a").attr('val') == "CyberRecovery"){     
       console.log($("#cr-form-1 input:checkbox:checked").length)
       var steps_starts = 2;
       var step_forms = {
@@ -1105,7 +1087,7 @@ $(document).ready(function () {
           }
       })
       navigateToFormStep(2);
-    }else{
+    }else if($(".components1.active > a").attr('val') == "Storage"){
       
       if($("input[name='storage-radio']:checked").val() == "power-scale-form"){
         var steps_starts = 12;
@@ -1146,6 +1128,50 @@ $(document).ready(function () {
           }
       })
       navigateToFormStep(13);
+
+      }
+
+      
+    }else if($(".components1.active > a").attr('val') == "OpenStack"){
+      
+      if($("input[name='open-stack-radio']:checked").val() == "open-stack-form1"){
+        var steps_starts = 14;
+        var btn="open-stack-install-form-btn";
+        var stp = 14
+        $("#step-"+stp).attr('is-modified',1)          
+        $("#step-"+stp).attr('id', "step-"+steps_starts)
+        $("#"+btn+"1").attr("step_number", 1)
+        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
+        $("#"+btn).removeAttr("step")
+        $("section").each(function(){
+          
+          if($(this).attr('is-modified')!="1"){
+            console.log($(this).attr('id'), $(this).attr('is-modified'))
+            $(this).find('form').attr('is-skip', 1)
+            $(this).removeAttr('id')
+          }
+      })
+      navigateToFormStep(14);
+
+      }else if($("input[name='open-stack-radio']:checked").val() == "open-stack-form2"){
+         var steps_starts = 15;
+        var btn="open-stack-provisioning-install-form-btn";
+        var stp = 15
+        $("#step-"+stp).attr('is-modified',1)          
+        $("#step-"+stp).attr('id', "step-"+steps_starts)
+        $("#"+btn+"1").attr("step_number", 1)
+        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
+        $("#"+btn).removeAttr("step")
+
+        $("section").each(function(){
+          
+          if($(this).attr('is-modified')!="1"){
+            console.log($(this).attr('id'), $(this).attr('is-modified'))
+            $(this).find('form').attr('is-skip', 1)
+            $(this).removeAttr('id')
+          }
+      })
+      navigateToFormStep(15);
 
       }
 
@@ -1445,7 +1471,7 @@ function formDataFill(formName, rowName){
 function powerEdgeAutomation(){
   console.log("test")
   try{
-    finalStep1()
+    finalStep1("power-edge")
     var formInput = $("#power-edge-form-1").serializeArray();
     console.log(formInput)
     var d = {}
@@ -1525,20 +1551,142 @@ function powerEdgeStatus(id){
     xhr.send();
 }
 
-function finalStep1() {
+function finalStep1(form) {
   var final = document.querySelector(".form-step#final-step")
   final.classList.remove("d-none")
-  $("#step-1").addClass("d-none")
+  $("#step-1, #step-14, #step-15" ).addClass("d-none")
   var formStepElements1 = document.querySelectorAll(".form-step#final-step > .p-31 > .dl-deployment-state > div")
   var htmlContent = "";
   for (var i = 0; i < formStepElements1.length; i++) {
     var id = formStepElements1[i].getAttribute("id");
-    if(id!="power-edge"){
+    
+    if(id!=form){
       formStepElements1[i].classList.add("d-none")
       console.log(formStepElements1[i])
     }
   }
 }
+
+function openStackStatus(job_name, type){
+    //if(Number(running_id) != 0)
+    {
+        openStackRequest("GET", "http://10.118.168.45:8080/job/"+job_name+"/lastBuild/api/json?_="+ (new Date()).getTime(), '', function( err, response ) {
+        // Do your post processing here. 
+        var r = JSON.parse(response)
+        // alert(JSON.stringify(r))
+        // alert(job_name)
+        // alert(type)
+        //for(i=0; i<r.length;i++)
+        {
+          document.getElementById('hidden-'+type+'-id').value = r['id']
+          if(r['result'] && r['inProgress'] == false)
+          {
+           
+            if(r['result'] == "SUCCESS"){
+              statusList("#"+type+" .card", "dl-running", "dl-success", 2);
+              document.getElementById("hidden-"+type+"-status").value = r['result']
+            }else if(r['result'] == "FAILURE" || r['result'] == "ABORTED"){
+              statusList("#"+type+" .card", "dl-running", "dl-error", 3);
+              document.getElementById("hidden-"+type+"-status").value = r['result']
+            }
+          }        
+        }
+      })
+    }
+    
+}
+
+$(".open-stack-download-logs").click(function(){
+   var id = $(this).attr('data-value')
+   var job_name = $(this).attr('data-job')
+   var running_id1 = document.getElementById("hidden-"+id+"-id").value
+   var open_stack_status = document.getElementById("hidden-"+id+"-status").value
+   $("#status-"+open_stack_status).show()
+   //$("#logsLabel").html('OpenStack Deployment Logs')
+    openStackRequest("GET", "http://10.118.168.45:8080/job/"+job_name+"/"+running_id1+"/consoleText", '', function( err, response ) {
+        $("#logsData").html(response)  
+    })
+})
+
+function openStackRequest( httpMethod, url,data,  callback ) {
+    var xhr = new XMLHttpRequest();
+    xhr.open( httpMethod, url );
+    var auth = btoa("jenkinuser:113b068b59e2e2441d5cfb4e9f23322e99")
+
+    xhr.setRequestHeader("Authorization", "Basic "+auth)
+    xhr.onload = function() {
+        callback( null, xhr.response );
+    }; 
+
+    xhr.onerror = function() {
+        callback( xhr.response );
+    };
+    if(data)
+      xhr.send(data);
+    else
+      xhr.send()
+  }
+
+  function submitOpenStackProvisioningForm(form){
+    var data = new FormData()
+    data.append('OpenStack_Project', document.querySelector('#'+form+' input[name="open_stack_project"]').value)
+    data.append('Openstack_Image', document.querySelector('#'+form+' input[name="openstack_image"]').value)
+    data.append('Flavor', document.querySelector('#'+form+' input[name="flavor"]').value)
+    data.append('Security_Group', document.querySelector('#'+form+' input[name="security_group"]').value)
+    data.append('Number_Of_Instances', document.querySelector('#'+form+' input[name="number_of_instances"]').value)
+    finalStep1('open-stack-provisioning')
+    openStackRequest("POST", 'http://10.118.168.45:8080/job/OpenStackLab/buildWithParameters', data, function( err, response ) {
+      setTimeout(function(){
+        var openStackStatusInterval1 = setInterval(function () {
+          var openStackStatus_1 = document.getElementById("hidden-open-stack-provisioning-status").value // $("#hidden-power-edge-status").val();
+          //alert("STATUS::"+openStackStatus_1)
+          if (openStackStatus_1 == "SUCCESS" || openStackStatus_1 == "FAILURE" ||  openStackStatus_1 == "ABORTED" ) {
+            clearInterval(openStackStatusInterval1)
+          }else{
+            openStackStatus('OpenStackLab', 'open-stack-provisioning')
+          }          
+        }, 3000);
+      }, 10000)
+  })
+
+  }
+function submitOpenStackForm(form){
+  document.querySelector("#"+form+" .server-ip-error-msg").classList.add("d-none");
+  var server_ip = document.querySelector(
+      '#'+form+' input[name="server_ip"]'
+    ).value;
+  if(!ValidateIPaddress(server_ip)){
+    document.querySelector("#"+form+" .server-ip-error-msg").classList.remove("d-none");
+    return false
+  }
+
+  finalStep1('open-stack')
+  var data = new FormData();
+  data.append("OPENSTACK_SERVER", server_ip);
+  openStackRequest("POST", 'http://10.118.168.45:8080/job/OpenStack_Deploy/buildWithParameters', data, function( err, response ) {
+      setTimeout(function(){
+        var openStackStatusInterval = setInterval(function () {
+          var openStackStatus_ = document.getElementById("hidden-open-stack-status").value // $("#hidden-power-edge-status").val();
+          if (openStackStatus_ == "SUCCESS" || openStackStatus_ == "FAILURE" ||  openStackStatus_ == "ABORTED" ) {
+            clearInterval(openStackStatusInterval)
+          }else{
+            openStackStatus('OpenStack_Deploy', 'open-stack')
+          }          
+        }, 3000);
+      }, 10000)
+  })
+}
+
+function ValidateIPaddress(ipaddress) {  
+  if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress)) {  
+    return true  
+  }  
+  return false
+}  
+
+
+
+
 
 
 
