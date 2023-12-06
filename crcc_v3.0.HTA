@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/automation.css" />
     <link rel="stylesheet" href="./css/multi_step_form.css" />
     <link href="./fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
 
 
     <!-- <script src="./js/jquery.min.js"></script> -->
@@ -45,6 +45,9 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active components1">
+          <a class="nav-link components" href="#" val="GenAI">GenAI Deploy Automation </a>
+        </li>
+        <li class="nav-item components1">
           <a class="nav-link components" href="#" val="Storage">Storage Deploy Automation </a>
         </li>
         <li class="nav-item components1">
@@ -368,7 +371,7 @@
                                                       
                                                     </div>
 
-                                                    <div class="col-sm-4 mb-4 storage-deploy-card">
+                                                    <div class="col-sm-4 mb-4 storage-deploy-card d-none">
                                                         
                                                         <div class="card custom-control custom-radio iconSelect mr-2">
                                                             <div class="card-body">
@@ -384,7 +387,7 @@
                                                             </div>
                                                           </div>
                                                     </div>
-                                                    <div class="col-sm-4 mb-4 storage-deploy-card">
+                                                    <div class="col-sm-4 mb-4 storage-deploy-card d-none">
                                                         
                                                         <div class="card custom-control custom-radio iconSelect mr-2">
                                                             <div class="card-body">
@@ -437,6 +440,42 @@
                                                         <!-- End-Checkbox Hightlight -->
                                                       
                                                     </div>
+                                                    <div class="col-sm-4 mb-4 gen-ai-card">
+                                                        
+                                                        
+                                                        <div class="card custom-control custom-radio iconSelect mr-2">
+                                                            <div class="card-body">
+                                                                <input type="radio" id="customCheck21" name="gen-ai-radio" value="gen-ai-form1" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheck21">
+                                                              <div class="mt-1">
+                                                                    <div><i class="bi bi-database-gear"></i></div>
+                                                                    <h5>OS Deploymemt Automation</h5>                                                                      
+                                                              </div>
+                                                              <div class="dl-custom-label-div"></div>
+                                                            </label>
+                                                            </div>
+                                                          </div>
+                                                        <!-- End-Checkbox Hightlight -->
+                                                      
+                                                    </div>
+                                                    <div class="col-sm-4 mb-4 gen-ai-card">
+                                                        
+                                                        
+                                                        <div class="card custom-control custom-radio iconSelect mr-2">
+                                                            <div class="card-body">
+                                                                <input type="radio" id="customCheck22" name="gen-ai-radio" value="gen-ai-form2" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheck22">
+                                                              <div class="mt-1">
+                                                                    <div><i class="bi bi-database-gear"></i></div>
+                                                                    <h5>Kubernetes Cluster Deploymemt</h5>                                                                      
+                                                              </div>
+                                                              <div class="dl-custom-label-div"></div>
+                                                            </label>
+                                                            </div>
+                                                          </div>
+                                                        <!-- End-Checkbox Hightlight -->
+                                                      
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
@@ -454,7 +493,7 @@
 
                                 <div class="m-3 d-none" id="power-edge-div-1">
                                 <form id="power-edge-form-1"
-                                    onsubmit="powerEdgeAutomation();return false"  is-skip="0">
+                                    onsubmit="GenAIAutomation('power-edge', 'power-edge-form-1', '122', 'hidden-power-edge-status');return false"  is-skip="0">
                                     <div class="card mb-4" style="padding-top: 0">
                                         <h5 class="card-title"
                                             style="width: 200px; text-align: center; font-size: 12px">
@@ -547,6 +586,27 @@
 "><span
                                                             class="mandatory">*</span>Template Description</span>
                                                     <input type="text" name="var_template_description" class="form-control"
+                                                        required="" value="">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" for="password" style="
+    width: 300px;
+"><span
+                                                            class="mandatory">*</span>NFS Share Name</span>
+                                                    <input type="text" name="nfs_share_name" class="form-control"
+                                                        required="" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" for="password" style="
+    width: 300px;
+"><span
+                                                            class="mandatory">*</span>ISO Image Name</span>
+                                                    <input type="text" name="iso_image_name" class="form-control"
                                                         required="" value="">
                                                 </div>
                                             </div>
@@ -4614,6 +4674,7 @@
                                     </form>
                                 </div>
                             </section>
+
                             
                             <!-- Step 8 Content, default hidden on page load. -->
                             <section is-modified="0" id="step-15"  class="form-step d-none" section-text="open-stack-provisioning"  status-id="open-stack-provisioning-status">
@@ -4692,6 +4753,301 @@
                                             </button>
                                             <button type="button" class="btn btn-secondary"
                                                 onclick="ResetForm('open-stack-provisioning-install-form-form');">
+                                                <i class="bi bi-arrow-counterclockwise"></i> Reset
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </section>
+
+                            <!-- Step 8 Content, default hidden on page load. -->
+                            <section is-modified="0" id="step-16"  class="form-step d-none" section-text="gen-ai"  status-id="gen-ai-status">
+                                <div class="jumbotron dl-finaldeployment">
+                                    <div class="container" style="float:left">
+                                    <h1 class="display-3">OS Deployment Automation</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
+                                        <div class="logoimg"> <span>Powered By</span></div>
+                                    </div>
+                                </div>
+                                <!-- Step 8 input fields -->
+                                <div class="m-3">
+                                    <form id="os-install-form"
+                                        onsubmit="GenAIAutomation('gen-ai-os-deployment', 'os-install-form', '124', 'hidden-gen-ai-os-deployment-status');return false"  is-skip="0">
+                                        <div class="card mb-4" style="padding-top: 0">
+                                            <h5 class="card-title"
+                                                style="width: 150px; text-align: center; font-size: 12px">
+                                                OS Deploymemt
+                                            </h5>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="server" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Working Dir</span>
+                                                        <input type="text" name="Workingdir" class="form-control" required="" value="/home/ansibleuser/u22.04-autoinstall-ISO">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Ubuntu ISO</span>
+                                                        <input type="text" name="UbuntuISO" class="form-control" required="" value="jammy-live-server-amd64.iso">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Ubuntu ISO URL</span>
+                                                        <input type="text" name="UbuntuISO_URL" class="form-control" required="" value="https://cdimage.ubuntu.com/ubuntu-server/jammy/daily-live/current/ ">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>User</span>
+                                                        <input type="text" name="User" class="form-control" required="" value="ubuntu">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Password</span>
+                                                        <input type="password" name="Password" class="form-control" required="" value="$6$xXvyPo2gocgaO1$hcVjDjPJMJ6qLVX/oGkU/RKK8OgTzI06//kKuMsDeNiPFabpLdOe0dyzOj5PYuvyRyNtHATFVyT.EYAP6RUHU1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Host Name</span>
+                                                        <input type="text" name="Hostname" class="form-control"
+                                                            required="" value="ubuntu-server01">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>ISO Image</span>
+                                                        <input type="text" name="ISO_Image" class="form-control"
+                                                            required="" value="ubuntu-22.04-autoinstall">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IPv4Address</span>
+                                                        <input type="text" name="IPv4Address" class="form-control"
+                                                            required="" value="10.118.166.32/24">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IPv4Gateway</span>
+                                                        <input type="text" name="IPv4Gateway" class="form-control"
+                                                            required="" value="10.118.166.1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Nameservers</span>
+                                                        <input type="text" name="Nameservers" class="form-control"
+                                                            required="" value="10.118.225.100">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IDRAC IP</span>
+                                                        <input type="text" name="idrac_ip" class="form-control"
+                                                            required="" value="10.118.168.46">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IDRAC User</span>
+                                                        <input type="text" name="idrac_user" class="form-control"
+                                                            required="" value="root">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IDRAC Password</span>
+                                                        <input type="password" name="idrac_password" class="form-control"
+                                                            required="" value="password">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>NFS Share Path</span>
+                                                        <input type="text" name="NFS_share_path" class="form-control"
+                                                            required="" value="/nfs_share/isoimage/">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>NFS Share Name</span>
+                                                        <input type="text" name="NFS_share_name" class="form-control"
+                                                            required="" value="10.118.168.240:/nfs_share/isoimage/">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-buttons-cs">
+                                            <!-- <button class="btn btn-primary skip-btn" type="button" skip-finish="1">Skip & Finish</button> -->
+                                            <button class="btn btn-primary btn-navigate-form-step" type="button"
+                                                step_number="10" id="os-install-form-btn1">Prev</button>
+                                            <button type="submit" class="btn btn-primary" id="os-install-form-btn">
+                                                <i class="bi bi-play"></i> Finish
+                                            </button>
+                                            <button type="button" class="btn btn-secondary"
+                                                onclick="ResetForm('os-install-form-form');">
+                                                <i class="bi bi-arrow-counterclockwise"></i> Reset
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </section>
+
+                            <!-- Step 8 Content, default hidden on page load. -->
+                            <section is-modified="0" id="step-17"  class="form-step d-none" section-text="gen-ai"  status-id="gen-ai-status">
+                                <div class="jumbotron dl-finaldeployment">
+                                    <div class="container" style="float:left">
+                                    <h1 class="display-3">Kubernetes Cluster Deployment</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
+                                        <div class="logoimg"> <span>Powered By</span></div>
+                                    </div>
+                                </div>
+                                <!-- Step 8 input fields -->
+                                <div class="m-3">
+                                    <form id="kubernetes-cluster-install-form"
+                                        onsubmit="GenAIAutomation('gen-ai-kubernetes-cluster-deployment', 'kubernetes-cluster-install-form', '157', 'hidden-gen-ai-kubernetes-cluster-deployment-status');return false"  is-skip="0">
+                                        <div class="card mb-4" style="padding-top: 0">
+                                            <h5 class="card-title"
+                                                style="width: 150px; text-align: center; font-size: 12px">
+                                                Kubernetes Cluster
+                                            </h5>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="server" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Master IP</span>
+                                                        <input type="text" name="master_ip" class="form-control" required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 285px;
+    "><span
+                                                                class="mandatory">*</span>Worker IP</span>
+                                                        <div class="col-md-4">
+                                                           <input type="text" name="worker_ips[]" class="form-control" required="" value="">
+                                                        
+                                                        </div>
+                                                        <a class="btn btn-primary " id="add-worker-ip" current-value="2">Add Worker IP</a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="new-worker-ips">
+                                                    
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Master User</span>
+                                                        <input type="text" name="master_user" class="form-control" required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Master Password</span>
+                                                        <input type="password" name="master_password" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Worker User</span>
+                                                        <input type="text" name="worker_user" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Worker Password</span>
+                                                        <input type="password" name="worker_password" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-buttons-cs">
+                                            <!-- <button class="btn btn-primary skip-btn" type="button" skip-finish="1">Skip & Finish</button> -->
+                                            <button class="btn btn-primary btn-navigate-form-step" type="button"
+                                                step_number="10" id="kubernetes-cluster-install-form-btn1">Prev</button>
+                                            <button type="submit" class="btn btn-primary" id="kubernetes-cluster-install-form-btn">
+                                                <i class="bi bi-play"></i> Finish
+                                            </button>
+                                            <button type="button" class="btn btn-secondary"
+                                                onclick="ResetForm('kubernetes-cluster-install-form-form');">
                                                 <i class="bi bi-arrow-counterclockwise"></i> Reset
                                             </button>
                                         </div>
@@ -5116,6 +5472,86 @@
                                                 </div>
                                             </div>
                                         </div>
+                                         <div class="col-sm-3 mb-4" id="gen-ai-os-deployment">
+                                            <input type="hidden" id="hidden-gen-ai-os-deployment-status" value="pending">
+                                            <div class="card dl-status dl-progress">
+                                                <div class="card-body">
+                                                <div class="dep-icon"><i class="bi bi-globe"></i></div>
+                                                <h5>OS Deploy Automation</h5>
+                                                </div>
+                                                <div class="dl-msg">
+                                                    <div class="spinner-border" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                    <span>Deployment in progress</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <span>Not selected for deployment</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Completed Successfully &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-x-lg"></i> 
+                                                    <span>Deploymemt Error  &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Deploymemt is running  &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    </span>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>   
+                                        <div class="col-sm-3 mb-4" id="gen-ai-kubernetes-cluster-deployment">
+                                            <input type="hidden" id="hidden-gen-ai-kubernetes-cluster-deployment-status" value="pending">
+                                            <div class="card dl-status dl-progress">
+                                                <div class="card-body">
+                                                <div class="dep-icon"><i class="bi bi-globe"></i></div>
+                                                <h5>Kubernetes Cluster Deploy Automation</h5>
+                                                </div>
+                                                <div class="dl-msg">
+                                                    <div class="spinner-border" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                    <span>Deployment in progress</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <span>Not selected for deployment</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Completed Successfully &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-x-lg"></i> 
+                                                    <span>Deploymemt Error  &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Deploymemt is running  &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    </span>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>    
                                     </div>
                                 </div>
                             </section>

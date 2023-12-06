@@ -2735,6 +2735,21 @@ fieldset:disabled a.btn {
   background-color: #0069d9;
   border-color: #0062cc;
 }
+
+
+a.btn-primary {
+  color: #fff !important;
+  background-color: #007bff;
+  border-color: #007bff;
+  cursor: pointer;
+}
+a.btn-primary:hover {
+  color: #fff !important;
+  background-color: #0069d9;
+  border-color: #0062cc;
+  cursor: pointer;
+}
+
 .btn-primary:focus,
 .btn-primary.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);

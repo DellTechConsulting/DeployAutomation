@@ -2,6 +2,31 @@ $(document).ready(function () {
   // $("#logs").modal()
   // $("#status-ABORTED").show()
   $("#cr-form-1 > input[type='hidden']").each(function(){ $(this).val('') })
+  
+$("#add-worker-ip").click(function(e){
+  e.preventDefault()
+  console.log($(this).attr("current-value"))
+  var current_value = $(this).attr("current-value")
+
+  $(".new-worker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
+                                '<div class="input-group mb-3">'+
+                                    '<span class="input-group-text" for="username" style="width: 285px;">'+
+                                     '<span class="mandatory">*</span>Worker IP</span>'+
+                                        '<div class="col-md-4">'+
+                                           '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
+                                         '</div>'+ '<a class="btn btn-primary" id="remove-worker-ip'+current_value+'" remove-value="'+current_value+'">Remove</a></div></div>')
+  $(this).attr("current-value", Number(current_value) + 1)
+
+  $("#remove-worker-ip"+current_value).click(function(e){
+    e.preventDefault()
+    var remove_value = $(this).attr("remove-value")
+    $(".added_worker_ip"+remove_value).remove()
+  })
+
+})
+
+
+
   $("#runbook").click(function(){
     var formStepElements = document.querySelectorAll(".form-step");
     for (var i = 0; i < formStepElements.length; i++) {
@@ -1176,6 +1201,49 @@ $(document).ready(function () {
       }
 
       
+    }else if($(".components1.active > a").attr('val') == "GenAI"){
+      if($("input[name='gen-ai-radio']:checked").val() == "gen-ai-form1"){
+        var steps_starts = 16;
+        var btn="os-install-form-btn";
+        var stp = 16
+        $("#step-"+stp).attr('is-modified',1)          
+        $("#step-"+stp).attr('id', "step-"+steps_starts)
+        $("#"+btn+"1").attr("step_number", 1)
+        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
+        $("#"+btn).removeAttr("step")
+        $("section").each(function(){
+          
+          if($(this).attr('is-modified')!="1"){
+            console.log($(this).attr('id'), $(this).attr('is-modified'))
+            $(this).find('form').attr('is-skip', 1)
+            $(this).removeAttr('id')
+          }
+      })
+      navigateToFormStep(16);
+
+      }else if($("input[name='gen-ai-radio']:checked").val() == "gen-ai-form2"){
+         var steps_starts = 17;
+        var btn="kubernetes-cluster-install-form-btn";
+        var stp = 17
+        $("#step-"+stp).attr('is-modified',1)          
+        $("#step-"+stp).attr('id', "step-"+steps_starts)
+        $("#"+btn+"1").attr("step_number", 1)
+        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
+        $("#"+btn).removeAttr("step")
+
+        $("section").each(function(){
+          
+          if($(this).attr('is-modified')!="1"){
+            console.log($(this).attr('id'), $(this).attr('is-modified'))
+            $(this).find('form').attr('is-skip', 1)
+            $(this).removeAttr('id')
+          }
+      })
+      navigateToFormStep(17);
+
+      }
+
+      
     }
     
     return false;
@@ -1377,41 +1445,31 @@ $(document).ready(function () {
     $(".components1").removeClass("active")
     var v_ = $(this).attr('val')
     $(this).parent().addClass("active")
-    $(".cyber-protect").hide()
-    $(".cyber-protect").addClass('d-none')
-
-    $(".storage-deploy-card").hide()
-    $(".storage-deploy-card").addClass('d-none')
-    $("#power-edge-div-1").hide()
-    $("#power-edge-div-1").addClass('d-none')
-
-
-    $(".form-buttons-cs1").addClass('d-none')
-    $(".form-buttons-cs1").hide()
-
-    $(".open-stack-deploy-card").hide()
-      $(".open-stack-deploy-card").addClass('d-none')
+    $(".cyber-protect").hide().addClass('d-none')
+    $(".storage-deploy-card").hide().addClass('d-none')
+    $("#power-edge-div-1").hide().addClass('d-none')
+    $(".form-buttons-cs1").addClass('d-none').hide()
+    $(".open-stack-deploy-card").hide().addClass('d-none')
+    $(".gen-ai-card").hide().addClass('d-none')
 
     if(v_ == "CyberRecovery"){
-      $(".cyber-protect").removeClass('d-none')
-      $(".cyber-protect").show()
-      $(".form-buttons-cs1").removeClass('d-none')
-      $(".form-buttons-cs1").show()
+      $(".cyber-protect").removeClass('d-none').show()
+      $(".form-buttons-cs1").removeClass('d-none').show()
     }else if(v_ == "PowerEdge"){
-      $("#power-edge-div-1").removeClass('d-none')
-      $("#power-edge-div-1").show()
+      $("#power-edge-div-1").removeClass('d-none').show()
     }else if(v_ == "Storage"){
-      $(".storage-deploy-card").show()
-      $(".storage-deploy-card").removeClass('d-none')
-      
-      $(".form-buttons-cs1").removeClass('d-none')
-      $(".form-buttons-cs1").show()
+      $(".storage-deploy-card").show().removeClass('d-none')
+      $(".form-buttons-cs1").removeClass('d-none').show()
     }else if(v_ == "OpenStack"){
-      $(".open-stack-deploy-card").show()
-      $(".open-stack-deploy-card").removeClass('d-none')
+      $(".open-stack-deploy-card").show().removeClass('d-none')
       
-      $(".form-buttons-cs1").removeClass('d-none')
-      $(".form-buttons-cs1").show()
+      $(".form-buttons-cs1").removeClass('d-none').show()
+      
+    }else if(v_ == "GenAI"){
+      $(".gen-ai-card").show().removeClass('d-none')
+      //$(".open-stack-deploy-card").removeClass('d-none')
+      
+      $(".form-buttons-cs1").removeClass('d-none').show()
       
     }
   })
@@ -1468,21 +1526,29 @@ function formDataFill(formName, rowName){
 
  
 }
-function powerEdgeAutomation(){
+function GenAIAutomation(statusCardId, formId, templeteId, hiddenStatusId){
   console.log("test")
   try{
-    finalStep1("power-edge")
-    var formInput = $("#power-edge-form-1").serializeArray();
+    finalStep1(statusCardId)
+    var formInput = $("#"+formId).serializeArray();
     console.log(formInput)
     var d = {}
     for (var i = 0; i<formInput.length; i++){
-      d[formInput[i]['name']] = formInput[i]['value'] 
+      if(formInput[i]['name'].includes('[]')){
+        if(d[formInput[i]['name'].replace("[]", "")] === undefined){
+          d[formInput[i]['name'].replace("[]", "")] = [formInput[i]['value'] ]
+        }else{
+          d[formInput[i]['name'].replace("[]", "")].push(formInput[i]['value'])
+        }        
+      }else{
+        d[formInput[i]['name']] = formInput[i]['value'] 
+      }
     }
     console.log(d)
     var x = {"extra_vars" : null}
     x["extra_vars"] = d
     var l = JSON.stringify(x)
-
+    
     xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
@@ -1492,18 +1558,18 @@ function powerEdgeAutomation(){
         
         //alert(document.getElementById("hidden-power-edge-status").value)
         var powerEdgeStatusInterval = setInterval(function () {
-          var powerEdgeStatus_ = document.getElementById("hidden-power-edge-status").value // $("#hidden-power-edge-status").val();
+          var powerEdgeStatus_ = document.getElementById(hiddenStatusId).value // $("#hidden-power-edge-status").val();
           if (powerEdgeStatus_ == "successful" || powerEdgeStatus_ == "failed" ) {
             clearInterval(powerEdgeStatusInterval)
           }else{
-            powerEdgeStatus(res['id'])
+            GenAIStatus(res['id'], statusCardId, hiddenStatusId)
           }
           
         }, 5000);        
       }
     });
 
-    xhr.open("POST", "http://10.118.168.44/api/v2/job_templates/122/launch/");
+    xhr.open("POST", "http://10.118.168.44/api/v2/job_templates/"+templeteId+"/launch/");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", "Basic YWRtaW46cGFzc3dvcmQ=");
 
@@ -1517,7 +1583,7 @@ function powerEdgeAutomation(){
   return false
 }
 
-function powerEdgeStatus(id){
+function GenAIStatus(id, statusCardId, hiddenStatusId){
     xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
@@ -1529,12 +1595,12 @@ function powerEdgeStatus(id){
         
         if(res['status'] == "successful"){
           //alert("status API suc::"+res['status'])
-          statusList("#power-edge .card", "dl-running", "dl-success", 2);
-          $("#hidden-power-edge-status").val("successful");
+          statusList("#"+statusCardId+" .card", "dl-running", "dl-success", 2);
+          $("#"+hiddenStatusId).val("successful");
         }else if(res['status'] == "failed"){
           //alert("status API failed::"+res['status'])
-          statusList("#power-edge .card", "dl-running", "dl-error", 3);
-          $("#hidden-power-edge-status").val("failed");
+          statusList("#"+statusCardId+" .card", "dl-running", "dl-error", 3);
+          $("#"+hiddenStatusId).val("failed");
         }
         // else if(res['status'] == "running"){
         //    statusList("#power-edge .card", "dl-progress", "dl-running", 4);
@@ -1554,7 +1620,7 @@ function powerEdgeStatus(id){
 function finalStep1(form) {
   var final = document.querySelector(".form-step#final-step")
   final.classList.remove("d-none")
-  $("#step-1, #step-14, #step-15" ).addClass("d-none")
+  $("#step-1, #step-14, #step-15, #step-16, #step-17" ).addClass("d-none")
   var formStepElements1 = document.querySelectorAll(".form-step#final-step > .p-31 > .dl-deployment-state > div")
   var htmlContent = "";
   for (var i = 0; i < formStepElements1.length; i++) {
@@ -1607,6 +1673,7 @@ $(".open-stack-download-logs").click(function(){
         $("#logsData").html(response)  
     })
 })
+
 
 function openStackRequest( httpMethod, url,data,  callback ) {
     var xhr = new XMLHttpRequest();
