@@ -1241,6 +1241,26 @@ $("#add-worker-ip").click(function(e){
       })
       navigateToFormStep(17);
 
+      }else if($("input[name='gen-ai-radio']:checked").val() == "gen-ai-form3"){
+         var steps_starts = 18;
+        var btn="power-edge-install-form-btn";
+        var stp = 18
+        $("#step-"+stp).attr('is-modified',1)          
+        $("#step-"+stp).attr('id', "step-"+steps_starts)
+        $("#"+btn+"1").attr("step_number", 1)
+        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
+        $("#"+btn).removeAttr("step")
+
+        $("section").each(function(){
+          
+          if($(this).attr('is-modified')!="1"){
+            console.log($(this).attr('id'), $(this).attr('is-modified'))
+            $(this).find('form').attr('is-skip', 1)
+            $(this).removeAttr('id')
+          }
+      })
+      navigateToFormStep(18);
+
       }
 
       
@@ -1534,13 +1554,14 @@ function GenAIAutomation(statusCardId, formId, templeteId, hiddenStatusId){
     console.log(formInput)
     var d = {}
     for (var i = 0; i<formInput.length; i++){
-      if(formInput[i]['name'].includes('[]')){
-        if(d[formInput[i]['name'].replace("[]", "")] === undefined){
-          d[formInput[i]['name'].replace("[]", "")] = [formInput[i]['value'] ]
-        }else{
-          d[formInput[i]['name'].replace("[]", "")].push(formInput[i]['value'])
-        }        
-      }else{
+      // if(formInput[i]['name'].includes('[]')){
+      //   if(d[formInput[i]['name'].replace("[]", "")] === undefined){
+      //     d[formInput[i]['name'].replace("[]", "")] = [formInput[i]['value'] ]
+      //   }else{
+      //     d[formInput[i]['name'].replace("[]", "")].push(formInput[i]['value'])
+      //   }        
+      // }else
+      {
         d[formInput[i]['name']] = formInput[i]['value'] 
       }
     }
@@ -1548,34 +1569,38 @@ function GenAIAutomation(statusCardId, formId, templeteId, hiddenStatusId){
     var x = {"extra_vars" : null}
     x["extra_vars"] = d
     var l = JSON.stringify(x)
-    
     xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function() {
-      if(this.readyState === 4) {        
-        var res = JSON.parse(this.responseText)
-        
-        //alert(document.getElementById("hidden-power-edge-status").value)
-        var powerEdgeStatusInterval = setInterval(function () {
-          var powerEdgeStatus_ = document.getElementById(hiddenStatusId).value // $("#hidden-power-edge-status").val();
-          if (powerEdgeStatus_ == "successful" || powerEdgeStatus_ == "failed" ) {
-            clearInterval(powerEdgeStatusInterval)
-          }else{
-            GenAIStatus(res['id'], statusCardId, hiddenStatusId)
-          }
-          
-        }, 10000);        
+      if(this.readyState === 4) {       
+        alert(this.responseText)
+        if(this.responseText)
+        {
+          var res = JSON.parse(this.responseText)
+          //alert(document.getElementById("hidden-power-edge-status").value)
+          var powerEdgeStatusInterval = setInterval(function () {
+            var powerEdgeStatus_ = document.getElementById(hiddenStatusId).value // $("#hidden-power-edge-status").val();
+            if (powerEdgeStatus_ == "successful" || powerEdgeStatus_ == "failed" ) {
+              clearInterval(powerEdgeStatusInterval)
+            }else{
+              GenAIStatus(res['id'], statusCardId, hiddenStatusId)
+            }
+            
+          }, 10000);
+        }else{
+          statusList("#"+statusCardId+" .card", "dl-running", "dl-error", 3);
+          $("#"+hiddenStatusId).val("failed");
+        }        
       }
     });
-
     xhr.open("POST", "http://10.118.168.44/api/v2/job_templates/"+templeteId+"/launch/");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", "Basic YWRtaW46cGFzc3dvcmQ=");
 
     xhr.send(l);
   }catch(e){
-    console.log(e)
+    alert("ERROR:::"+e)
   }
   
   
@@ -1592,7 +1617,6 @@ function GenAIStatus(id, statusCardId, hiddenStatusId){
         
         var res = JSON.parse(this.responseText)
 
-        
         if(res['status'] == "successful"){
           //alert("status API suc::"+res['status'])
           statusList("#"+statusCardId+" .card", "dl-running", "dl-success", 2);
@@ -1620,7 +1644,7 @@ function GenAIStatus(id, statusCardId, hiddenStatusId){
 function finalStep1(form) {
   var final = document.querySelector(".form-step#final-step")
   final.classList.remove("d-none")
-  $("#step-1, #step-14, #step-15, #step-16, #step-17" ).addClass("d-none")
+  $("#step-1, #step-14, #step-15, #step-16, #step-17, #step-18" ).addClass("d-none")
   var formStepElements1 = document.querySelectorAll(".form-step#final-step > .p-31 > .dl-deployment-state > div")
   var htmlContent = "";
   for (var i = 0; i < formStepElements1.length; i++) {
@@ -1629,6 +1653,8 @@ function finalStep1(form) {
     if(id!=form){
       formStepElements1[i].classList.add("d-none")
       console.log(formStepElements1[i])
+    }else{
+      formStepElements1[i].classList.remove("d-none")
     }
   }
 }

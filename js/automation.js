@@ -310,13 +310,18 @@ function finalStep() {
   var htmlContent = "";
   for (var i = 0; i < formStepElements1.length; i++) {
     var statusId = formStepElements1[i].getAttribute("status-id");
-    if(statusId != "power-scale-status"){
+    var status = ["cyber-recovery-status", 
+                  "cyber-sense-status", "data-domain-status", 
+                  "avamar-status", "networker-status", "networker-proxy-status", 
+                  "avamar-proxy-status", "data-manager-status", "ntp-status", "dns-status"] //, "power-scale-status", "open-stack", "open-stack-provisioning", "power-store-status"
+    //if(status.indexOf(statusId) == -1)
+    {
       var id = formStepElements1[i].getAttribute("id");
       var cardId = "#" + statusId + " .card";
       if (id != "step-1" && id != "final-step") {
-        if (formStepElements1[i].getAttribute("is-modified") == "1") {
-
+        if (formStepElements1[i].getAttribute("is-modified") == "1" && status.indexOf(statusId) > -1) {
           var status_id = formStepElements1[i].getAttribute("status-id"); //formStepElements1[i].getAttribute('status-id');
+          document.getElementById(status_id).classList.remove("d-none")
           if (
             formStepElements1[i].getAttribute("status-id") ==
             "cyber-recovery-status"
@@ -361,7 +366,8 @@ function finalStep() {
           ) {
             dnsStatus(status_id);
           }
-        } else {
+        } else if(status.indexOf(statusId) > -1){
+           document.getElementById(statusId).classList.remove("d-none")
           statusList(cardId, "dl-progress", "dl-inactive", 1);
         }
       }
@@ -406,6 +412,7 @@ function createXhrRequest(httpMethod, url, cardId, id) {
 }
 
 function statusList(cardId, statusFrom, statusTo, index) {
+  
   document.querySelector(cardId).classList.remove(statusFrom);
   document.querySelector(cardId).classList.add(statusTo);
   var dlMsgList = document.querySelectorAll(cardId + " .dl-msg");

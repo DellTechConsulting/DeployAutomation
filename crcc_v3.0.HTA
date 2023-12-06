@@ -53,9 +53,9 @@
         <li class="nav-item components1">
           <a class="nav-link components" href="#" val="CyberRecovery">CyberRecovery Deploy Automation</a>
         </li>
-        <li class="nav-item components1">
+        <!-- <li class="nav-item components1">
           <a class="nav-link components" href="#" val="PowerEdge">PowerEdge Deploy Automation</a>
-        </li>
+        </li> -->
         <li class="nav-item components1">
           <a class="nav-link components" href="#" val="OpenStack">OpenStack Deploy Automation</a>
         </li>
@@ -476,6 +476,24 @@
                                                         <!-- End-Checkbox Hightlight -->
                                                       
                                                     </div>
+                                                    <div class="col-sm-4 mb-4 gen-ai-card">
+                                                        
+                                                        
+                                                        <div class="card custom-control custom-radio iconSelect mr-2">
+                                                            <div class="card-body">
+                                                                <input type="radio" id="customCheck23" name="gen-ai-radio" value="gen-ai-form3" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheck23">
+                                                              <div class="mt-1">
+                                                                    <div><i class="bi bi-database-gear"></i></div>
+                                                                    <h5>PowerEdge Deploymemt</h5>                                                                      
+                                                              </div>
+                                                              <div class="dl-custom-label-div"></div>
+                                                            </label>
+                                                            </div>
+                                                          </div>
+                                                        <!-- End-Checkbox Hightlight -->
+                                                      
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
@@ -491,7 +509,7 @@
                                     </div>
                                 </form>
 
-                                <div class="m-3 d-none" id="power-edge-div-1">
+                                <!-- <div class="m-3 d-none" id="power-edge-div-1">
                                 <form id="power-edge-form-1"
                                     onsubmit="GenAIAutomation('power-edge', 'power-edge-form-1', '122', 'hidden-power-edge-status');return false"  is-skip="0">
                                     <div class="card mb-4" style="padding-top: 0">
@@ -613,9 +631,6 @@
                                     </div>
 
                                     <div class="form-buttons-cs">
-                                        <!-- <button class="btn btn-primary skip-btn" type="button" skip-finish="1">Skip & Finish</button> -->
-                                        <!-- <button class="btn btn-primary btn-navigate-form-step" type="button"
-                                            step_number="10" id="dns-install-form-btn1">Prev</button> -->
                                         <button type="submit" class="btn btn-primary" id="power-edge-form-btn">
                                             <i class="bi bi-play"></i> Submit
                                         </button>
@@ -625,8 +640,8 @@
                                         </button>
                                     </div>
 
-                                </form>
-                            </div>
+                                </form> 
+                            </div>-->
                             </div>
                         </section>
                         <div id="cyber-recovery-accelarator">
@@ -4762,7 +4777,7 @@
                             </section>
 
                             <!-- Step 8 Content, default hidden on page load. -->
-                            <section is-modified="0" id="step-16"  class="form-step d-none" section-text="gen-ai"  status-id="gen-ai-status">
+                            <section is-modified="0" id="step-16"  class="form-step d-none" section-text="gen-ai"  status-id="gen-ai-os-deployment">
                                 <div class="jumbotron dl-finaldeployment">
                                     <div class="container" style="float:left">
                                     <h1 class="display-3">OS Deployment Automation</h1>
@@ -4951,7 +4966,7 @@
                             </section>
 
                             <!-- Step 8 Content, default hidden on page load. -->
-                            <section is-modified="0" id="step-17"  class="form-step d-none" section-text="gen-ai"  status-id="gen-ai-status">
+                            <section is-modified="0" id="step-17"  class="form-step d-none" section-text="gen-ai"  status-id="gen-ai-kubernetes-cluster-deployment">
                                 <div class="jumbotron dl-finaldeployment">
                                     <div class="container" style="float:left">
                                     <h1 class="display-3">Kubernetes Cluster Deployment</h1>
@@ -5056,6 +5071,156 @@
                                 </div>
                             </section>
 
+                            
+                            <!-- Step 8 Content, default hidden on page load. -->
+                            <section is-modified="0" id="step-18"  class="form-step d-none" section-text="gen-ai"  status-id="power-edge">
+                                <div class="jumbotron dl-finaldeployment">
+                                    <div class="container" style="float:left">
+                                    <h1 class="display-3">PowerEdge Deploy Automation</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
+                                        <div class="logoimg"> <span>Powered By</span></div>
+                                    </div>
+                                </div>
+                                <!-- Step 8 input fields -->
+                                <div class="m-3">
+                                    <form id="power-edge-form-1"
+                                        onsubmit="GenAIAutomation('power-edge', 'power-edge-form-1', '122', 'hidden-power-edge-status');return false"  is-skip="0">
+                                        <div class="card mb-4" style="padding-top: 0">
+                                            <h5 class="card-title"
+                                                style="width: 150px; text-align: center; font-size: 12px">
+                                                PowerEdge
+                                            </h5>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="server" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>OME Hostname</span>
+                                                        <input type="text" name="ome_hostname" class="form-control" required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>OME Username</span>
+                                                        <input type="text" name="ome_username" class="form-control" required="" value="">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Discovery Jobname</span>
+                                                        <input type="text" name="var_job_name" class="form-control" required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IDRAC IP Range</span>
+                                                        <input type="text" name="var_ip_range" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>OME Device Type</span>
+                                                        <input type="text" name="var_device_type" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IDRAC Username</span>
+                                                        <input type="text" name="idrac_username" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Template Reference Device Service Tag</span>
+                                                        <input type="text" name="var_device_service_tag" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Template Name</span>
+                                                        <input type="text" name="var_template_name" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Template Description</span>
+                                                        <input type="text" name="var_template_description" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>NFS Share Name</span>
+                                                        <input type="text" name="nfs_share_name" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>ISO Image Name</span>
+                                                        <input type="text" name="iso_image_name" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="form-buttons-cs">
+                                            <!-- <button class="btn btn-primary skip-btn" type="button" skip-finish="1">Skip & Finish</button> -->
+                                            <button class="btn btn-primary btn-navigate-form-step" type="button"
+                                                step_number="10" id="power-edge-install-form-btn1">Prev</button>
+                                            <button type="submit" class="btn btn-primary" id="power-edge-install-form-btn">
+                                                <i class="bi bi-play"></i> Finish
+                                            </button>
+                                            <button type="button" class="btn btn-secondary"
+                                                onclick="ResetForm('power-edge-install-form-form');">
+                                                <i class="bi bi-arrow-counterclockwise"></i> Reset
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </section>
+
                             <!--Final Step-->
                             <!-- Step 8 Content, default hidden on page load. -->
                             <section id="final-step"  class="form-step bg-custom d-none">
@@ -5070,7 +5235,7 @@
                                 <h2 class="section-heading d-none">Deployment Status</h2>
                                 <div class="p-3 p-31">
                                     <div class="row dl-deployment-state" style="margin-right:0px">
-                                        <div class="col-sm-3 mb-4" id="cyber-recovery-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="cyber-recovery-status">
                                             <input type="hidden" id="hidden-cyber-recovery-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5098,7 +5263,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="cyber-sense-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="cyber-sense-status">
                                             <input type="hidden" id="hidden-cyber-sense-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5126,7 +5291,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="data-domain-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="data-domain-status">
                                             <input type="hidden" id="hidden-data-domain-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5154,7 +5319,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="avamar-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="avamar-status">
                                             <input type="hidden" id="hidden-avamar-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5182,7 +5347,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="networker-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="networker-status">
                                             <input type="hidden" id="hidden-networker-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5210,7 +5375,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="networker-proxy-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="networker-proxy-status">
                                             <input type="hidden" id="hidden-networker-proxy-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5238,7 +5403,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="avamar-proxy-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="avamar-proxy-status">
                                             <input type="hidden" id="hidden-avamar-proxy-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5266,7 +5431,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="data-manager-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="data-manager-status">
                                             <input type="hidden" id="hidden-data-manager-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5294,7 +5459,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="ntp-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="ntp-status">
                                             <input type="hidden" id="hidden-ntp-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5322,7 +5487,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="dns-status">
+                                        <div class="col-sm-3 mb-4 d-none" id="dns-status">
                                             <input type="hidden" id="hidden-dns-status" value="InProgress">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5350,7 +5515,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="power-edge">
+                                        <div class="col-sm-3 mb-4 d-none" id="power-edge">
                                             <input type="hidden" id="hidden-power-edge-status" value="pending">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5390,7 +5555,7 @@
                                                 </div>
                                             </div>
                                         </div>                                        
-                                        <div class="col-sm-3 mb-4" id="open-stack">
+                                        <div class="col-sm-3 mb-4 d-none" id="open-stack">
                                             <input type="hidden" id="hidden-open-stack-status" value="IN_PROGRESS">
                                             <input type="hidden" id="hidden-open-stack-id" value="0">
                                             <div class="card dl-status dl-progress">
@@ -5431,7 +5596,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 mb-4" id="open-stack-provisioning">
+                                        <div class="col-sm-3 mb-4 d-none" id="open-stack-provisioning">
                                             <input type="hidden" id="hidden-open-stack-provisioning-status" value="IN_PROGRESS">
                                             <input type="hidden" id="hidden-open-stack-provisioning-id" value="0">
                                             <div class="card dl-status dl-progress">
@@ -5472,7 +5637,89 @@
                                                 </div>
                                             </div>
                                         </div>
-                                         <div class="col-sm-3 mb-4" id="gen-ai-os-deployment">
+                                        <div class="col-sm-3 mb-4 d-none" id="power-scale-status">
+                                            <input type="hidden" id="hidden-power-scale-status" value="IN_PROGRESS">
+                                            <input type="hidden" id="hidden-power-scale-id" value="0">
+                                            <div class="card dl-status dl-progress">
+                                                <div class="card-body">
+                                                <div class="dep-icon"><i class="bi bi-globe"></i></div>
+                                                <h5>OpenStack Provisioning</h5>
+                                                </div>
+                                                <div class="dl-msg">
+                                                    <div class="spinner-border" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                    <span>Deployment in progress</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <span>Not selected for deployment</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Completed Successfully &nbsp;&nbsp; 
+                                                        <a href="" class="open-stack-download-logs" data-toggle="modal" data-target="#logs"  data-value="open-stack-provisioning" data-job="OpenStackLab"><i class="bi bi-eye"></i> logs</a>
+                                                    
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-x-lg"></i> 
+                                                    <span>Deploymemt Error  &nbsp;&nbsp; 
+                                                        <a href="" class="open-stack-download-logs" data-toggle="modal" data-target="#logs"  data-value="open-stack-provisioning" data-job="OpenStackLab"><i class="bi bi-eye"></i> logs</a>
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Deploymemt is running  &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    </span>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 mb-4 d-none" id="power-store-status">
+                                            <input type="hidden" id="hidden-power-store-status" value="IN_PROGRESS">
+                                            <input type="hidden" id="hidden-power-store-id" value="0">
+                                            <div class="card dl-status dl-progress">
+                                                <div class="card-body">
+                                                <div class="dep-icon"><i class="bi bi-globe"></i></div>
+                                                <h5>OpenStack Provisioning</h5>
+                                                </div>
+                                                <div class="dl-msg">
+                                                    <div class="spinner-border" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                    <span>Deployment in progress</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <span>Not selected for deployment</span>
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Completed Successfully &nbsp;&nbsp; 
+                                                        <a href="" class="open-stack-download-logs" data-toggle="modal" data-target="#logs"  data-value="open-stack-provisioning" data-job="OpenStackLab"><i class="bi bi-eye"></i> logs</a>
+                                                    
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-x-lg"></i> 
+                                                    <span>Deploymemt Error  &nbsp;&nbsp; 
+                                                        <a href="" class="open-stack-download-logs" data-toggle="modal" data-target="#logs"  data-value="open-stack-provisioning" data-job="OpenStackLab"><i class="bi bi-eye"></i> logs</a>
+                                                    </span>
+                                                    
+                                                </div>
+                                                <div class="dl-msg" style="display: none;">
+                                                    <i class="bi bi-check-lg"></i> 
+                                                    <span>Deploymemt is running  &nbsp;&nbsp; 
+                                                        <!-- <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a> -->
+                                                    </span>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="col-sm-3 mb-4 d-none" id="gen-ai-os-deployment">
                                             <input type="hidden" id="hidden-gen-ai-os-deployment-status" value="pending">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
@@ -5512,7 +5759,7 @@
                                                 </div>
                                             </div>
                                         </div>   
-                                        <div class="col-sm-3 mb-4" id="gen-ai-kubernetes-cluster-deployment">
+                                        <div class="col-sm-3 mb-4 d-none" id="gen-ai-kubernetes-cluster-deployment">
                                             <input type="hidden" id="hidden-gen-ai-kubernetes-cluster-deployment-status" value="pending">
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
