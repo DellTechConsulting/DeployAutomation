@@ -1565,7 +1565,7 @@ function GenAIAutomation(statusCardId, formId, templeteId, hiddenStatusId){
             GenAIStatus(res['id'], statusCardId, hiddenStatusId)
           }
           
-        }, 5000);        
+        }, 10000);        
       }
     });
 
