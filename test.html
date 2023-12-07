@@ -188,7 +188,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
                                                      <!-- Cyber Sense-->
@@ -207,7 +207,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -227,7 +227,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -247,7 +247,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -267,7 +267,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -287,7 +287,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -307,7 +307,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -327,7 +327,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -347,7 +347,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -367,7 +367,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
 
@@ -419,7 +419,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
                                                     <div class="col-sm-4 mb-4 open-stack-deploy-card d-none">
@@ -437,7 +437,7 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
                                                     <div class="col-sm-4 mb-4 gen-ai-card">
@@ -449,13 +449,13 @@
                                                             <label class="custom-control-label" for="customCheck21">
                                                               <div class="mt-1">
                                                                     <div><i class="bi bi-database-gear"></i></div>
-                                                                    <h5>OS Deploymemt Automation</h5>                                                                      
+                                                                    <h5>PowerEdge Deploy Automation</h5>                                                                      
                                                               </div>
                                                               <div class="dl-custom-label-div"></div>
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
                                                     <div class="col-sm-4 mb-4 gen-ai-card">
@@ -473,10 +473,10 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
                                                     </div>
-                                                    <div class="col-sm-4 mb-4 gen-ai-card">
+                                                    <!-- <div class="col-sm-4 mb-4 gen-ai-card">
                                                         
                                                         
                                                         <div class="card custom-control custom-radio iconSelect mr-2">
@@ -491,9 +491,9 @@
                                                             </label>
                                                             </div>
                                                           </div>
-                                                        <!-- End-Checkbox Hightlight -->
+                                                        
                                                       
-                                                    </div>
+                                                    </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -4780,7 +4780,7 @@
                             <section is-modified="0" id="step-16"  class="form-step d-none" section-text="gen-ai"  status-id="gen-ai-os-deployment">
                                 <div class="jumbotron dl-finaldeployment">
                                     <div class="container" style="float:left">
-                                    <h1 class="display-3">OS Deployment Automation</h1>
+                                    <h1 class="display-3">PowerEdge Deploy Automation</h1>
                                     <!-- <p>Fill all Required Details</p> -->
                                         <div class="logoimg"> <span>Powered By</span></div>
                                     </div>
@@ -5048,6 +5048,16 @@
     "><span
                                                                 class="mandatory">*</span>Worker Password</span>
                                                         <input type="password" name="worker_password" class="form-control"
+                                                            required="" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Image Name</span>
+                                                        <input type="text" name="image_name" class="form-control"
                                                             required="" value="">
                                                     </div>
                                                 </div>
@@ -5721,6 +5731,7 @@
                                         </div>
                                          <div class="col-sm-3 mb-4 d-none" id="gen-ai-os-deployment">
                                             <input type="hidden" id="hidden-gen-ai-os-deployment-status" value="pending">
+                                            <div id="request_data"></div>
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
                                                 <div class="dep-icon"><i class="bi bi-globe"></i></div>

@@ -1547,34 +1547,31 @@ function formDataFill(formName, rowName){
  
 }
 function GenAIAutomation(statusCardId, formId, templeteId, hiddenStatusId){
-  console.log("test")
   try{
     finalStep1(statusCardId)
     var formInput = $("#"+formId).serializeArray();
-    console.log(formInput)
     var d = {}
     for (var i = 0; i<formInput.length; i++){
-      // if(formInput[i]['name'].includes('[]')){
-      //   if(d[formInput[i]['name'].replace("[]", "")] === undefined){
-      //     d[formInput[i]['name'].replace("[]", "")] = [formInput[i]['value'] ]
-      //   }else{
-      //     d[formInput[i]['name'].replace("[]", "")].push(formInput[i]['value'])
-      //   }        
-      // }else
+      if(formInput[i]['name'] == "worker_ips[]"){
+        //if(d[formInput[i]['name'].replace("[]", "")] === undefined){
+          d['worker_ips'] = [formInput[i]['value']]
+        // }else{
+        //   d['worker_ips'].push(formInput[i]['value'])
+        // }        
+      }else
       {
         d[formInput[i]['name']] = formInput[i]['value'] 
       }
     }
-    console.log(d)
     var x = {"extra_vars" : null}
     x["extra_vars"] = d
     var l = JSON.stringify(x)
+    //document.getElementById("request_data").innerHTML = l
     xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function() {
       if(this.readyState === 4) {       
-        alert(this.responseText)
         if(this.responseText)
         {
           var res = JSON.parse(this.responseText)
@@ -1616,7 +1613,6 @@ function GenAIStatus(id, statusCardId, hiddenStatusId){
       if(this.readyState === 4) {
         
         var res = JSON.parse(this.responseText)
-
         if(res['status'] == "successful"){
           //alert("status API suc::"+res['status'])
           statusList("#"+statusCardId+" .card", "dl-running", "dl-success", 2);
