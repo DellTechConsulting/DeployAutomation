@@ -1509,7 +1509,7 @@ $("#add-worker-ip").click(function(e){
     $(".form-buttons-cs1").addClass('d-none').hide()
     $(".open-stack-deploy-card").hide().addClass('d-none')
     $(".gen-ai-card").hide().addClass('d-none')
-
+    $(".alert-info1").addClass('d-none').hide()
     if(v_ == "CyberRecovery"){
       $(".cyber-protect").removeClass('d-none').show()
       $(".form-buttons-cs1").removeClass('d-none').show()
@@ -1525,6 +1525,7 @@ $("#add-worker-ip").click(function(e){
       
     }else if(v_ == "GenAI"){
       $(".gen-ai-card").show().removeClass('d-none')
+      $(".alert-info1").removeClass('d-none').show()
       //$(".open-stack-deploy-card").removeClass('d-none')
       
       $(".form-buttons-cs1").removeClass('d-none').show()

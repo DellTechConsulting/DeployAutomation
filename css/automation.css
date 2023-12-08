@@ -659,7 +659,10 @@ color: #fff;
   }
   
   .alert-info1{
-    padding: 0px 170px;
+    width: 134px;
+    padding: 0px 20px;
+    margin-left: 40px;
+
   }
   @media (min-width: 3000px) {
   .dl-finaldeployment{
