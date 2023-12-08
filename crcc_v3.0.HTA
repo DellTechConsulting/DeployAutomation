@@ -48,10 +48,10 @@
           <a class="nav-link components" href="#" val="GenAI">GenAI Deploy Automation </a>
         </li>
         <li class="nav-item components1">
-          <a class="nav-link components" href="#" val="Storage">Storage Deploy Automation </a>
+          <a class="nav-link components" href="#" val="CyberRecovery">CyberRecovery Deploy Automation</a>
         </li>
         <li class="nav-item components1">
-          <a class="nav-link components" href="#" val="CyberRecovery">CyberRecovery Deploy Automation</a>
+          <a class="nav-link components" href="#" val="Storage">Storage Deploy Automation </a>
         </li>
         <!-- <li class="nav-item components1">
           <a class="nav-link components" href="#" val="PowerEdge">PowerEdge Deploy Automation</a>
@@ -172,6 +172,11 @@
                                                     </div> -->
                                                     
                                                     <!-- Cyber Recovery-->
+                                                    <div class="alert warning">
+  <span class="closebtn">×</span>  
+  <strong>Warning!</strong> Indicates a warning that might need attention.
+</div>
+
                                                     <div class="col-sm-2 mb-4 d-none cyber-protect">
                                                         
                                                         
@@ -4788,7 +4793,7 @@
                                 <!-- Step 8 input fields -->
                                 <div class="m-3">
                                     <form id="os-install-form"
-                                        onsubmit="GenAIAutomation('gen-ai-os-deployment', 'os-install-form', '124', 'hidden-gen-ai-os-deployment-status');return false"  is-skip="0">
+                                        onsubmit="GenAIAutomation('gen-ai-os-deployment', 'os-install-form', '122', 'hidden-gen-ai-os-deployment-status');return false"  is-skip="0">
                                         <div class="card mb-4" style="padding-top: 0">
                                             <h5 class="card-title"
                                                 style="width: 150px; text-align: center; font-size: 12px">
@@ -4801,8 +4806,107 @@
                                                         <span class="input-group-text" for="server" style="
         width: 300px;
     "><span
+                                                                class="mandatory">*</span>OME Hostname</span>
+                                                        <input type="text" name="ome_hostname" class="form-control" required="" value="10.118.168.31">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>OME Username</span>
+                                                        <input type="text" name="ome_username" class="form-control" required="" value="admin">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="username" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Discovery Jobname</span>
+                                                        <input type="text" name="var_job_name" class="form-control" required="" value="discovery_job">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IDRAC IP Range</span>
+                                                        <input type="text" name="var_ip_range" class="form-control"
+                                                            required="" value="10.118.168.46">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>OME Device Type</span>
+                                                        <input type="text" name="var_device_type" class="form-control"
+                                                            required="" value="SERVER">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>IDRAC Username</span>
+                                                        <input type="text" name="idrac_username" class="form-control"
+                                                            required="" value="root">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Template Reference Device Service Tag</span>
+                                                        <input type="text" name="var_device_service_tag" class="form-control"
+                                                            required="" value="1QVMB23">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Template Name</span>
+                                                        <input type="text" name="var_template_name" class="form-control"
+                                                            required="" value="ome_idrac_template">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="password" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Template Description</span>
+                                                        <input type="text" name="var_template_description" class="form-control"
+                                                            required="" value="ome idrac test template">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="server" style="
+        width: 300px;
+    "><span
+                                                                class="mandatory">*</span>Ubuntu Host</span>
+                                                        <input type="text" name="ubuntu_host" class="form-control" required="" value="10.118.168.44">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" for="server" style="
+        width: 300px;
+    "><span
                                                                 class="mandatory">*</span>Working Dir</span>
-                                                        <input type="text" name="Workingdir" class="form-control" required="" value="/home/ansibleuser/u22.04-autoinstall-ISO">
+                                                        <input type="text" name="Workingdir" class="form-control" required="" value="/home/u22.04-autoinstall-ISO">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -4931,7 +5035,7 @@
     "><span
                                                                 class="mandatory">*</span>NFS Share Path</span>
                                                         <input type="text" name="NFS_share_path" class="form-control"
-                                                            required="" value="/nfs_share/isoimage/">
+                                                            required="" value="/mnt/nfs_share/isoimage/">
                                                     </div>
                                                 </div>
                                                 
@@ -5806,7 +5910,7 @@
                                             <div class="card dl-status dl-progress">
                                                 <div class="card-body">
                                                 <div class="dep-icon"><i class="bi bi-globe"></i></div>
-                                                <h5>OS Deploy Automation</h5>
+                                                <h5>PowerEdge Deploy Automation</h5>
                                                 </div>
                                                 <div class="dl-msg">
                                                     <div class="spinner-border" role="status">
