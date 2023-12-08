@@ -8,22 +8,60 @@ $("#add-worker-ip").click(function(e){
   console.log($(this).attr("current-value"))
   var current_value = $(this).attr("current-value")
 
-  $(".new-worker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
-                                '<div class="input-group mb-3">'+
-                                    '<span class="input-group-text" for="username" style="width: 285px;">'+
-                                     '<span class="mandatory">*</span>Worker IP</span>'+
-                                        '<div class="col-md-4">'+
-                                           '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
-                                         '</div>'+ '<a class="btn btn-primary" id="remove-worker-ip'+current_value+'" remove-value="'+current_value+'">Remove</a></div></div>')
-  $(this).attr("current-value", Number(current_value) + 1)
-
-  $("#remove-worker-ip"+current_value).click(function(e){
-    e.preventDefault()
-    var remove_value = $(this).attr("remove-value")
-    $(".added_worker_ip"+remove_value).remove()
-  })
-
+  // $(".new-networker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
+  //                                     '<div class="input-group mb-3">'+
+  //                                       '<span class="input-group-text" for="username" style="width: 285px;">'+
+  //                                         '<span class="mandatory">*</span>Worker IP</span>'+
+                                          // '<div class="col-md-4">'+
+                                          //   '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
+                                          // '</div>'+
+                                          // '<div class="col-md-4">'+
+                                          //   '<a class="btn btn-primary " id="add-worker-ip111" current-value="2">Add Worker IP</a>'+
+                                          // '</div>'+
+                                    //   '</div>'+
+                                    // '</div>')
+  // $(".new-worker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
+  //                               '<div class="input-group mb-3">'+
+  //                                   '<span class="input-group-text" for="username" style="width: 200px;">'+
+  //                                    '<span class="mandatory">*</span>Worker IP</span>'+
+  //                                     '<div class="col-md-4">'+
+  //                                           '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
+  //                                         '</div>'+
+                                          // '<div class="col-md-4">'+
+                                          //   '<a class="btn btn-primary " id="add-worker-ip111" current-value="2">Add Worker IP</a>'+
+                                          // '</div>'+
+                                        // '<div class="col-md-4">'+
+                                        //    '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
+                                        //  '</div>'+ '<div class="col-md-4"><a class="btn btn-primary" id="remove-worker-ip'+current_value+'" remove-value="'+current_value+'">Remove</a></div>'+
+                              // '</></div>')
+  
+  // $(".new-worker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
+  //                               '<div class="input-group mb-3">'+
+  //                                   '<div class="col-md-4"><span class="input-group-text" for="username" style="width: 285px;">'+
+  //                                    '<span class="mandatory">*</span>Worker IP</span></div>'+
+  //                                       '<div class="col-md-4">'+
+  //                                          '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
+  //                                        '</div>'+ '<div class="col-md-4"><a class="btn btn-primary" id="remove-worker-ip'+current_value+'" remove-value="'+current_value+'">Remove</a></div></div></div>')
+  if($(".new-worker-ips"+Number(current_value)).length > 0){
+    $(".new-worker-ips"+Number(current_value)).removeClass("d-none")
+    $(this).attr("current-value", Number(current_value) + 1)
+    $(".remove-worker-ip").attr("remove-value", Number(current_value) + 1).removeClass("d-none")
+  }else{
+    alert("Sorry! Maximum limit reached")
+  }
+  
 })
+
+
+  $(".remove-worker-ip").click(function(e){
+    e.preventDefault()
+    var remove_value = Number($(this).attr("remove-value")) - 1
+    $(".new-worker-ips"+remove_value).addClass('d-none')
+    if(remove_value == 2) 
+      $(".remove-worker-ip").addClass("d-none")
+    $("#add-worker-ip").attr("current-value", Number(remove_value))
+    $(".remove-worker-ip").attr("remove-value", remove_value)
+  })
 
 
 
