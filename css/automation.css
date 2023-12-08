@@ -658,6 +658,9 @@ color: #fff;
     color: #fff;
   }
   
+  .alert-info1{
+    padding: 0px 170px;
+  }
   @media (min-width: 3000px) {
   .dl-finaldeployment{
     padding:2.7rem 2rem!important;
