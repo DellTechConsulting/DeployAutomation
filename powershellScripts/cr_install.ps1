@@ -168,8 +168,8 @@ if ($LoginCredentials) {
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
        Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] $vms"
-       Copy-VMGuestFile -Destination '/home/admin/' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\deploy.exp' -LocalToGuest -GuestUser admin -GuestPassword $rootpass -VM $VMName
-       $Command = "expect deploy.exp $rootpass $lockbox $Mongopass $crsopass"
+       Copy-VMGuestFile -Destination '/home/admin/' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\deploy1.exp' -LocalToGuest -GuestUser admin -GuestPassword $rootpass -VM $VMName
+       $Command = "expect deploy1.exp $rootpass $lockbox $Mongopass $crsopass"
        Invoke-VMScript -ScriptType Bash -ScriptText $Command -VM $VMName -GuestUser admin -GuestPassword $rootpass -ErrorAction SilentlyContinue
        Sleep -s 10
        }

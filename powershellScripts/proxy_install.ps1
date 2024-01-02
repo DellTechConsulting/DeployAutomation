@@ -1,5 +1,5 @@
 ﻿param($FormInput)
-#Write-Host $FormInput
+Write-Host $FormInput
 ##################################################
 $myJson = $FormInput | ConvertFrom-Json
 $deploymentType = $myJson.deploymentType

@@ -588,12 +588,10 @@ var timezone_cr = [
   "MST",
 ];
 var list = document.getElementById("timezone_cr");
-console.log(list)
 timezone_cr.forEach(function (item) {
   var option = document.createElement("option");
   option.value = item;
-  if(list)
-    list.appendChild(option);
+  list.appendChild(option);
 });
 
 

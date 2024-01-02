@@ -116,21 +116,3 @@ Check the spelling of the name, or if a path was included, verify that the path 
 06/19/2023 06:58:34 : [INFO] vCenter 10.118.168.23 successfully connected
 
 06/19/2023 06:58:35 : [INFO] Initiating Avamar Deployment
-06/30/2023 10:32:25 : [INFO] vCenter 10.118.168.23 successfully connected
-
-06/30/2023 10:32:26 : [ERROR] Provided Esxi value 10.118.168.23 is invalid
-
-06/30/2023 10:32:26 : [ERROR] Avamar Deployment is failed
-06/30/2023 10:32:26 : [INFO] 10.118.168.23 successfully disconnected
-
-06/30/2023 10:34:39 : [INFO] vCenter 10.118.168.23 successfully connected
-
-06/30/2023 10:34:40 : [INFO] Initiating Avamar Deployment
-06/30/2023 10:49:51 : [ERROR] Exception calling "EndExecute" with "1" argument(s): "Command '/opt/emc-tools/0.20.0/bin/avi-cli 10.118.168.41 --user root --password changeme --port 7543 --userinput Installconfig_test.yaml --backtrace --install ave-config' has timed out."
-08/31/2023 09:50:22 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/31/2023 09:50:23 : [INFO] Initiating Avamar Deployment
-08/31/2023 10:36:20 : [INFO] Avamar Deployment is successfull
-08/31/2023 10:36:21 : [INFO] @{VMName=ave_test; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=6144; Datastore=vsanDatastore}
-08/31/2023 10:37:21 : [INFO] 10.118.168.23 successfully disconnected
-

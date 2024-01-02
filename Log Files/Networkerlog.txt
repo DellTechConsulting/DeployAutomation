@@ -38,31 +38,3 @@
 06/27/2023 07:26:48 : [INFO] @{VMName=nveproxy_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
 06/27/2023 07:26:48 : [INFO] 10.118.168.80 successfully disconnected
 
-07/07/2023 01:02:34 : [INFO] vCenter 10.118.168.23 successfully connected
-
-07/07/2023 01:02:36 : [INFO] Initiating Networker Deployment
-07/07/2023 01:08:28 : [INFO] Networker Deployment is successfull
-07/07/2023 01:08:28 : [INFO] @{VMName=nve_test; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
-07/07/2023 01:08:28 : [INFO] 10.118.168.23 successfully disconnected
-
-07/17/2023 07:29:45 : [INFO] vCenter 10.118.168.23 successfully connected
-
-07/17/2023 07:29:46 : [INFO] Initiating Networker Deployment
-07/17/2023 07:33:51 : [INFO] Networker Deployment is successfull
-07/17/2023 07:33:51 : [INFO] @{VMName=test_nve; IPAddress=fe80::250:56ff:fe8b:6a7e; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
-07/17/2023 07:33:51 : [INFO] 10.118.168.23 successfully disconnected
-
-08/22/2023 00:07:49 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/22/2023 00:07:51 : [INFO] Initiating Networker Deployment
-08/22/2023 00:12:17 : [INFO] Networker Deployment is successfull
-08/22/2023 00:12:17 : [INFO] @{VMName=nve_install; IPAddress=10.118.168.41; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
-08/22/2023 00:12:17 : [INFO] 10.118.168.23 successfully disconnected
-
-08/22/2023 04:32:00 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/22/2023 04:32:02 : [INFO] Initiating Networker Deployment
-08/22/2023 04:37:47 : [INFO] Networker Deployment is successfull
-08/22/2023 04:37:47 : [INFO] @{VMName=nve_install; IPAddress=10.118.168.61; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
-08/22/2023 04:37:47 : [INFO] 10.118.168.23 successfully disconnected
-

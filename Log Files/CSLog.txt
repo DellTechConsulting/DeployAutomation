@@ -144,39 +144,3 @@
 06/22/2023 06:24:34 : [INFO] CS Deployment is completed
 06/22/2023 06:24:34 : [INFO] 10.118.168.23 successfully disconnected
 
-07/06/2023 23:56:03 : [ERROR] The process cannot access the file 'C:\Users\crauser\AppData\Roaming\VMware\PowerCLI\PowerCLI_Settings.xml' because it is being used by another process.
-07/07/2023 00:25:46 : [INFO] vCenter 10.118.168.23 successfully connected
-
-07/07/2023 00:29:54 : [INFO] CS Deployment is successful
-07/07/2023 00:29:54 : [INFO] @{VMName=cs_test; IPAddress=10.118.168.232; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
-07/07/2023 00:30:11 : [WARNING] CS Deployment is completed but password hasn't changed
-07/07/2023 00:30:11 : [INFO] 10.118.168.23 successfully disconnected
-
-07/07/2023 01:02:40 : [INFO] vCenter 10.118.168.23 successfully connected
-
-07/07/2023 01:08:04 : [INFO] CS Deployment is successful
-07/07/2023 01:08:04 : [INFO] @{VMName=cs_test; IPAddress=10.118.168.232; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
-07/07/2023 01:08:22 : [INFO] CS Deployment is completed
-07/07/2023 01:08:23 : [INFO] 10.118.168.23 successfully disconnected
-
-07/11/2023 08:44:01 : [INFO] vCenter 10.118.168.23 successfully connected
-
-07/11/2023 08:47:27 : [INFO] CS Deployment is successful
-07/11/2023 08:47:27 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
-07/11/2023 08:47:52 : [INFO] CS Deployment is completed
-07/11/2023 08:47:52 : [INFO] 10.118.168.23 successfully disconnected
-
-07/13/2023 02:14:34 : [INFO]  connected to Esxi Host
-
-07/13/2023 02:19:50 : [INFO] CS Deployment is successful
-07/13/2023 02:19:51 : [INFO] @{VMName=test_cybersense2; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=Datastore_2TB}
-07/13/2023 02:20:13 : [INFO] CS Deployment is completed
-07/13/2023 02:20:13 : [INFO] 10.118.168.80 successfully disconnected
-
-08/22/2023 06:18:44 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/22/2023 06:22:13 : [INFO] CS Deployment is successful
-08/22/2023 06:22:14 : [INFO] @{VMName=cs_test; IPAddress=10.118.168.61; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
-08/22/2023 06:22:43 : [INFO] CS Deployment is completed
-08/22/2023 06:22:43 : [INFO] 10.118.168.23 successfully disconnected
-

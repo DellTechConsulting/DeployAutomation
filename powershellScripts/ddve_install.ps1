@@ -1,5 +1,5 @@
 ﻿param($FormInput)
-#Write-Host $FormInput
+Write-Host $FormInput
 $myJson = $FormInput | ConvertFrom-Json
 #$filepath = "C:\inetpub\wwwroot\DDVEDeploymentStatus.txt"
 #"InProgress" | Out-File -FilePath $filepath

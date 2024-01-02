@@ -44,7 +44,6 @@ for (var i = 0; i < formStepHeaders.length; i++) {
         }
 
     }
-    console.log("STEP Number::", stepNumber)
     document.querySelector("#step-" + stepNumber).classList.remove("d-none");
     /**
      * Select the form step circle (progress bar).

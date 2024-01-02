@@ -62,12 +62,18 @@ function Run_Automation_Script(formType) {
   }
 
   var formInput = $("#" + formType).serialize();
+
+  var randomString1 = formType+"-"+randomString(20)+".txt";
+  formInput = formInput+"&logfile="+randomString1;
+
   //decode back serialize string to original spl characters
   var decodedForm = decodeURIComponent(formInput);
 
   // replace ' ' with %20
   var replaceSpace = decodedForm.replace(/\ /g, "%20");
 
+  
+  
   // Run script
   WshShell = new ActiveXObject("WScript.Shell");
   var script = "deploy.sh " + formType + " " + replaceSpace;
@@ -303,76 +309,93 @@ function finalStep() {
     if (formStepElements[i].getAttribute("id") != "final-step")
       formStepElements[i].classList.add("d-none");
   }
-  document.getElementById("power-edge").classList.add("d-none")
+
   document.querySelector("#final-step").classList.remove("d-none");
 
   var formStepElements1 = document.querySelectorAll("section");
   var htmlContent = "";
   for (var i = 0; i < formStepElements1.length; i++) {
     var statusId = formStepElements1[i].getAttribute("status-id");
-    var status = ["cyber-recovery-status", 
-                  "cyber-sense-status", "data-domain-status", 
-                  "avamar-status", "networker-status", "networker-proxy-status", 
-                  "avamar-proxy-status", "data-manager-status", "ntp-status", "dns-status"] //, "power-scale-status", "open-stack", "open-stack-provisioning", "power-store-status"
-    //if(status.indexOf(statusId) == -1)
-    {
-      var id = formStepElements1[i].getAttribute("id");
-      var cardId = "#" + statusId + " .card";
-      if (id != "step-1" && id != "final-step") {
-        if (formStepElements1[i].getAttribute("is-modified") == "1" && status.indexOf(statusId) > -1) {
-          var status_id = formStepElements1[i].getAttribute("status-id"); //formStepElements1[i].getAttribute('status-id');
-          document.getElementById(status_id).classList.remove("d-none")
-          if (
-            formStepElements1[i].getAttribute("status-id") ==
-            "cyber-recovery-status"
-          ) {
-            cyberRecoveryStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") == "cyber-sense-status"
-          ) {
-            cyberSenseStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") == "data-domain-status"
-          ) {
-            dataDomainStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") == "avamar-status"
-          ) {
-            avamarStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") == "networker-status"
-          ) {
-            networkerStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") == "networker-proxy-status"
-          ) {
-            networkerProxyStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") ==
-            "avamar-proxy-status"
-          ) {
-            avamarProxyStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") ==
-            "data-manager-status"
-          ) {
-            dataManagerStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") == "ntp-status"
-          ) {
-            ntpStatus(status_id);
-          } else if (
-            formStepElements1[i].getAttribute("status-id") == "dns-status"
-          ) {
-            dnsStatus(status_id);
-          }
-        } else if(status.indexOf(statusId) > -1){
-           document.getElementById(statusId).classList.remove("d-none")
-          statusList(cardId, "dl-progress", "dl-inactive", 1);
+    var id = formStepElements1[i].getAttribute("id");
+    var cardId = "#" + statusId + " .card";
+    if (id != "step-1" && id != "final-step") {
+      if (formStepElements1[i].getAttribute("is-modified") == "1") {
+        // var input = document.createElement("input");
+        // input.type = "hidden";
+        // input.value = "InProgress";
+        // document.querySelector(cardId).appendChild(input);
+        // htmlContent +=  '<div class="col-md-12">'+
+        //                   '<div class="input-group mb-3">'+
+        //                       '<div class="'+formStepElements1[i].getAttribute('status-id')+'">'+
+        //                       '<input type="hidden" value="InProgress" id="'+formStepElements1[i].getAttribute('status-id')+'">'+
+        //                       '<div class="loader">'+
+        //                           '<div class="loader-inner"></div>'+
+        //                       '</div>'+
+
+        //                       '<div class="status success" style="display: none;">'+
+        //                           '<i class="bi bi-check-circle-fill"></i>'+
+        //                       '</div>'+
+
+        //                       '<div class="status error" style="display: none;">'+
+        //                           '<i class="bi bi-x-circle"></i>'+
+        //                       '</div>'+
+        //                       '</div>'+
+
+        //                       '<span class="input-group-text input-group-text12" for="vCenter">'+formStepElements1[i].getAttribute('section-text')+'</span>'+
+
+        //                   '</div>'+
+        //               '</div>';
+        //               document.getElementById("final-steps-wizards").innerHTML = htmlContent
+
+        var status_id = formStepElements1[i].getAttribute("status-id"); //formStepElements1[i].getAttribute('status-id');
+        if (
+          formStepElements1[i].getAttribute("status-id") ==
+          "cyber-recovery-status"
+        ) {
+          cyberRecoveryStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") == "cyber-sense-status"
+        ) {
+          cyberSenseStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") == "data-domain-status"
+        ) {
+          dataDomainStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") == "avamar-status"
+        ) {
+          avamarStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") == "networker-status"
+        ) {
+          networkerStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") == "networker-proxy-status"
+        ) {
+          networkerProxyStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") ==
+          "avamar-proxy-status"
+        ) {
+          avamarProxyStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") ==
+          "data-manager-status"
+        ) {
+          dataManagerStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") == "ntp-status"
+        ) {
+          ntpStatus(status_id);
+        } else if (
+          formStepElements1[i].getAttribute("status-id") == "dns-status"
+        ) {
+          dnsStatus(status_id);
         }
+      } else {
+        statusList(cardId, "dl-progress", "dl-inactive", 1);
       }
     }
-    
 
     //setInterval(function() { checkStatus(formStepElements1[i].getAttribute('status-id')); }, 5000);
   }
@@ -390,7 +413,28 @@ function callXhr1(id, file) {
 }
 
 function createXhrRequest(httpMethod, url, cardId, id) {
-  
+  // var xhttp = new XMLHttpRequest();
+  // xhttp.onreadystatechange = function() {
+  //   alert(url)
+  //   alert(this.readyState)
+  //   alert(this.status)
+  //   if (this.readyState == 4 && this.status == 200) {
+  //     //callback(null, this.responseText);
+  //     alert(cardId+"===="+this.responseText)
+  //     if (this.responseText.indexOf("Failed") !== -1) {
+  //       statusList(cardId, "dl-progress", "dl-error", 3);
+  //       $("#hidden-"+id).val("Failed");
+  //     }
+
+  //     if (this.responseText.indexOf("Success") !== -1) {
+  //       statusList(cardId, "dl-progress", "dl-success", 2);
+  //       $("#hidden-"+id).val("Success");
+  //     }
+  //   }
+  // };
+  // xhttp.open(httpMethod, url, true);
+  // xhttp.send();
+
   var xhr = new XMLHttpRequest();
   xhr.open( httpMethod, url );
 
@@ -412,7 +456,6 @@ function createXhrRequest(httpMethod, url, cardId, id) {
 }
 
 function statusList(cardId, statusFrom, statusTo, index) {
-  
   document.querySelector(cardId).classList.remove(statusFrom);
   document.querySelector(cardId).classList.add(statusTo);
   var dlMsgList = document.querySelectorAll(cardId + " .dl-msg");

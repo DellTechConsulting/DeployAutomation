@@ -1,70 +1,24 @@
 $(document).ready(function () {
-  // $("#logs").modal()
-  // $("#status-ABORTED").show()
+/*var randomChars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var result1 = "";
+  var randomLength = 10
+  for (var i = randomLength; i > 0; --i)
+      result1 += randomChars[Math.floor(Math.random() * randomChars.length)];
+
+  var scripts =  document.getElementsByTagName('script');
+  var torefreshs = ['automation.js', 'dashboard.js'] ; // list of js to be refresh
+  var key = result1; // change this key every time you want force a refresh
+  for(var i=0;i<scripts.length;i++){ 
+    for(var j=0;j<torefreshs.length;j++){ 
+        alert(scripts[i].src)
+        if(scripts[i].src && (scripts[i].src.indexOf(torefreshs[j]) > -1)){
+          new_src = scripts[i].src.replace(torefreshs[j],torefreshs[j] + '?k=' + result1 );
+          scripts[i].src = new_src; // change src in order to refresh js
+        } 
+    }
+  }*/
+
   $("#cr-form-1 > input[type='hidden']").each(function(){ $(this).val('') })
-  
-$("#add-worker-ip").click(function(e){
-  e.preventDefault()
-  console.log($(this).attr("current-value"))
-  var current_value = $(this).attr("current-value")
-
-  // $(".new-networker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
-  //                                     '<div class="input-group mb-3">'+
-  //                                       '<span class="input-group-text" for="username" style="width: 285px;">'+
-  //                                         '<span class="mandatory">*</span>Worker IP</span>'+
-                                          // '<div class="col-md-4">'+
-                                          //   '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
-                                          // '</div>'+
-                                          // '<div class="col-md-4">'+
-                                          //   '<a class="btn btn-primary " id="add-worker-ip111" current-value="2">Add Worker IP</a>'+
-                                          // '</div>'+
-                                    //   '</div>'+
-                                    // '</div>')
-  // $(".new-worker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
-  //                               '<div class="input-group mb-3">'+
-  //                                   '<span class="input-group-text" for="username" style="width: 200px;">'+
-  //                                    '<span class="mandatory">*</span>Worker IP</span>'+
-  //                                     '<div class="col-md-4">'+
-  //                                           '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
-  //                                         '</div>'+
-                                          // '<div class="col-md-4">'+
-                                          //   '<a class="btn btn-primary " id="add-worker-ip111" current-value="2">Add Worker IP</a>'+
-                                          // '</div>'+
-                                        // '<div class="col-md-4">'+
-                                        //    '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
-                                        //  '</div>'+ '<div class="col-md-4"><a class="btn btn-primary" id="remove-worker-ip'+current_value+'" remove-value="'+current_value+'">Remove</a></div>'+
-                              // '</></div>')
-  
-  // $(".new-worker-ips").append('<div class="col-md-12 added_worker_ip'+current_value+'">'+
-  //                               '<div class="input-group mb-3">'+
-  //                                   '<div class="col-md-4"><span class="input-group-text" for="username" style="width: 285px;">'+
-  //                                    '<span class="mandatory">*</span>Worker IP</span></div>'+
-  //                                       '<div class="col-md-4">'+
-  //                                          '<input type="text" name="worker_ips[]" class="form-control" required="" value="">'+
-  //                                        '</div>'+ '<div class="col-md-4"><a class="btn btn-primary" id="remove-worker-ip'+current_value+'" remove-value="'+current_value+'">Remove</a></div></div></div>')
-  if($(".new-worker-ips"+Number(current_value)).length > 0){
-    $(".new-worker-ips"+Number(current_value)).removeClass("d-none")
-    $(this).attr("current-value", Number(current_value) + 1)
-    $(".remove-worker-ip").attr("remove-value", Number(current_value) + 1).removeClass("d-none")
-  }else{
-    alert("Sorry! Maximum limit reached")
-  }
-  
-})
-
-
-  $(".remove-worker-ip").click(function(e){
-    e.preventDefault()
-    var remove_value = Number($(this).attr("remove-value")) - 1
-    $(".new-worker-ips"+remove_value).addClass('d-none')
-    if(remove_value == 2) 
-      $(".remove-worker-ip").addClass("d-none")
-    $("#add-worker-ip").attr("current-value", Number(remove_value))
-    $(".remove-worker-ip").attr("remove-value", remove_value)
-  })
-
-
-
   $("#runbook").click(function(){
     var formStepElements = document.querySelectorAll(".form-step");
     for (var i = 0; i < formStepElements.length; i++) {
@@ -1089,7 +1043,6 @@ $("#add-worker-ip").click(function(e){
 
   $("#cr-form-btn-1").click(function(e){
     e.preventDefault();
-    console.log($(".components1").val())
     // $("section").each(function(){
     //   if($(this).attr('id')!="1"){
     //     $(this).removeAttr('id')
@@ -1097,213 +1050,56 @@ $("#add-worker-ip").click(function(e){
     // })
     $("#step-1").attr('is-modified',1)
     $("#final-step").attr('is-modified',1)
-
-    if($(".components1.active > a").attr('val') == "CyberRecovery"){     
-      console.log($("#cr-form-1 input:checkbox:checked").length)
-      var steps_starts = 2;
-      var step_forms = {
-        "cr-form":["cr-form-btn",2],
-        "cs-install-form":["cs-install-form-btn",3],
-        "ddve-install-form":["ddve-install-form-btn",4],
-        "ave-install-form":["ave-install-form-btn",5],
-        "networker-install-form":["networker-install-form-btn",6],
-        "networker-proxy-install-form":["networker-proxy-install-form-btn",7],
-        "proxy-install-form":["proxy-install-form-btn",8],
-        "ppdm-install-form":["ppdm-install-form-btn",9],
-        "ntp-install-form":["ntp-install-form-btn",10],
-        "dns-install-form":["dns-install-form-btn",11],
-      }
-      var i=$("#cr-form-1 input:checkbox:checked").length;
-      $("#cr-form-1 input:checkbox:checked").each(function() {
-        i--;
-        var btn = step_forms[$(this).val()][0]
-        var stp = step_forms[$(this).val()][1]
-        
-        if(i == 0){
-          console.log("IF::", btn, stp, steps_starts, i)  
-          // console.log(btn, stp, steps_starts, i)  
-          $("#step-"+stp).attr('is-modified',1)
-          
-          $("#step-"+stp).attr('id', "step-"+steps_starts)
-          $("#"+btn+"1").attr("step_number", steps_starts-1)
-          $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-          $("#"+btn).removeAttr("step")
-        }else{
-          console.log("ELSE::",btn, stp, steps_starts, i)  
-          $("#step-"+stp).attr('is-modified',1)
-          $("#"+btn).attr("step", steps_starts+1)
-          $("#"+btn).html('<i class="bi bi-play"></i> Next')
-          $("#"+btn+"1").attr("step_number", steps_starts-1)
-          $("#step-"+stp).attr('id', "step-"+steps_starts)
-        }
-        steps_starts++;
-        //console.log($(this).val())
-        
-      });
-
-      $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(2);
-    }else if($(".components1.active > a").attr('val') == "Storage"){
-      
-      if($("input[name='storage-radio']:checked").val() == "power-scale-form"){
-        var steps_starts = 12;
-        var btn="power-scale-install-form-btn";
-        var stp = 12
-        $("#step-"+stp).attr('is-modified',1)          
-        $("#step-"+stp).attr('id', "step-"+steps_starts)
-        $("#"+btn+"1").attr("step_number", 1)
-        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-        $("#"+btn).removeAttr("step")
-        $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(12);
-
-      }else if($("input[name='storage-radio']:checked").val() == "power-store-form"){
-
-         var steps_starts = 13;
-        var btn="power-store-install-form-btn";
-        var stp = 13
-        $("#step-"+stp).attr('is-modified',1)          
-        $("#step-"+stp).attr('id', "step-"+steps_starts)
-        $("#"+btn+"1").attr("step_number", 1)
-        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-        $("#"+btn).removeAttr("step")
-
-        $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(13);
-
-      }
-
-      
-    }else if($(".components1.active > a").attr('val') == "OpenStack"){
-      
-      if($("input[name='open-stack-radio']:checked").val() == "open-stack-form1"){
-        var steps_starts = 14;
-        var btn="open-stack-install-form-btn";
-        var stp = 14
-        $("#step-"+stp).attr('is-modified',1)          
-        $("#step-"+stp).attr('id', "step-"+steps_starts)
-        $("#"+btn+"1").attr("step_number", 1)
-        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-        $("#"+btn).removeAttr("step")
-        $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(14);
-
-      }else if($("input[name='open-stack-radio']:checked").val() == "open-stack-form2"){
-         var steps_starts = 15;
-        var btn="open-stack-provisioning-install-form-btn";
-        var stp = 15
-        $("#step-"+stp).attr('is-modified',1)          
-        $("#step-"+stp).attr('id', "step-"+steps_starts)
-        $("#"+btn+"1").attr("step_number", 1)
-        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-        $("#"+btn).removeAttr("step")
-
-        $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(15);
-
-      }
-
-      
-    }else if($(".components1.active > a").attr('val') == "GenAI"){
-      if($("input[name='gen-ai-radio']:checked").val() == "gen-ai-form1"){
-        var steps_starts = 16;
-        var btn="os-install-form-btn";
-        var stp = 16
-        $("#step-"+stp).attr('is-modified',1)          
-        $("#step-"+stp).attr('id', "step-"+steps_starts)
-        $("#"+btn+"1").attr("step_number", 1)
-        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-        $("#"+btn).removeAttr("step")
-        $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(16);
-
-      }else if($("input[name='gen-ai-radio']:checked").val() == "gen-ai-form2"){
-         var steps_starts = 17;
-        var btn="kubernetes-cluster-install-form-btn";
-        var stp = 17
-        $("#step-"+stp).attr('is-modified',1)          
-        $("#step-"+stp).attr('id', "step-"+steps_starts)
-        $("#"+btn+"1").attr("step_number", 1)
-        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-        $("#"+btn).removeAttr("step")
-
-        $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(17);
-
-      }else if($("input[name='gen-ai-radio']:checked").val() == "gen-ai-form3"){
-         var steps_starts = 18;
-        var btn="power-edge-install-form-btn";
-        var stp = 18
-        $("#step-"+stp).attr('is-modified',1)          
-        $("#step-"+stp).attr('id', "step-"+steps_starts)
-        $("#"+btn+"1").attr("step_number", 1)
-        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
-        $("#"+btn).removeAttr("step")
-
-        $("section").each(function(){
-          
-          if($(this).attr('is-modified')!="1"){
-            console.log($(this).attr('id'), $(this).attr('is-modified'))
-            $(this).find('form').attr('is-skip', 1)
-            $(this).removeAttr('id')
-          }
-      })
-      navigateToFormStep(18);
-
-      }
-
-      
+    console.log($("#cr-form-1 input:checkbox:checked").length)
+    var steps_starts = 2;
+    var step_forms = {
+      "cr-form":["cr-form-btn",2],
+      "cs-install-form":["cs-install-form-btn",3],
+      "ddve-install-form":["ddve-install-form-btn",4],
+      "ave-install-form":["ave-install-form-btn",5],
+      "networker-install-form":["networker-install-form-btn",6],
+      "networker-proxy-install-form":["networker-proxy-install-form-btn",7],
+      "proxy-install-form":["proxy-install-form-btn",8],
+      "ppdm-install-form":["ppdm-install-form-btn",9],
+      "ntp-install-form":["ntp-install-form-btn",10],
+      "dns-install-form":["dns-install-form-btn",11],
     }
-    
+    var i=$("#cr-form-1 input:checkbox:checked").length;
+    $("#cr-form-1 input:checkbox:checked").each(function() {
+      i--;
+      var btn = step_forms[$(this).val()][0]
+      var stp = step_forms[$(this).val()][1]
+      
+      if(i == 0){
+        // console.log(btn, stp, steps_starts, i)  
+        $("#step-"+stp).attr('is-modified',1)
+        
+        $("#step-"+stp).attr('id', "step-"+steps_starts)
+        $("#"+btn+"1").attr("step_number", steps_starts-1)
+        $("#"+btn).html('<i class="bi bi-play"></i> Finish')
+        $("#"+btn).removeAttr("step")
+      }else{
+        // console.log(btn, stp, steps_starts, i)  
+        $("#step-"+stp).attr('is-modified',1)
+        $("#"+btn).attr("step", steps_starts+1)
+        $("#"+btn).html('<i class="bi bi-play"></i> Next')
+        $("#"+btn+"1").attr("step_number", steps_starts-1)
+        $("#step-"+stp).attr('id', "step-"+steps_starts)
+      }
+      steps_starts++;
+      //console.log($(this).val())
+      
+    });
+
+    $("section").each(function(){
+        
+        if($(this).attr('is-modified')!="1"){
+          console.log($(this).attr('id'), $(this).attr('is-modified'))
+          $(this).find('form').attr('is-skip', 1)
+          $(this).removeAttr('id')
+        }
+    })
+    navigateToFormStep(2);
     return false;
   })
   
@@ -1496,42 +1292,6 @@ $("#add-worker-ip").click(function(e){
     });
   })
 
-  
-   
-  $(".components").click(function(e){
-    e.preventDefault()
-    $(".components1").removeClass("active")
-    var v_ = $(this).attr('val')
-    $(this).parent().addClass("active")
-    $(".cyber-protect").hide().addClass('d-none')
-    $(".storage-deploy-card").hide().addClass('d-none')
-    $("#power-edge-div-1").hide().addClass('d-none')
-    $(".form-buttons-cs1").addClass('d-none').hide()
-    $(".open-stack-deploy-card").hide().addClass('d-none')
-    $(".gen-ai-card").hide().addClass('d-none')
-    $(".alert-info1").addClass('d-none').hide()
-    if(v_ == "CyberRecovery"){
-      $(".cyber-protect").removeClass('d-none').show()
-      $(".form-buttons-cs1").removeClass('d-none').show()
-    }else if(v_ == "PowerEdge"){
-      $("#power-edge-div-1").removeClass('d-none').show()
-    }else if(v_ == "Storage"){
-      $(".storage-deploy-card").show().removeClass('d-none')
-      $(".form-buttons-cs1").removeClass('d-none').show()
-    }else if(v_ == "OpenStack"){
-      $(".open-stack-deploy-card").show().removeClass('d-none')
-      
-      $(".form-buttons-cs1").removeClass('d-none').show()
-      
-    }else if(v_ == "GenAI"){
-      $(".gen-ai-card").show().removeClass('d-none')
-      $(".alert-info1").removeClass('d-none').show()
-      //$(".open-stack-deploy-card").removeClass('d-none')
-      
-      $(".form-buttons-cs1").removeClass('d-none').show()
-      
-    }
-  })
 
 });
 
@@ -1581,240 +1341,6 @@ function formDataFill(formName, rowName){
         }
       }
   }
-
-
  
 }
-function GenAIAutomation(statusCardId, formId, templeteId, hiddenStatusId){
-  try{
-    finalStep1(statusCardId)
-    var formInput = $("#"+formId).serializeArray();
-    var d = {}
-    for (var i = 0; i<formInput.length; i++){
-      if(formInput[i]['name'] == "worker_ips[]"){
-        //if(d[formInput[i]['name'].replace("[]", "")] === undefined){
-          d['worker_ips'] = [formInput[i]['value']]
-        // }else{
-        //   d['worker_ips'].push(formInput[i]['value'])
-        // }        
-      }else
-      {
-        d[formInput[i]['name']] = formInput[i]['value'] 
-      }
-    }
-    var x = {"extra_vars" : null}
-    x["extra_vars"] = d
-    var l = JSON.stringify(x)
-    //document.getElementById("request_data").innerHTML = l
-    xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-
-    xhr.addEventListener("readystatechange", function() {
-      if(this.readyState === 4) {       
-        if(this.responseText)
-        {
-          var res = JSON.parse(this.responseText)
-          //alert(document.getElementById("hidden-power-edge-status").value)
-          var powerEdgeStatusInterval = setInterval(function () {
-            var powerEdgeStatus_ = document.getElementById(hiddenStatusId).value // $("#hidden-power-edge-status").val();
-            if (powerEdgeStatus_ == "successful" || powerEdgeStatus_ == "failed" ) {
-              clearInterval(powerEdgeStatusInterval)
-            }else{
-              GenAIStatus(res['id'], statusCardId, hiddenStatusId)
-            }
-            
-          }, 10000);
-        }else{
-          statusList("#"+statusCardId+" .card", "dl-running", "dl-error", 3);
-          $("#"+hiddenStatusId).val("failed");
-        }        
-      }
-    });
-    xhr.open("POST", "http://10.118.168.44/api/v2/job_templates/"+templeteId+"/launch/");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic YWRtaW46cGFzc3dvcmQ=");
-
-    xhr.send(l);
-  }catch(e){
-    alert("ERROR:::"+e)
-  }
-  
-  
-  
-  return false
-}
-
-function GenAIStatus(id, statusCardId, hiddenStatusId){
-    xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-
-    xhr.addEventListener("readystatechange", function() {
-      if(this.readyState === 4) {
-        
-        var res = JSON.parse(this.responseText)
-        if(res['status'] == "successful"){
-          //alert("status API suc::"+res['status'])
-          statusList("#"+statusCardId+" .card", "dl-running", "dl-success", 2);
-          $("#"+hiddenStatusId).val("successful");
-        }else if(res['status'] == "failed"){
-          //alert("status API failed::"+res['status'])
-          statusList("#"+statusCardId+" .card", "dl-running", "dl-error", 3);
-          $("#"+hiddenStatusId).val("failed");
-        }
-        // else if(res['status'] == "running"){
-        //    statusList("#power-edge .card", "dl-progress", "dl-running", 4);
-        //   $("#hidden-power-edge-status").val("running");
-        // }
-        
-      }
-    });
-
-    xhr.open("GET", "http://10.118.168.44/api/v2/jobs/"+id+"/");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic YWRtaW46cGFzc3dvcmQ=");
-
-    xhr.send();
-}
-
-function finalStep1(form) {
-  var final = document.querySelector(".form-step#final-step")
-  final.classList.remove("d-none")
-  $("#step-1, #step-14, #step-15, #step-16, #step-17, #step-18" ).addClass("d-none")
-  var formStepElements1 = document.querySelectorAll(".form-step#final-step > .p-31 > .dl-deployment-state > div")
-  var htmlContent = "";
-  for (var i = 0; i < formStepElements1.length; i++) {
-    var id = formStepElements1[i].getAttribute("id");
-    
-    if(id!=form){
-      formStepElements1[i].classList.add("d-none")
-      console.log(formStepElements1[i])
-    }else{
-      formStepElements1[i].classList.remove("d-none")
-    }
-  }
-}
-
-function openStackStatus(job_name, type){
-    //if(Number(running_id) != 0)
-    {
-        openStackRequest("GET", "http://10.118.168.45:8080/job/"+job_name+"/lastBuild/api/json?_="+ (new Date()).getTime(), '', function( err, response ) {
-        // Do your post processing here. 
-        var r = JSON.parse(response)
-        // alert(JSON.stringify(r))
-        // alert(job_name)
-        // alert(type)
-        //for(i=0; i<r.length;i++)
-        {
-          document.getElementById('hidden-'+type+'-id').value = r['id']
-          if(r['result'] && r['inProgress'] == false)
-          {
-           
-            if(r['result'] == "SUCCESS"){
-              statusList("#"+type+" .card", "dl-running", "dl-success", 2);
-              document.getElementById("hidden-"+type+"-status").value = r['result']
-            }else if(r['result'] == "FAILURE" || r['result'] == "ABORTED"){
-              statusList("#"+type+" .card", "dl-running", "dl-error", 3);
-              document.getElementById("hidden-"+type+"-status").value = r['result']
-            }
-          }        
-        }
-      })
-    }
-    
-}
-
-$(".open-stack-download-logs").click(function(){
-   var id = $(this).attr('data-value')
-   var job_name = $(this).attr('data-job')
-   var running_id1 = document.getElementById("hidden-"+id+"-id").value
-   var open_stack_status = document.getElementById("hidden-"+id+"-status").value
-   $("#status-"+open_stack_status).show()
-   //$("#logsLabel").html('OpenStack Deployment Logs')
-    openStackRequest("GET", "http://10.118.168.45:8080/job/"+job_name+"/"+running_id1+"/consoleText", '', function( err, response ) {
-        $("#logsData").html(response)  
-    })
-})
-
-
-function openStackRequest( httpMethod, url,data,  callback ) {
-    var xhr = new XMLHttpRequest();
-    xhr.open( httpMethod, url );
-    var auth = btoa("jenkinuser:113b068b59e2e2441d5cfb4e9f23322e99")
-
-    xhr.setRequestHeader("Authorization", "Basic "+auth)
-    xhr.onload = function() {
-        callback( null, xhr.response );
-    }; 
-
-    xhr.onerror = function() {
-        callback( xhr.response );
-    };
-    if(data)
-      xhr.send(data);
-    else
-      xhr.send()
-  }
-
-  function submitOpenStackProvisioningForm(form){
-    var data = new FormData()
-    data.append('OpenStack_Project', document.querySelector('#'+form+' input[name="open_stack_project"]').value)
-    data.append('Openstack_Image', document.querySelector('#'+form+' input[name="openstack_image"]').value)
-    data.append('Flavor', document.querySelector('#'+form+' input[name="flavor"]').value)
-    data.append('Security_Group', document.querySelector('#'+form+' input[name="security_group"]').value)
-    data.append('Number_Of_Instances', document.querySelector('#'+form+' input[name="number_of_instances"]').value)
-    finalStep1('open-stack-provisioning')
-    openStackRequest("POST", 'http://10.118.168.45:8080/job/OpenStackLab/buildWithParameters', data, function( err, response ) {
-      setTimeout(function(){
-        var openStackStatusInterval1 = setInterval(function () {
-          var openStackStatus_1 = document.getElementById("hidden-open-stack-provisioning-status").value // $("#hidden-power-edge-status").val();
-          //alert("STATUS::"+openStackStatus_1)
-          if (openStackStatus_1 == "SUCCESS" || openStackStatus_1 == "FAILURE" ||  openStackStatus_1 == "ABORTED" ) {
-            clearInterval(openStackStatusInterval1)
-          }else{
-            openStackStatus('OpenStackLab', 'open-stack-provisioning')
-          }          
-        }, 3000);
-      }, 10000)
-  })
-
-  }
-function submitOpenStackForm(form){
-  document.querySelector("#"+form+" .server-ip-error-msg").classList.add("d-none");
-  var server_ip = document.querySelector(
-      '#'+form+' input[name="server_ip"]'
-    ).value;
-  if(!ValidateIPaddress(server_ip)){
-    document.querySelector("#"+form+" .server-ip-error-msg").classList.remove("d-none");
-    return false
-  }
-
-  finalStep1('open-stack')
-  var data = new FormData();
-  data.append("OPENSTACK_SERVER", server_ip);
-  openStackRequest("POST", 'http://10.118.168.45:8080/job/OpenStack_Deploy/buildWithParameters', data, function( err, response ) {
-      setTimeout(function(){
-        var openStackStatusInterval = setInterval(function () {
-          var openStackStatus_ = document.getElementById("hidden-open-stack-status").value // $("#hidden-power-edge-status").val();
-          if (openStackStatus_ == "SUCCESS" || openStackStatus_ == "FAILURE" ||  openStackStatus_ == "ABORTED" ) {
-            clearInterval(openStackStatusInterval)
-          }else{
-            openStackStatus('OpenStack_Deploy', 'open-stack')
-          }          
-        }, 3000);
-      }, 10000)
-  })
-}
-
-function ValidateIPaddress(ipaddress) {  
-  if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress)) {  
-    return true  
-  }  
-  return false
-}  
-
-
-
-
-
-
 

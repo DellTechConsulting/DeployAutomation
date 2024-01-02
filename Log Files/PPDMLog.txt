@@ -49,13 +49,3 @@
 
 06/16/2023 02:06:45 : [INFO] PPDM Deployment is successful
 06/16/2023 02:06:45 : [INFO] @{VMName=ppdm_test; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=datastore1}
-08/24/2023 04:37:54 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/24/2023 04:43:26 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/24/2023 04:44:21 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/24/2023 04:47:18 : [INFO] vCenter 10.118.168.23 successfully connected
-
-08/24/2023 04:52:47 : [INFO] PPDM Deployment is successful
-08/24/2023 04:52:47 : [INFO] @{VMName=ppdm_test1; IPAddress=; VMState=poweredOn; NumberOfCPU=10; TotalMemoryMB=24576; Datastore=vsanDatastore}

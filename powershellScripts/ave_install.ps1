@@ -426,8 +426,8 @@ if ($LoginCredentials) {
 
 }
 }
-sleep -s 30
-Remove-Item -Path $filepath -Confirm:$false -Force
+#sleep -s 30
+#Remove-Item -Path $filepath -Confirm:$false -Force
 #}
 #catch{
      # $exception = $_.Exception.Message

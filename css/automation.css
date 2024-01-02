@@ -88,10 +88,7 @@ span.button.active {
 #proxy-install .input-group-text,
 #proxy-install-form .input-group-text,
 #cr-form .input-group-text,
-#power-scale-form .input-group-text,
-
-#power-edge-form-1 .input-group-text
- {
+#cr-form-1 .input-group-text {
   width: 180px;
 }
 
@@ -102,8 +99,7 @@ span.button.active {
 #ppdm-install .input-group-text,
 #networker-proxy-install .input-group-text,
 #ppdm-install-form .input-group-text,
-#networker-proxy-install-form .input-group-text,
-#power-store-install-form .input-group-text {
+#networker-proxy-install-form .input-group-text {
   width: 205px;
 }
 
@@ -112,8 +108,7 @@ span.button.active {
 }
 
 #ddve-install .input-group-text,
-#ddve-install-form .input-group-text,
-#open-stack-provisioning-install-form .input-group-text {
+#ddve-install-form .input-group-text {
   width: 165px;
 }
 
@@ -616,20 +611,6 @@ color: #fff;
     background: #39a151;
   }
 
-  
-  .dl-running{
-    background: #338ea4;
-    color: #fff;
-  }
-
-  .dl-running h5{
-    color:#fff;
-  }
-
-  .dl-running .dl-msg{
-    background: #338ea4;
-  }
-
   .dl-error .dl-msg{
     background: #ed5664;;
   }
@@ -657,66 +638,3 @@ color: #fff;
   .dl-msg a {
     color: #fff;
   }
-  
-  .alert-info1{
-    width: 134px;
-    padding: 0px 20px;
-    margin-left: 40px;
-
-  }
-  @media (min-width: 3000px) {
-  .dl-finaldeployment{
-    padding:2.7rem 2rem!important;
-    background-image: url(../images/db_final.JPEG);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 350px;
-    border-radius: 0px;
-    position: relative;
-    margin-bottom: 0px;
-  }
-  .dl-finaldeployment h1{
-    font-size: 2rem;
-    font-weight: 500;
-    color: #fff;
-  }
-  
-  body {
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 30px;
-    line-height: 1.8;
-    font-weight: normal;
-    background: #fafafa;
-    color: gray;
-}
-.custom-control-label {
-    background-color: #eee;
-    width: 100%;
-    text-align: left;
-    border-radius: .2rem;
-    padding: 1rem 1rem 1.2rem;
-    font-size: 3.4rem;
-    transition: background-color .1s linear, color .1s linear;
-}
-
-.form-buttons .btn, .form-buttons-cs .btn {
-        font-size: 25px;
-    padding: 25px 40px;
-}
-
-.custom-control-label h5 {
-    font-weight: 600;
-    margin-bottom: 0px;
-    font-size: 40px;
-}
-.input-group-text {
-    border: none;
-    background: none;
-    font-size: 30px;
-}
-.form-control {
-    font-size: 30px;
-}
-}
-  
-  

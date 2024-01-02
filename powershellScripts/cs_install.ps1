@@ -1,6 +1,6 @@
 ﻿param($FormInput)
 ##################################################
-Write-Host $FormInput
+#Write-Host $FormInput
 $myJson = $FormInput | ConvertFrom-Json
 Function Write-Log {
  
