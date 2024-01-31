@@ -1,5 +1,5 @@
 ﻿param($FormInput)
-#Write-Host $FormInput
+Write-Host $FormInput
 ##################################################
 $myJson = $FormInput | ConvertFrom-Json
 $deploymentType = $myJson.deploymentType
@@ -50,7 +50,7 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "Log Files\Ave_proxylog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
     
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
@@ -59,20 +59,20 @@ if ($LoginCredentials) {
 
     if ($checkOva) {
 
-       Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided VMName $VMName already exists`n"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided VMName $VMName already exists`n"
        "Failed" | Out-File -FilePath $filepath
 
     }
         elseif($datastoredetail.Name -notcontains $myDatastore){
-	Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"	
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"	
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($ipdetail.IPAddress -contains $ip){
-	Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided ipaddress $ip is already in use`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided ipaddress $ip is already in use`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($networkdetail.Name -notcontains $Network){
-	Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided network $Network is invalid`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided network $Network is invalid`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 
@@ -102,12 +102,12 @@ if ($LoginCredentials) {
          $clusterdetail = Get-Cluster -ErrorAction SilentlyContinue
          $clustervalue = $myJson.proxydata.hostData.value
 	 if($clusterdetail.Name -contains $clustervalue){
-        Write-Log "Log Files\Ave_proxylog.txt" "[INFO] Initiating Avamar_proxy Deployment"
+        Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] Initiating Avamar_proxy Deployment"
        $esxiHost = Get-Cluster -Name $myJson.proxydata.hostData.value | Get-VMHost | Get-Random
        $deployOva = Import-vApp -Source $ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myDatastore -DiskStorageFormat $DiskStorageFormat
          }
           else{
-		 Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided cluster name $clustervalue is invalid`n"
+		 Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided cluster name $clustervalue is invalid`n"
                  "Failed" | Out-File -FilePath $filepath
                }
        }
@@ -117,11 +117,11 @@ if ($LoginCredentials) {
          $esxivalue = $myJson.proxydata.hostData.value
 	 if($esxidetail.Name -contains $esxivalue){
          $esxiHost = $myJson.proxydata.hostData.value
-         Write-Log "Log Files\Ave_proxylog.txt" "[INFO] Initiating Avamar_proxy Deployment"
+         Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] Initiating Avamar_proxy Deployment"
          $deployOva = Import-vApp -Source $ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myDatastore -DiskStorageFormat $DiskStorageFormat
          }
                else{
-		   Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided Esxi value $esxivalue is invalid`n"
+		   Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided Esxi value $esxivalue is invalid`n"
                    "Failed" | Out-File -FilePath $filepath
 		}        
          }
@@ -131,7 +131,7 @@ if ($LoginCredentials) {
        {
        Start-VM -VM $VMName
        sleep -s 120
-       Write-Log "Log Files\Ave_proxylog.txt" "[INFO] Avamar_Proxy Deployment is successfull" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] Avamar_Proxy Deployment is successfull" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -142,13 +142,13 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\Ave_proxylog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] $vms"
         "Success" | Out-File -FilePath $filepath
        }
 
        else
        {
-         Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Avamar_Proxy Deployment is failed"
+         Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Avamar_Proxy Deployment is failed"
          "Failed" | Out-File -FilePath $filepath
        }
 
@@ -157,10 +157,10 @@ if ($LoginCredentials) {
 
          if (!($global:DefaultVIServers.Count)) {
 
-            Write-Log "Log Files\Ave_proxylog.txt" "[INFO] $vCenterServer successfully disconnected`n"
+            Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] $vCenterServer successfully disconnected`n"
         }
         else {
-             Write-Log "Log Files\Ave_proxylog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
+             Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
   }
 
 }
@@ -192,7 +192,7 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "Log Files\Ave_proxylog.txt" "[INFO] esxiServer $esxiServer successfully connected`n"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] esxiServer $esxiServer successfully connected`n"
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
@@ -201,25 +201,25 @@ if ($LoginCredentials) {
 
     if ($checkOva) {
 
-       Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided VMName $VMName already exists`n"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided VMName $VMName already exists`n"
        "Failed" | Out-File -FilePath $filepath
 
     }
         elseif($datastoredetail.Name -notcontains $myDatastore){
-	Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($ipdetail.IPAddress -contains $ip){
-	Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided ipaddress $ip is already in use`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided ipaddress $ip is already in use`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($networkdetail.Name -notcontains $Network){
-	Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Provided network $Network is invalid`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Provided network $Network is invalid`n"
         "Failed" | Out-File -FilePath $filepath
 	}
     else {
 
-      Write-Log "Log Files\Ave_proxylog.txt" "[INFO] Initiating Avamar_proxy Deployment"
+      Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] Initiating Avamar_proxy Deployment"
       $OVFTOOL_BIN_PATH="C:\Users\crauser\Downloads\VMware-ovftool-4.4.3-18663434-win.x86_64\ovftool\ovftool.exe"
       $AVEPROXY_OVA=$myJson.proxydata.ovaPath
 
@@ -261,7 +261,7 @@ if ($LoginCredentials) {
       $checkdeploy = Get-VM -Name $VMName -ErrorAction SilentlyContinue
       if ($checkdeploy) {
 
-         Write-Log "Log Files\Ave_proxylog.txt" "[INFO] Avamar_Proxy Deployment is successfull" 
+         Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] Avamar_Proxy Deployment is successfull" 
          get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -272,13 +272,13 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\Ave_proxylog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] $vms"
            "Success" | Out-File -FilePath $filepath
 
     }
         else
         {
-         Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] Avamar_Proxy Deployment is failed"
+         Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] Avamar_Proxy Deployment is failed"
          "Failed" | Out-File -FilePath $filepath
         
         }
@@ -289,10 +289,10 @@ if ($LoginCredentials) {
 
          if (!($global:DefaultVIServers.Count)) {
 
-            Write-Log "Log Files\Ave_proxylog.txt" "[INFO] $esxiServer successfully disconnected`n"
+            Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] $esxiServer successfully disconnected`n"
         }
         else {
-             Write-Log "Log Files\Ave_proxylog.txt" "[INFO] The connection to $esxiServer is still open!`n"
+             Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[INFO] The connection to $esxiServer is still open!`n"
   }
 
 }
@@ -303,7 +303,7 @@ if ($LoginCredentials) {
 }
 catch{
       $exception = $_.Exception.Message
-       Write-Log "Log Files\Ave_proxylog.txt" "[ERROR] $exception" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Ave_proxylog.txt" "[ERROR] $exception" 
        "Failed" | Out-File -FilePath $filepath
 	   sleep -s 30
        Remove-Item -Path $filepath -Confirm:$false -Force

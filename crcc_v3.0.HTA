@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="./css/automation.css" />
     <link rel="stylesheet" href="./css/multi_step_form.css" />
     <link href="./fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
     <script src="./js/automation.js"></script>
 </head>
 
 <body>
+    <div class="loader"></div>
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="custom-menu">
@@ -72,12 +73,12 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="#" id="networker"><i class="bi bi-diagram-2"></i> Networker</a>
                     </li>
 
-                    
+
                     <li>
                         <a href="#" id="networker-proxy"><i class="bi bi-diagram-3"></i> Networker Proxy</a>
                     </li>
@@ -1596,11 +1597,12 @@
                 </form>
             </div>
 
-            
+
             <!-- Networker Proxy -->
             <div class="networker-proxy select">
                 <h2 class="section-heading">Networker Proxy</h2>
-                <form id="networker-proxy-install" onsubmit="Run_Automation_Script('networker-proxy-install');return false">
+                <form id="networker-proxy-install"
+                    onsubmit="Run_Automation_Script('networker-proxy-install');return false">
                     <!-- Networker vCenter & ESXI-->
                     <ul class="nav nav-tabs" id="networkerProxyTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -1617,7 +1619,8 @@
 
                     <!-- networker-proxy Tab panes -->
                     <div class="tab-content">
-                        <input type="hidden" name="DeploymentType" id="networker-proxy-deployment-type" value="vCenter" />
+                        <input type="hidden" name="DeploymentType" id="networker-proxy-deployment-type"
+                            value="vCenter" />
                         <div class="tab-pane active" id="networker-proxy-vCenter">
                             <div class="card mb-4">
                                 <div class="row">
@@ -1656,7 +1659,8 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" for="ESXi"><span
                                                     class="mandatory">*</span>ESXi Host</span>
-                                            <input type="text" name="ESXi" class="form-control" id="networker-proxy-ESXi-text" />
+                                            <input type="text" name="ESXi" class="form-control"
+                                                id="networker-proxy-ESXi-text" />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -1696,7 +1700,8 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" for="ovaPath"><span class="mandatory">*</span>OVA
                                         Path</span>
-                                    <input type="file" class="form-control" id="ovaPath-networker-proxy-install" required />
+                                    <input type="file" class="form-control" id="ovaPath-networker-proxy-install"
+                                        required />
                                     <input type="hidden" name="ovaPath" id="hiddenpath-networker-proxy-install" />
                                 </div>
                             </div>
@@ -1704,14 +1709,16 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" for="host-value"><span class="mandatory">*</span>
                                         <div class="switch-field">
-                                            <input type="radio" id="networker-proxy-radio-one" name="host-type" value="esxiHost"
-                                                checked />
+                                            <input type="radio" id="networker-proxy-radio-one" name="host-type"
+                                                value="esxiHost" checked />
                                             <label for="networker-proxy-radio-one">ESXi Host</label>
-                                            <input type="radio" id="networker-proxy-radio-two" name="host-type" value="cluster" />
+                                            <input type="radio" id="networker-proxy-radio-two" name="host-type"
+                                                value="cluster" />
                                             <label for="networker-proxy-radio-two">Cluster</label>
                                         </div>
                                     </span>
-                                    <input type="text" id="networker-proxy-host-input" class="form-control" name="host-value" />
+                                    <input type="text" id="networker-proxy-host-input" class="form-control"
+                                        name="host-value" />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -2451,7 +2458,7 @@
             <!-- Runbook -->
             <div class="runbook select">
                 <div>
-                    <div id="multi-step-form-container" >
+                    <div id="multi-step-form-container">
                         <!-- Form Steps / Progress Bar -->
                         <!-- <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
                             <li class="form-stepper-active text-center form-stepper-list" step="1">
@@ -2534,16 +2541,16 @@
                         <section is-modified="0" id="step-1" class="form-step wizard-ui">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">Cyber Recovery Solutions Wizard</h1>
-                                  <p>Select the Components</p>
+                                    <h1 class="display-3">Cyber Recovery Solutions Wizard</h1>
+                                    <p>Select the Components</p>
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">Cyber Recovery Solutions Wizard</h2>
                             <!-- Step 1 input fields -->
                             <div class="m-3">
                                 <form id="cr-form-1">
-                                    
+
                                     <input type="hidden" id="cr-form-random" value="" />
                                     <input type="hidden" id="cs-install-form-random" value="" />
                                     <input type="hidden" id="ddve-install-form-random" value="" />
@@ -2557,7 +2564,7 @@
                                     <!-- onsubmit="Run_Automation_Script('cr-install');return false" -->
                                     <!-- CR vCenter & ESXI-->
                                     <!-- CR Tab panes -->
-                                    
+
                                     <div class="tab-content">
                                         <div class="tab-pane active">
                                             <div class="mb-4">
@@ -2566,205 +2573,236 @@
                                                     <!-- Cyber Recovery-->
                                                     <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox"  id="customCheck3" name="steps_in1" value="cr-form" class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck3">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-snow3"></i></div>
-                                                                      <h5>Cyber Recovery</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck3"
+                                                                    name="steps_in1" value="cr-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck3">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-snow3"></i></div>
+                                                                        <h5>Cyber Recovery</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
-                                                     <!-- Cyber Sense-->
-                                                     <div class="col-sm-4 mb-4">
+                                                    <!-- Cyber Sense-->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck4" name="steps_in2"  value="cs-install-form" class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck4">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-shield-lock"></i></div>
-                                                                      <h5>CyberSense</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck4"
+                                                                    name="steps_in2" value="cs-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck4">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-shield-lock"></i></div>
+                                                                        <h5>CyberSense</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
-                                                     <!-- Data Domain-->
-                                                     <div class="col-sm-4 mb-4">
+                                                    <!-- Data Domain-->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck5" name="steps_in3" value="ddve-install-form" class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck5">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-hdd"></i></div>
-                                                                      <h5>Data Domain</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck5"
+                                                                    name="steps_in3" value="ddve-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck5">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-hdd"></i></div>
+                                                                        <h5>Data Domain</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
-                                                      <!-- Avamar -->
-                                                      <div class="col-sm-4 mb-4">
+                                                    <!-- Avamar -->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck6" name="steps_in4" value="ave-install-form" class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck6">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-pc-display"></i></div>
-                                                                      <h5>Avamar</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck6"
+                                                                    name="steps_in4" value="ave-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck6">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-pc-display"></i></div>
+                                                                        <h5>Avamar</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
-                                                     <!-- Netwoker -->
-                                                     <div class="col-sm-4 mb-4">
+                                                    <!-- Netwoker -->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck7" name="steps_in5" value="networker-install-form"  class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck7">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-diagram-2"></i></div>
-                                                                      <h5>NetWorker</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck7"
+                                                                    name="steps_in5" value="networker-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck7">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-diagram-2"></i></div>
+                                                                        <h5>NetWorker</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
                                                     <!-- Networker Proxy-->
                                                     <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck12" name="steps_in12" value="networker-proxy-install-form"  class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck12">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-diagram-3"></i></div>
-                                                                      <h5>Networker Proxy</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck12"
+                                                                    name="steps_in12"
+                                                                    value="networker-proxy-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck12">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-diagram-3"></i></div>
+                                                                        <h5>Networker Proxy</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
-                                                      <!-- Checkbox card layout-->
-                                                      <div class="col-sm-4 mb-4">
+                                                    <!-- Checkbox card layout-->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck8" name="steps_in6" value="proxy-install-form"  class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck8">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-hdd-rack"></i></div>
-                                                                      <h5>Avamar Proxy</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck8"
+                                                                    name="steps_in6" value="proxy-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck8">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-hdd-rack"></i></div>
+                                                                        <h5>Avamar Proxy</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
-                                                      <!-- Checkbox card layout-->
-                                                      <div class="col-sm-4 mb-4">
+                                                    <!-- Checkbox card layout-->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck9" name="steps_in7" value="ppdm-install-form"  class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck9">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-database-gear"></i></div>
-                                                                      <h5>PPDM</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck9"
+                                                                    name="steps_in7" value="ppdm-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck9">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-database-gear"></i></div>
+                                                                        <h5>PPDM</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
-                                                     <!-- Checkbox card layout-->
-                                                     <div class="col-sm-4 mb-4">
+                                                    <!-- Checkbox card layout-->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck10" name="steps_in8" value="ntp-install-form" class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck10">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-hdd-network"></i></div>
-                                                                      <h5>NTP</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck10"
+                                                                    name="steps_in8" value="ntp-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck10">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-hdd-network"></i></div>
+                                                                        <h5>NTP</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
 
-                                                     <!-- Checkbox card layout-->
-                                                     <div class="col-sm-4 mb-4">
+                                                    <!-- Checkbox card layout-->
+                                                    <div class="col-sm-4 mb-4">
                                                         <!-- Check Box Highlight -->
-                                                        <div class="card custom-control custom-checkbox iconSelect mr-2">
+                                                        <div
+                                                            class="card custom-control custom-checkbox iconSelect mr-2">
                                                             <div class="card-body">
-                                                                <input type="checkbox" id="customCheck11" name="steps_in9" value="dns-install-form" class="custom-control-input">
-                                                            <label class="custom-control-label" for="customCheck11">
-                                                              <div class="mt-1">
-                                                                    <div><i class="bi bi-globe"></i></div>
-                                                                      <h5>DNS</h5>
-                                                                      <!-- <p class="card-text">Select this tile to fill the form.</p> -->
-                                                              </div>
-                                                              <div class="dl-custom-label-div"></div>
-                                                            </label>
+                                                                <input type="checkbox" id="customCheck11"
+                                                                    name="steps_in9" value="dns-install-form"
+                                                                    class="custom-control-input">
+                                                                <label class="custom-control-label" for="customCheck11">
+                                                                    <div class="mt-1">
+                                                                        <div><i class="bi bi-globe"></i></div>
+                                                                        <h5>DNS</h5>
+                                                                        <!-- <p class="card-text">Select this tile to fill the form.</p> -->
+                                                                    </div>
+                                                                    <div class="dl-custom-label-div"></div>
+                                                                </label>
                                                             </div>
-                                                          </div>
+                                                        </div>
                                                         <!-- End-Checkbox Hightlight -->
-                                                      
+
                                                     </div><!-- End: Checkbox card layout-->
-                                                   
-                                                  </div>
+
+                                                </div>
                                                 <!-- <div class="row row11"> -->
-                                                    <!-- <div class="col-md-12">
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">CyberRecovery</span>
@@ -2772,7 +2810,7 @@
                                                             
                                                         </div>
                                                     </div> -->
-                                                    <!-- <div class="col-md-12">
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">CyberSense</span>
@@ -2780,8 +2818,8 @@
                                                             
                                                         </div>
                                                     </div> -->
-                                                    
-                                                    <!-- <div class="col-md-12">
+
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">Data Domain</span>
@@ -2790,7 +2828,7 @@
                                                         </div>
                                                     </div> -->
 
-                                                    <!-- <div class="col-md-12">
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">Avamar</span>
@@ -2799,7 +2837,7 @@
                                                         </div>
                                                     </div> -->
 
-                                                    <!-- <div class="col-md-12">
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">NetWorker</span>
@@ -2808,8 +2846,8 @@
                                                         </div>
                                                     </div> -->
 
-                                                    
-                                                    <!-- <div class="col-md-12">
+
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">Avamar Proxy</span>
@@ -2818,8 +2856,8 @@
                                                         </div>
                                                     </div> -->
 
-                                                    
-                                                    <!-- <div class="col-md-12">
+
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">PPDM</span>
@@ -2828,7 +2866,7 @@
                                                         </div>
                                                     </div> -->
 
-                                                    <!-- <div class="col-md-12">
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">NTP</span>
@@ -2836,8 +2874,8 @@
                                                             
                                                         </div>
                                                     </div> -->
-                                                    
-                                                    <!-- <div class="col-md-12">
+
+                                                <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             
                                                             <span class="input-group-text input-group-text11" for="vCenter">DNS</span>
@@ -2855,7 +2893,8 @@
                                         <button type="submit" class="btn btn-primary" id="cr-form-btn-1">
                                             <i class="bi bi-play"></i> Next
                                         </button>
-                                        <button type="button" class="btn btn-secondary" onclick="ResetForm('cr-form-1');">
+                                        <button type="button" class="btn btn-secondary"
+                                            onclick="ResetForm('cr-form-1');">
                                             <i class="bi bi-arrow-counterclockwise"></i> Reset
                                         </button>
                                     </div>
@@ -2863,29 +2902,58 @@
                             </div>
                         </section>
                         <!-- Cyber Recovery -->
-                        <section is-modified="0" id="step-2" class="form-step d-none" section-text="CyberRecovery" status-id="cyber-recovery-status">
+                        <section is-modified="0" id="step-2" class="form-step d-none" section-text="CyberRecovery"
+                            status-id="cyber-recovery-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">PowerProtect CyberRecovery</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">PowerProtect CyberRecovery</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">PowerProtect CyberRecovery</h2>
                             <!-- Step 1 input fields -->
                             <div class="m-3">
+
+                                <input type="hidden" name="cr-vCenter-details-datastore-fetch"
+                                    id="cr-vCenter-details-datastore-fetch" value="inprogress">
+                                <input type="hidden" name="cr-vCenter-details-datastore-data"
+                                    id="cr-vCenter-details-datastore-data" value="">
+                                <input type="hidden" name="cr-vCenter-details-network-fetch"
+                                    id="cr-vCenter-details-network-fetch" value="inprogress">
+                                <input type="hidden" name="cr-vCenter-details-network-data"
+                                    id="cr-vCenter-details-network-data" value="inprogress">
+
+                                <input type="hidden" name="cr-vCenter-details-esxi-fetch"
+                                    id="cr-vCenter-details-esxi-fetch" value="inprogress">
+                                <input type="hidden" name="cr-vCenter-details-esxi-data"
+                                    id="cr-vCenter-details-esxi-data" value="">
+                                <input type="hidden" name="cr-vCenter-details-cluster-fetch"
+                                    id="cr-vCenter-details-cluster-fetch" value="inprogress">
+                                <input type="hidden" name="cr-vCenter-details-cluster-data"
+                                    id="cr-vCenter-details-cluster-data" value="">
+
+                                <input type="hidden" name="cr-esxi-details-datastore-fetch"
+                                    id="cr-esxi-details-datastore-fetch" value="inprogress">
+                                <input type="hidden" name="cr-esxi-details-datastore-data"
+                                    id="cr-esxi-details-datastore-data" value="">
+                                <input type="hidden" name="cr-esxi-details-network-fetch"
+                                    id="cr-esxi-details-network-fetch" value="inprogress">
+                                <input type="hidden" name="cr-esxi-details-network-data"
+                                    id="cr-esxi-details-network-data" value="inprogress">
+
                                 <form id="cr-form" onsubmit="runBookAutomation('cr-form'); return false;" is-skip="0">
                                     <!-- onsubmit="Run_Automation_Script('cr-install');return false" -->
                                     <!-- CR vCenter & ESXI-->
                                     <ul class="nav nav-tabs" id="crTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="cr-tab3" type="button">
-                                            vCenter Details
+                                                vCenter Details
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="cr-tab4" type="button">
-                                            ESXi Details
+                                                ESXi Details
                                             </button>
                                         </li>
                                     </ul>
@@ -2903,7 +2971,7 @@
                                                                     class="mandatory">*</span>vCenter</span>
 
                                                             <input type="text" name="vCenter" class="form-control"
-                                                                id="cr-vCenter-text1" />
+                                                                id="cr-vCenter-text1" value="10.118.168.23" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
@@ -2911,7 +2979,8 @@
                                                             <span class="input-group-text" for="username"><span
                                                                     class="mandatory">*</span>Username</span>
                                                             <input type="text" name="username" class="form-control"
-                                                                id="cr-vCenter-username-text1" />
+                                                                id="cr-vCenter-username-text1"
+                                                                value="administrator@vsphere.local" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
@@ -2919,7 +2988,33 @@
                                                             <span class="input-group-text" for="password"><span
                                                                     class="mandatory">*</span>Password</span>
                                                             <input type="password" name="password" class="form-control"
-                                                                id="cr-vCenter-password-text1" />
+                                                                id="cr-vCenter-password-text1"
+                                                                value="appMOD@12345678" />
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="col-md-12">
+                                                        <div class="input-group" style="margin-top: 10px;">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory"></span></span>
+                                                            <button id="cr-vCenter-details-fetch"
+                                                                datastore-status-hidden="cr-vCenter-details-datastore-fetch"
+                                                                datastore-data-hidden="cr-vCenter-details-datastore-data"
+                                                                network-status-hidden="cr-vCenter-details-network-fetch"
+                                                                network-data-hidden="cr-vCenter-details-network-data"
+                                                                esxi-status-hidden="cr-vCenter-details-esxi-fetch"
+                                                                esxi-data-hidden="cr-vCenter-details-esxi-data"
+                                                                cluster-data-hidden="cr-vCenter-details-cluster-data"
+                                                                cluster-status-hidden="cr-vCenter-details-cluster-fetch"
+                                                                esxi-id="runbook-cr-esxi"
+                                                                data-store-id="runbook-cr-data-store"
+                                                                network-id="runbook-cr-network" form-id="cr-form"
+                                                                vcenter-id="cr-vCenter-text1"
+                                                                vcenter-user-name="cr-vCenter-username-text1"
+                                                                vcenter-password="cr-vCenter-password-text1"
+                                                                class="btn btn-primary vCenter-details-fetch">Fetch
+                                                                vCenter Details
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2927,50 +3022,54 @@
                                         </div>
                                         <div class="tab-pane" id="cr-ESXi1">
                                             <div class="card mb-4">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="ESXi"
-                                                    ><span class="mandatory">*</span>ESXi Host</span
-                                                    >
-                                                    <input
-                                                    type="text"
-                                                    name="ESXi"
-                                                    class="form-control"
-                                                    id="cr-ESXi-text1"
-                                                    disabled
-                                                    />
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="ESXi"><span
+                                                                    class="mandatory">*</span>ESXi Host</span>
+                                                            <input type="text" name="ESXi" class="form-control"
+                                                                id="cr-ESXi-text1" disabled value="10.118.168.23" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="username"><span
+                                                                    class="mandatory">*</span>Username</span>
+                                                            <input type="text" name="username" class="form-control"
+                                                                id="cr-ESXi-username-text1" disabled
+                                                                value="administrator@vsphere.local" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory">*</span>Password</span>
+                                                            <input type="password" name="password" class="form-control"
+                                                                id="cr-ESXi-password-text1" disabled
+                                                                value="appMOD@12345678" />
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="col-md-12">
+                                                        <div class="input-group" style="margin-top: 10px;">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory"></span></span>
+                                                            <button id="cr-esxi-details-fetch"
+                                                                datastore-status-hidden="cr-esxi-details-datastore-fetch"
+                                                                datastore-data-hidden="cr-esxi-details-datastore-data"
+                                                                network-status-hidden="cr-esxi-details-network-fetch"
+                                                                network-data-hidden="cr-esxi-details-network-data"
+                                                                data-store-id="runbook-cr-data-store"
+                                                                network-id="runbook-cr-network" form-id="cr-form"
+                                                                esxi-ip-id="cr-ESXi-text1"
+                                                                esxi-user-name="cr-ESXi-username-text1"
+                                                                esxi-password="cr-ESXi-password-text1"
+                                                                class="btn btn-primary esxi-details-fetch">Fetch
+                                                                ESXi Details
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="username"
-                                                    ><span class="mandatory">*</span>Username</span
-                                                    >
-                                                    <input
-                                                    type="text"
-                                                    name="username"
-                                                    class="form-control"
-                                                    id="cr-ESXi-username-text1" 
-                                                    disabled
-                                                    />
-                                                </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-text" for="password"
-                                                    ><span class="mandatory">*</span>Password</span
-                                                    >
-                                                    <input
-                                                    type="password"
-                                                    name="password"
-                                                    class="form-control"
-                                                    id="cr-ESXi-password-text1"
-                                                    disabled
-                                                    />
-                                                </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -3003,37 +3102,34 @@
                                                     <input type="hidden" name="ovaPath" id="hiddenpath-cr-form" />
                                                 </div>
                                             </div>
-                                                                        
+
                                             <div class="col-md-6" id="cr_esxiHost1">
                                                 <div class="input-group mb-3">
-                                                <span class="input-group-text" for="host-value"
-                                                    ><span class="mandatory">*</span>
-                                                    <div class="switch-field">
-                                                    <input
-                                                        type="radio"
-                                                        id="cr-radio-one1"
-                                                        name="host-type"
-                                                        value="esxiHost"
-                                                        value1="esxihost"
-                                                        checked
-                                                    />
-                                                    <label for="cr-radio-one">ESXi Host</label>
-                                                    <input
-                                                        type="radio"
-                                                        id="cr-radio-two1"
-                                                        name="host-type"
-                                                        value="cluster"
-                                                        value1="cluster"
-                                                    />
-                                                    <label for="cr-radio-two">Cluster</label>
-                                                    </div></span
-                                                >
-                                                <input
-                                                    type="text"
-                                                    id="cr-host-input1"
-                                                    class="form-control"
-                                                    name="host-value"
-                                                />
+                                                    <span class="input-group-text" for="host-value1"><span
+                                                            class="mandatory">*</span>
+                                                        <div class="switch-field">
+                                                            <input type="radio" id="cr-radio-one1" name="host-type"
+                                                                value="esxiHost" value1="esxihost"
+                                                                data-hidden="cr-vCenter-details-esxi-data"
+                                                                dom-id="runbook-cr-esxi"
+                                                                status-hidden="cr-vCenter-details-esxi-fetch" checked />
+                                                            <label for="cr-radio-one1">ESXi Host</label>
+                                                            <input type="radio" id="cr-radio-two1" name="host-type"
+                                                                value="cluster" value1="cluster"
+                                                                data-hidden="cr-vCenter-details-cluster-data"
+                                                                dom-id="runbook-cr-esxi"
+                                                                status-hidden="cr-vCenter-details-cluster-fetch" />
+                                                            <label for="cr-radio-two1">Cluster</label>
+                                                        </div>
+                                                    </span>
+
+                                                    <div id="runbook-cr-esxi" style="width: 383px;">
+                                                        <input type="text" id="cr-host-input1" class="form-control"
+                                                            name="host-value" required />
+                                                    </div>
+                                                    <!-- 
+                                                    <input type="text" id="cr-host-input1" class="form-control"
+                                                        name="host-value" /> -->
                                                 </div>
                                             </div>
 
@@ -3056,8 +3152,17 @@
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" for="Network"><span
                                                             class="mandatory">*</span>Network</span>
-                                                    <input type="text" class="form-control" name="Network" required />
+                                                    <div id="runbook-cr-network" style="width: 383px;">
+                                                        <input type="text" class="form-control" name="Network"
+                                                            required />
+                                                    </div>
                                                 </div>
+
+                                                <!-- <div class="input-group mb-3">
+                                                    <span class="input-group-text" for="Network"><span
+                                                            class="mandatory">*</span>Network</span>
+                                                    <input type="text" class="form-control" name="Network" required />
+                                                </div> -->
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3">
@@ -3084,7 +3189,10 @@
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" for="Datastore"><span
                                                             class="mandatory">*</span>Datastore</span>
-                                                    <input type="text" class="form-control" name="Datastore" required />
+                                                    <div id="runbook-cr-data-store" style="width: 383px;">
+                                                        <input type="text" class="form-control" name="Datastore"
+                                                            required />
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -3138,8 +3246,8 @@
                                     <div class="form-buttons-cs">
                                         <!-- <button class="btn btn-primary btn-navigate-form-step skip-btn" type="button"
                                             step_number="3">Skip</button> -->
-                                        <button class="btn btn-primary btn-navigate-form-step" type="button" id="cr-form-btn1"
-                                            step_number="2">Prev</button>
+                                        <button class="btn btn-primary btn-navigate-form-step" type="button"
+                                            id="cr-form-btn1" step_number="2">Prev</button>
                                         <button type="submit" class="btn btn-primary" step="3" id="cr-form-btn">
                                             <i class="bi bi-play"></i> Next
                                         </button>
@@ -3152,18 +3260,20 @@
                         </section>
                         <!-- Cyber Sense-->
                         <!-- Step 2 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-3" class="form-step d-none" section-text="CyberSense" status-id="cyber-sense-status">
+                        <section is-modified="0" id="step-3" class="form-step d-none" section-text="CyberSense"
+                            status-id="cyber-sense-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">CyberSense</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">CyberSense</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">CyberSense</h2>
                             <!-- Step 2 input fields -->
                             <div class="m-3">
-                                <form id="cs-install-form" onsubmit="runBookAutomation('cs-install-form');return false"  is-skip="0">
+                                <form id="cs-install-form" onsubmit="runBookAutomation('cs-install-form');return false"
+                                    is-skip="0">
                                     <div class="alert alert-danger alert-dismissable alert-cs" style="display: none;"
                                         id="cs-form-alert">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -3173,17 +3283,17 @@
                                     </div>
 
                                     <!-- CS vCenter & ESXI-->
-                                                            
+
                                     <ul class="nav nav-tabs" id="csTab" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="cs-tab3" type="button">
-                                            vCenter Details
-                                        </button>
+                                            <button class="nav-link active" id="cs-tab3" type="button">
+                                                vCenter Details
+                                            </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="cs-tab4" type="button">
-                                            ESXi Details
-                                        </button>
+                                            <button class="nav-link" id="cs-tab4" type="button">
+                                                ESXi Details
+                                            </button>
                                         </li>
                                     </ul>
 
@@ -3222,32 +3332,38 @@
                                                 </div>
                                             </div>
                                         </div>
-                                                            
-                                    <div class="tab-pane" id="cs-ESXi1">
-                                        <div class="card mb-4">
-                                            <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                <span class="input-group-text" for="ESXi"><span class="mandatory">*</span>ESXi Host</span>
-                                                <input type="text" name="ESXi" class="form-control" id="cs-ESXi-text1" disabled="disabled">
+
+                                        <div class="tab-pane" id="cs-ESXi1">
+                                            <div class="card mb-4">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="ESXi"><span
+                                                                    class="mandatory">*</span>ESXi Host</span>
+                                                            <input type="text" name="ESXi" class="form-control"
+                                                                id="cs-ESXi-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="username"><span
+                                                                    class="mandatory">*</span>Username</span>
+                                                            <input type="text" name="username" class="form-control"
+                                                                id="cs-ESXi-username-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory">*</span>Password</span>
+                                                            <input type="password" name="password" class="form-control"
+                                                                id="cs-ESXi-password-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                <span class="input-group-text" for="username"><span class="mandatory">*</span>Username</span>
-                                                <input type="text" name="username" class="form-control" id="cs-ESXi-username-text1" disabled="disabled">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="input-group">
-                                                <span class="input-group-text" for="password"><span class="mandatory">*</span>Password</span>
-                                                <input type="password" name="password" class="form-control" id="cs-ESXi-password-text1" disabled="disabled">
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
-                                    </div>
-                            
+
                                     </div>
 
                                     <div class="card mb-4" style="padding-top: 0">
@@ -3279,17 +3395,19 @@
                                             </div>
                                             <div class="col-md-6" id="cs_esxiHost1">
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="host-value"><span class="mandatory">*</span>
+                                                    <span class="input-group-text" for="host-value"><span
+                                                            class="mandatory">*</span>
                                                         <div class="switch-field">
-                                                            <input type="radio" id="cs-radio-one1" name="host-type" value="esxiHost"
-                                                                checked />
+                                                            <input type="radio" id="cs-radio-one1" name="host-type"
+                                                                value="esxiHost" checked />
                                                             <label for="cs-radio-one">ESXi Host</label>
                                                             <input type="radio" id="cs-radio-two1" name="host-type"
                                                                 value="cluster" />
                                                             <label for="cs-radio-two">Cluster</label>
                                                         </div>
                                                     </span>
-                                                    <input type="text" id="cs-host-input1" class="form-control" name="host-value" />
+                                                    <input type="text" id="cs-host-input1" class="form-control"
+                                                        name="host-value" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -3448,14 +3566,15 @@
                         </section>
                         <!-- Data Domain-->
                         <!-- Step 3 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-4"  class="form-step d-none" section-text="Data Domain" status-id="data-domain-status">
+                        <section is-modified="0" id="step-4" class="form-step d-none" section-text="Data Domain"
+                            status-id="data-domain-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">PowerProtect Data Domain</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">PowerProtect Data Domain</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">PowerProtect Data Domain</h2>
                             <div class="m-3">
                                 <div class="ddve-install-section1">
@@ -3502,7 +3621,7 @@
                                         Password. Please enter a different password.
                                     </div>
                                     <form id="ddve-install-form"
-                                        onsubmit="runBookAutomation('ddve-install-form');return false"  is-skip="0">
+                                        onsubmit="runBookAutomation('ddve-install-form');return false" is-skip="0">
                                         <div class="card mb-4" style="padding-top: 0">
                                             <h5 class="card-title"
                                                 style="width: 120px; text-align: center; font-size: 12px">
@@ -3520,7 +3639,8 @@
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" for="username"><span
                                                                 class="mandatory">*</span>Username</span>
-                                                        <input type="text" name="username" class="form-control" required="">
+                                                        <input type="text" name="username" class="form-control"
+                                                            required="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -3571,12 +3691,14 @@
                                                                 <td>
                                                                     <div class="input-group" for="cradminuser_role">
                                                                         <input type="text" name="cradminuser_role"
-                                                                            class="form-control" value="admin" required="">
+                                                                            class="form-control" value="admin"
+                                                                            required="">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="input-group" for="cradminuser_password">
-                                                                        <input type="password" name="cradminuser_password"
+                                                                        <input type="password"
+                                                                            name="cradminuser_password"
                                                                             class="form-control" id="cradminuser_pwd"
                                                                             required="">
                                                                     </div>
@@ -3602,7 +3724,8 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="input-group" for="secofficer1_password">
-                                                                        <input type="password" name="secofficer1_password"
+                                                                        <input type="password"
+                                                                            name="secofficer1_password"
                                                                             class="form-control" id="secofficer1_pwd"
                                                                             required="">
                                                                     </div>
@@ -3628,7 +3751,8 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="input-group" for="secofficer2_password">
-                                                                        <input type="password" name="secofficer2_password"
+                                                                        <input type="password"
+                                                                            name="secofficer2_password"
                                                                             class="form-control" id="secofficer2_pwd"
                                                                             required="">
                                                                     </div>
@@ -3676,33 +3800,34 @@
                         </section>
                         <!-- Avamar -->
                         <!-- Step 2 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-5"  class="form-step d-none" section-text="Avamar" status-id="avamar-status">
+                        <section is-modified="0" id="step-5" class="form-step d-none" section-text="Avamar"
+                            status-id="avamar-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">Avamar</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">Avamar</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">Avamar</h2>
                             <!-- Step 2 input fields -->
                             <div class="m-3">
                                 <div class="ave-install-section" style="">
                                     <form id="ave-install-form"
-                                        onsubmit="runBookAutomation('ave-install-form');return false"  is-skip="0">
+                                        onsubmit="runBookAutomation('ave-install-form');return false" is-skip="0">
                                         <!-- CS vCenter & ESXI-->
-                                    <ul class="nav nav-tabs" id="aveTab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" id="ave-tab3" type="button">
-                                            vCenter Details
-                                            </button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="ave-tab4" type="button">
-                                            ESXi Details
-                                            </button>
-                                        </li>
-                                    </ul>
+                                        <ul class="nav nav-tabs" id="aveTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="ave-tab3" type="button">
+                                                    vCenter Details
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="ave-tab4" type="button">
+                                                    ESXi Details
+                                                </button>
+                                            </li>
+                                        </ul>
 
                                         <!-- Tab panes -->
                                         <div class="tab-content">
@@ -3743,24 +3868,31 @@
                                             <div class="tab-pane" id="ave-ESXi1">
                                                 <div class="card mb-4">
                                                     <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="input-group mb-3">
-                                                        <span class="input-group-text" for="ESXi"><span class="mandatory">*</span>ESXi Host</span>
-                                                        <input type="text" name="ESXi" class="form-control" id="ave-ESXi-text1" disabled="disabled">
+                                                        <div class="col-md-12">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text" for="ESXi"><span
+                                                                        class="mandatory">*</span>ESXi Host</span>
+                                                                <input type="text" name="ESXi" class="form-control"
+                                                                    id="ave-ESXi-text1" disabled="disabled">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="input-group mb-3">
-                                                        <span class="input-group-text" for="username"><span class="mandatory">*</span>Username</span>
-                                                        <input type="text" name="username" class="form-control" id="ave-ESXi-username-text1" disabled="disabled">
+                                                        <div class="col-md-12">
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text" for="username"><span
+                                                                        class="mandatory">*</span>Username</span>
+                                                                <input type="text" name="username" class="form-control"
+                                                                    id="ave-ESXi-username-text1" disabled="disabled">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="input-group">
-                                                        <span class="input-group-text" for="password"><span class="mandatory">*</span>Password</span>
-                                                        <input type="password" name="password" class="form-control" id="ave-ESXi-password-text1" disabled="disabled">
+                                                        <div class="col-md-12">
+                                                            <div class="input-group">
+                                                                <span class="input-group-text" for="password"><span
+                                                                        class="mandatory">*</span>Password</span>
+                                                                <input type="password" name="password"
+                                                                    class="form-control" id="ave-ESXi-password-text1"
+                                                                    disabled="disabled">
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3792,17 +3924,19 @@
                                                 </div>
                                                 <div class="col-md-6" id="ave_esxiHost1">
                                                     <div class="input-group mb-3">
-                                                        <span class="input-group-text" for="host-value"><span class="mandatory">*</span>
+                                                        <span class="input-group-text" for="host-value"><span
+                                                                class="mandatory">*</span>
                                                             <div class="switch-field">
-                                                                <input type="radio" id="ave-radio-one1" name="host-type" value="esxiHost"
-                                                                    checked />
+                                                                <input type="radio" id="ave-radio-one1" name="host-type"
+                                                                    value="esxiHost" checked />
                                                                 <label for="ave-radio-one">ESXi Host</label>
                                                                 <input type="radio" id="ave-radio-two1" name="host-type"
                                                                     value="cluster" />
                                                                 <label for="ave-radio-two">Cluster</label>
                                                             </div>
                                                         </span>
-                                                        <input type="text" id="ave-host-input1" class="form-control" name="host-value" />
+                                                        <input type="text" id="ave-host-input1" class="form-control"
+                                                            name="host-value" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -4032,29 +4166,30 @@
                         </section>
                         <!-- Networker -->
                         <!-- Step 4 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-6"  class="form-step d-none" section-text="NetWorker" status-id="networker-status">
+                        <section is-modified="0" id="step-6" class="form-step d-none" section-text="NetWorker"
+                            status-id="networker-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">NetWorker</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">NetWorker</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">Networker</h2>
                             <!-- Step 4 input fields -->
                             <div class="m-3">
                                 <form id="networker-install-form"
-                                    onsubmit="runBookAutomation('networker-install-form');return false"  is-skip="0">
+                                    onsubmit="runBookAutomation('networker-install-form');return false" is-skip="0">
                                     <!-- Networker vCenter & ESXI-->
                                     <ul class="nav nav-tabs" id="networkerTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="networker-tab3" type="button">
-                                            vCenter Details
+                                                vCenter Details
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="networker-tab4" type="button">
-                                            ESXi Details
+                                                ESXi Details
                                             </button>
                                         </li>
                                     </ul>
@@ -4098,26 +4233,32 @@
                                         </div>
                                         <div class="tab-pane" id="networker-ESXi1">
                                             <div class="card mb-4">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="ESXi"><span class="mandatory">*</span>ESXi Host</span>
-                                                    <input type="text" name="ESXi" class="form-control" id="networker-ESXi-text1" disabled="disabled">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="ESXi"><span
+                                                                    class="mandatory">*</span>ESXi Host</span>
+                                                            <input type="text" name="ESXi" class="form-control"
+                                                                id="networker-ESXi-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="username"><span
+                                                                    class="mandatory">*</span>Username</span>
+                                                            <input type="text" name="username" class="form-control"
+                                                                id="networker-ESXi-username-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory">*</span>Password</span>
+                                                            <input type="password" name="password" class="form-control"
+                                                                id="networker-ESXi-password-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="username"><span class="mandatory">*</span>Username</span>
-                                                    <input type="text" name="username" class="form-control" id="networker-ESXi-username-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-text" for="password"><span class="mandatory">*</span>Password</span>
-                                                    <input type="password" name="password" class="form-control" id="networker-ESXi-password-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -4147,16 +4288,19 @@
                                             </div>
                                             <div class="col-md-6" id="networker_esxiHost1">
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="host-value"><span class="mandatory">*</span>
+                                                    <span class="input-group-text" for="host-value"><span
+                                                            class="mandatory">*</span>
                                                         <div class="switch-field">
-                                                            <input type="radio" id="net-radio-one1" name="host-type" value="esxiHost"
-                                                                checked />
+                                                            <input type="radio" id="net-radio-one1" name="host-type"
+                                                                value="esxiHost" checked />
                                                             <label for="net-radio-one">ESXi Host</label>
-                                                            <input type="radio" id="net-radio-two1" name="host-type" value="cluster" />
+                                                            <input type="radio" id="net-radio-two1" name="host-type"
+                                                                value="cluster" />
                                                             <label for="net-radio-two">Cluster</label>
                                                         </div>
                                                     </span>
-                                                    <input type="text" id="net-host-input1" class="form-control" name="host-value" />
+                                                    <input type="text" id="net-host-input1" class="form-control"
+                                                        name="host-value" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -4257,29 +4401,31 @@
                         </section>
 
                         <!-- Networker Proxy. -->
-                        <section is-modified="0" id="step-7"  class="form-step d-none" section-text="Networker Proxy"  status-id="networker-proxy-status">
+                        <section is-modified="0" id="step-7" class="form-step d-none" section-text="Networker Proxy"
+                            status-id="networker-proxy-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">Netwoker Proxy</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">Netwoker Proxy</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">Netwoker Proxy</h2>
                             <!-- Step 6 input fields -->
                             <div class="m-3">
                                 <form id="networker-proxy-install-form"
-                                    onsubmit="runBookAutomation('networker-proxy-install-form');return false"  is-skip="0">
+                                    onsubmit="runBookAutomation('networker-proxy-install-form');return false"
+                                    is-skip="0">
                                     <!-- networker-proxy vCenter & ESXI-->
                                     <ul class="nav nav-tabs" id="networker-proxyTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="networker-proxy-tab3" type="button">
-                                            vCenter Details
+                                                vCenter Details
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="networker-proxy-tab4" type="button">
-                                            ESXi Details
+                                                ESXi Details
                                             </button>
                                         </li>
                                     </ul>
@@ -4305,7 +4451,8 @@
                                                             <span class="input-group-text" for="username"><span
                                                                     class="mandatory">*</span>Username</span>
                                                             <input type="text" name="username" class="form-control"
-                                                                id="networker-proxy-vCenter-username-text1" required="required">
+                                                                id="networker-proxy-vCenter-username-text1"
+                                                                required="required">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
@@ -4313,7 +4460,8 @@
                                                             <span class="input-group-text" for="password"><span
                                                                     class="mandatory">*</span>Password</span>
                                                             <input type="password" name="password" class="form-control"
-                                                                id="networker-proxy-vCenter-password-text1" required="required">
+                                                                id="networker-proxy-vCenter-password-text1"
+                                                                required="required">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4321,26 +4469,34 @@
                                         </div>
                                         <div class="tab-pane" id="networker-proxy-ESXi1">
                                             <div class="card mb-4">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="ESXi"><span class="mandatory">*</span>ESXi Host</span>
-                                                    <input type="text" name="ESXi" class="form-control" id="networker-proxy-ESXi-text1" disabled="disabled">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="ESXi"><span
+                                                                    class="mandatory">*</span>ESXi Host</span>
+                                                            <input type="text" name="ESXi" class="form-control"
+                                                                id="networker-proxy-ESXi-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="username"><span
+                                                                    class="mandatory">*</span>Username</span>
+                                                            <input type="text" name="username" class="form-control"
+                                                                id="networker-proxy-ESXi-username-text1"
+                                                                disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory">*</span>Password</span>
+                                                            <input type="password" name="password" class="form-control"
+                                                                id="networker-proxy-ESXi-password-text1"
+                                                                disabled="disabled">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="username"><span class="mandatory">*</span>Username</span>
-                                                    <input type="text" name="username" class="form-control" id="networker-proxy-ESXi-username-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-text" for="password"><span class="mandatory">*</span>Password</span>
-                                                    <input type="password" name="password" class="form-control" id="networker-proxy-ESXi-password-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -4370,14 +4526,20 @@
                                             </div>
                                             <div class="col-md-6" id="networker-proxy_esxiHost1">
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="host-value"><span class="mandatory">*</span>
-                                                    <div class="switch-field">
-                                                        <input type="radio" id="networker-proxy-radio-one1" name="host-type" value="esxiHost" checked=""  required="required">
-                                                        <label for="networker-proxy-radio-one">ESXi Host</label>
-                                                        <input type="radio" id="networker-proxy-radio-two1" name="host-type" value="cluster" required="required">
-                                                        <label for="networker-proxy-radio-two">Cluster</label>
-                                                    </div></span>
-                                                    <input type="text" id="networker-proxy-host-input1" class="form-control" name="host-value" required="required">
+                                                    <span class="input-group-text" for="host-value"><span
+                                                            class="mandatory">*</span>
+                                                        <div class="switch-field">
+                                                            <input type="radio" id="networker-proxy-radio-one1"
+                                                                name="host-type" value="esxiHost" checked=""
+                                                                required="required">
+                                                            <label for="networker-proxy-radio-one">ESXi Host</label>
+                                                            <input type="radio" id="networker-proxy-radio-two1"
+                                                                name="host-type" value="cluster" required="required">
+                                                            <label for="networker-proxy-radio-two">Cluster</label>
+                                                        </div>
+                                                    </span>
+                                                    <input type="text" id="networker-proxy-host-input1"
+                                                        class="form-control" name="host-value" required="required">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -4455,7 +4617,7 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" for="defaultRootpassword"><span
@@ -4499,8 +4661,8 @@
                                             step_number="8">Skip</button> -->
                                         <button class="btn btn-primary btn-navigate-form-step" type="button"
                                             step_number="6" id="networker-proxy-install-form-btn1">Prev</button>
-                                        <button type="submit" class="btn btn-primary" id="networker-proxy-install-form-btn"
-                                            step="8">
+                                        <button type="submit" class="btn btn-primary"
+                                            id="networker-proxy-install-form-btn" step="8">
                                             <i class="bi bi-play"></i> Next
                                         </button>
                                         <button type="button" class="btn btn-secondary"
@@ -4515,29 +4677,30 @@
                         `
                         <!-- Avamar Proxy -->
                         <!-- Step 5 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-8"  class="form-step d-none" section-text="Avamar Proxy" status-id="avamar-proxy-status">
+                        <section is-modified="0" id="step-8" class="form-step d-none" section-text="Avamar Proxy"
+                            status-id="avamar-proxy-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">Avamar Proxy</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">Avamar Proxy</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">Avamar Proxy</h2>
                             <!-- Step 5 input fields -->
                             <div class="m-3">
                                 <form id="proxy-install-form"
-                                    onsubmit="runBookAutomation('proxy-install-form');return false"  is-skip="0">
+                                    onsubmit="runBookAutomation('proxy-install-form');return false" is-skip="0">
                                     <!-- Avamar Proxy vCenter & ESXI-->
                                     <ul class="nav nav-tabs" id="networkerTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="proxy-tab3" type="button">
-                                            vCenter Details
+                                                vCenter Details
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="proxy-tab4" type="button">
-                                            ESXi Details
+                                                ESXi Details
                                             </button>
                                         </li>
                                     </ul>
@@ -4579,26 +4742,32 @@
                                         </div>
                                         <div class="tab-pane" id="proxy-ESXi1">
                                             <div class="card mb-4">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="ESXi"><span class="mandatory">*</span>ESXi Host</span>
-                                                    <input type="text" name="ESXi" class="form-control" id="proxy-ESXi-text1" disabled="disabled">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="ESXi"><span
+                                                                    class="mandatory">*</span>ESXi Host</span>
+                                                            <input type="text" name="ESXi" class="form-control"
+                                                                id="proxy-ESXi-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="username"><span
+                                                                    class="mandatory">*</span>Username</span>
+                                                            <input type="text" name="username" class="form-control"
+                                                                id="proxy-ESXi-username-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory">*</span>Password</span>
+                                                            <input type="password" name="password" class="form-control"
+                                                                id="proxy-ESXi-password-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="username"><span class="mandatory">*</span>Username</span>
-                                                    <input type="text" name="username" class="form-control" id="proxy-ESXi-username-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-text" for="password"><span class="mandatory">*</span>Password</span>
-                                                    <input type="password" name="password" class="form-control" id="proxy-ESXi-password-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -4628,17 +4797,22 @@
                                             </div>
                                             <div class="col-md-6" id="proxy_esxiHost1">
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="host-value"><span class="mandatory">*</span>
-                                                    <div class="switch-field">
-                                                        <input type="radio" id="proxy-radio-one1" name="host-type" value="esxiHost" checked="" required="required">
-                                                        <label for="proxy-radio-one">ESXi Host</label>
-                                                        <input type="radio" id="proxy-radio-two1" name="host-type" value="cluster" required="required">
-                                                        <label for="proxy-radio-two">Cluster</label>
-                                                    </div></span>
-                                                    <input type="text" id="proxy-host-input1" class="form-control" name="host-value" required="required">
+                                                    <span class="input-group-text" for="host-value"><span
+                                                            class="mandatory">*</span>
+                                                        <div class="switch-field">
+                                                            <input type="radio" id="proxy-radio-one1" name="host-type"
+                                                                value="esxiHost" checked="" required="required">
+                                                            <label for="proxy-radio-one">ESXi Host</label>
+                                                            <input type="radio" id="proxy-radio-two1" name="host-type"
+                                                                value="cluster" required="required">
+                                                            <label for="proxy-radio-two">Cluster</label>
+                                                        </div>
+                                                    </span>
+                                                    <input type="text" id="proxy-host-input1" class="form-control"
+                                                        name="host-value" required="required">
                                                 </div>
                                             </div>
-                
+
                                             <!-- <div class="col-md-6">
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" for="fqdn"><span
@@ -4725,29 +4899,30 @@
                         </section>
                         <!-- Data Manager-->
                         <!-- Step 6 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-9"  class="form-step d-none" section-text="PPDM"  status-id="data-manager-status">
+                        <section is-modified="0" id="step-9" class="form-step d-none" section-text="PPDM"
+                            status-id="data-manager-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">PPDM</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">PPDM</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">Data Manager</h2>
                             <!-- Step 6 input fields -->
                             <div class="m-3">
                                 <form id="ppdm-install-form"
-                                    onsubmit="runBookAutomation('ppdm-install-form');return false"  is-skip="0">
+                                    onsubmit="runBookAutomation('ppdm-install-form');return false" is-skip="0">
                                     <!-- PPDM vCenter & ESXI-->
                                     <ul class="nav nav-tabs" id="ppdmTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="ppdm-tab3" type="button">
-                                            vCenter Details
+                                                vCenter Details
                                             </button>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="ppdm-tab4" type="button">
-                                            ESXi Details
+                                                ESXi Details
                                             </button>
                                         </li>
                                     </ul>
@@ -4789,26 +4964,32 @@
                                         </div>
                                         <div class="tab-pane" id="ppdm-ESXi1">
                                             <div class="card mb-4">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="ESXi"><span class="mandatory">*</span>ESXi Host</span>
-                                                    <input type="text" name="ESXi" class="form-control" id="ppdm-ESXi-text1" disabled="disabled">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="ESXi"><span
+                                                                    class="mandatory">*</span>ESXi Host</span>
+                                                            <input type="text" name="ESXi" class="form-control"
+                                                                id="ppdm-ESXi-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" for="username"><span
+                                                                    class="mandatory">*</span>Username</span>
+                                                            <input type="text" name="username" class="form-control"
+                                                                id="ppdm-ESXi-username-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text" for="password"><span
+                                                                    class="mandatory">*</span>Password</span>
+                                                            <input type="password" name="password" class="form-control"
+                                                                id="ppdm-ESXi-password-text1" disabled="disabled">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="username"><span class="mandatory">*</span>Username</span>
-                                                    <input type="text" name="username" class="form-control" id="ppdm-ESXi-username-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-text" for="password"><span class="mandatory">*</span>Password</span>
-                                                    <input type="password" name="password" class="form-control" id="ppdm-ESXi-password-text1" disabled="disabled">
-                                                </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -4838,14 +5019,19 @@
                                             </div>
                                             <div class="col-md-6" id="ppdm_esxiHost1">
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text" for="host-value"><span class="mandatory">*</span>
-                                                    <div class="switch-field">
-                                                        <input type="radio" id="ppdm-radio-one1" name="host-type" value="esxiHost" checked="" required="required">
-                                                        <label for="ppdm-radio-one">ESXi Host</label>
-                                                        <input type="radio" id="ppdm-radio-two1" name="host-type" value="cluster" required="required">
-                                                        <label for="ppdm-radio-two">Cluster</label>
-                                                    </div></span>
-                                                    <input type="text" id="ppdm-host-input1" class="form-control" name="host-value" required="required">
+                                                    <span class="input-group-text" for="host-value"><span
+                                                            class="mandatory">*</span>
+                                                        <div class="switch-field">
+                                                            <input type="radio" id="ppdm-radio-one1" name="host-type"
+                                                                value="esxiHost" checked="" required="required">
+                                                            <label for="ppdm-radio-one">ESXi Host</label>
+                                                            <input type="radio" id="ppdm-radio-two1" name="host-type"
+                                                                value="cluster" required="required">
+                                                            <label for="ppdm-radio-two">Cluster</label>
+                                                        </div>
+                                                    </span>
+                                                    <input type="text" id="ppdm-host-input1" class="form-control"
+                                                        name="host-value" required="required">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -5011,19 +5197,20 @@
                         </section>
                         <!--NTP-->
                         <!-- Step 7 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-10"  class="form-step d-none" section-text="NTP"  status-id="ntp-status">
+                        <section is-modified="0" id="step-10" class="form-step d-none" section-text="NTP"
+                            status-id="ntp-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">NTP</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">NTP</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">NTP</h2>
                             <!-- Step 7 input fields -->
                             <div class="m-3">
                                 <form id="ntp-install-form"
-                                    onsubmit="runBookAutomation('ntp-install-form');return false"  is-skip="0">
+                                    onsubmit="runBookAutomation('ntp-install-form');return false" is-skip="0">
                                     <div class="card mb-4" style="padding-top: 0">
                                         <h5 class="card-title"
                                             style="width: 150px; text-align: center; font-size: 12px">
@@ -5124,19 +5311,20 @@
                         </section>
                         <!--DNS-->
                         <!-- Step 8 Content, default hidden on page load. -->
-                        <section is-modified="0" id="step-11"  class="form-step d-none" section-text="DNS"  status-id="dns-status">
+                        <section is-modified="0" id="step-11" class="form-step d-none" section-text="DNS"
+                            status-id="dns-status">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">DNS</h1>
-                                  <!-- <p>Fill all Required Details</p> -->
+                                    <h1 class="display-3">DNS</h1>
+                                    <!-- <p>Fill all Required Details</p> -->
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">DNS</h2>
                             <!-- Step 8 input fields -->
                             <div class="m-3">
                                 <form id="dns-install-form"
-                                    onsubmit="runBookAutomation('dns-install-form');return false"  is-skip="0">
+                                    onsubmit="runBookAutomation('dns-install-form');return false" is-skip="0">
                                     <div class="card mb-4" style="padding-top: 0">
                                         <h5 class="card-title"
                                             style="width: 150px; text-align: center; font-size: 12px">
@@ -5218,17 +5406,18 @@
                                 </form>
                             </div>
                         </section>
-                         <!--Final Step-->
+                        <!--Final Step-->
                         <!-- Step 8 Content, default hidden on page load. -->
-                        <section id="final-step"  class="form-step bg-custom">
+                        <section id="final-step" class="form-step bg-custom">
                             <img src="./images/5.jpg" alt="">
                             <div class="jumbotron dl-finaldeployment">
                                 <div class="container" style="float:left">
-                                  <h1 class="display-3">Deployment Status!</h1>
-                                  <p>All selected components catalog are ready for deployment and the status can be shown below.</p>
+                                    <h1 class="display-3">Deployment Status!</h1>
+                                    <p>All selected components catalog are ready for deployment and the status can be
+                                        shown below.</p>
                                     <div class="logoimg"> <span>Powered By</span></div>
                                 </div>
-                              </div>
+                            </div>
                             <h2 class="section-heading d-none">Deployment Status</h2>
                             <div class="p-3 p-31">
                                 <div class="row dl-deployment-state" style="margin-right:0px">
@@ -5236,8 +5425,8 @@
                                         <input type="hidden" id="hidden-cyber-recovery-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-snow3"></i></div>
-                                              <h5>Cyber Recovery</h5>
+                                                <div class="dep-icon"><i class="bi bi-snow3"></i></div>
+                                                <h5>Cyber Recovery</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5249,14 +5438,17 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="CRLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="CRLog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="CRLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href="" download="CRLog.txt"
+                                                        class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5264,8 +5456,8 @@
                                         <input type="hidden" id="hidden-cyber-sense-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-shield-lock"></i></div>
-                                              <h5>Cyber Sense</h5>
+                                                <div class="dep-icon"><i class="bi bi-shield-lock"></i></div>
+                                                <h5>Cyber Sense</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5277,14 +5469,17 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="CSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="CSLog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="CSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href="" download="CSLog.txt"
+                                                        class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5292,8 +5487,8 @@
                                         <input type="hidden" id="hidden-data-domain-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-hdd"></i></div>
-                                              <h5>Data Domain</h5>
+                                                <div class="dep-icon"><i class="bi bi-hdd"></i></div>
+                                                <h5>Data Domain</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5305,14 +5500,17 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="DDVElog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="DDVElog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="DDVElog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href="" download="DDVElog.txt"
+                                                        class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5320,8 +5518,8 @@
                                         <input type="hidden" id="hidden-avamar-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-pc-display"></i></div>
-                                              <h5>Avamar</h5>
+                                                <div class="dep-icon"><i class="bi bi-pc-display"></i></div>
+                                                <h5>Avamar</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5333,14 +5531,17 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="Avamarlog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="Avamarlog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="Avamarlog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href="" download="Avamarlog.txt"
+                                                        class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5348,8 +5549,8 @@
                                         <input type="hidden" id="hidden-networker-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-diagram-2"></i></div>
-                                              <h5>NetWorker</h5>
+                                                <div class="dep-icon"><i class="bi bi-diagram-2"></i></div>
+                                                <h5>NetWorker</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5361,14 +5562,18 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="Networkerlog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="Networkerlog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="Networkerlog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href=""
+                                                        download="Networkerlog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5376,8 +5581,8 @@
                                         <input type="hidden" id="hidden-networker-proxy-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-diagram-3"></i></div>
-                                              <h5>NetWorker Proxy</h5>
+                                                <div class="dep-icon"><i class="bi bi-diagram-3"></i></div>
+                                                <h5>NetWorker Proxy</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5389,14 +5594,18 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="NetworkerProxylog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="NetworkerProxylog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="NetworkerProxylog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href=""
+                                                        download="NetworkerProxylog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5404,8 +5613,8 @@
                                         <input type="hidden" id="hidden-avamar-proxy-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-hdd-rack"></i></div>
-                                              <h5>Avamar Proxy</h5>
+                                                <div class="dep-icon"><i class="bi bi-hdd-rack"></i></div>
+                                                <h5>Avamar Proxy</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5417,14 +5626,18 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="Ave_proxylog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="Ave_proxylog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="Ave_proxylog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href=""
+                                                        download="Ave_proxylog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5432,8 +5645,8 @@
                                         <input type="hidden" id="hidden-data-manager-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-database-gear"></i></div>
-                                              <h5>PPDM</h5>
+                                                <div class="dep-icon"><i class="bi bi-database-gear"></i></div>
+                                                <h5>PPDM</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5445,14 +5658,17 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="PPDMLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="PPDMLog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="PPDMLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href="" download="PPDMLog.txt"
+                                                        class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5460,8 +5676,8 @@
                                         <input type="hidden" id="hidden-ntp-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-hdd-network"></i></div>
-                                              <h5>NTP</h5>
+                                                <div class="dep-icon"><i class="bi bi-hdd-network"></i></div>
+                                                <h5>NTP</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5473,14 +5689,17 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="NTPLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="NTPLog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="NTPLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href="" download="NTPLog.txt"
+                                                        class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -5488,8 +5707,8 @@
                                         <input type="hidden" id="hidden-dns-status" value="InProgress">
                                         <div class="card dl-status dl-progress">
                                             <div class="card-body">
-                                              <div class="dep-icon"><i class="bi bi-globe"></i></div>
-                                              <h5>DNS</h5>
+                                                <div class="dep-icon"><i class="bi bi-globe"></i></div>
+                                                <h5>DNS</h5>
                                             </div>
                                             <div class="dl-msg">
                                                 <div class="spinner-border" role="status">
@@ -5501,19 +5720,22 @@
                                                 <span>Not selected for deployment</span>
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-check-lg"></i> 
-                                                <span>Completed Successfully &nbsp;&nbsp; <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-check-lg"></i>
+                                                <span>Completed Successfully &nbsp;&nbsp; <a href=""
+                                                        download="DNSLog.txt" class="download-logs"><i
+                                                            class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                             <div class="dl-msg" style="display: none;">
-                                                <i class="bi bi-x-lg"></i> 
-                                                <span>Deploymemt Error  &nbsp;&nbsp; <a href="" download="DNSLog.txt" class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
-                                                
+                                                <i class="bi bi-x-lg"></i>
+                                                <span>Deploymemt Error &nbsp;&nbsp; <a href="" download="DNSLog.txt"
+                                                        class="download-logs"><i class="bi bi-eye"></i> logs</a></span>
+
                                             </div>
                                         </div>
                                     </div>
 
-                                      <!-- <div class="col-sm-3">
+                                    <!-- <div class="col-sm-3">
                                         <div class="card dl-status dl-inactive">
                                           <div class="card-body">
                                               <div class="dep-icon"><i class="bi bi-database-gear"></i></div>
@@ -5596,16 +5818,16 @@
                                 </div> -->
 
                                 <form>
-                                    
+
                                     <div class="tab-content d-none">
-                                        <div class="tab-pane active" >
+                                        <div class="tab-pane active">
                                             <div class="card mb-4" style="
                                             margin: auto;
                                             max-width: 400px;
                                         ">
-                                       
+
                                                 <div class="row" id="final-steps-wizards">
-                                                        
+
                                                     <!-- <div class="col-md-12">
                                                         <div class="input-group mb-3">
                                                             <div class="loader">
@@ -5680,7 +5902,7 @@
         </div>
     </div>
 
-    
+
     <script src="./js/popper.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>

@@ -69,14 +69,14 @@ $body = "{
 
 $response = Invoke-RestMethod $appuri -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
 $response | ConvertTo-Json
-Write-Log "Log Files\CS_integratelog.txt" "[INFO] Cyber Sense sucessfully integrated  with Cyber Recovery"
+Write-Log "E:\Workspace\UIAutomation\Log Files\CS_integratelog.txt" "[INFO] Cyber Sense sucessfully integrated  with Cyber Recovery"
 }
 else
 {
-  Write-Log "Log Files\CS_integratelog.txt" "[ERROR] Cyber Sense is unreachable"
+  Write-Log "E:\Workspace\UIAutomation\Log Files\CS_integratelog.txt" "[ERROR] Cyber Sense is unreachable"
 }
 }
 catch{
       $exception = $_.Exception.Message
-       Write-Log "Log Files\CS_integratelog.txt" "[ERROR] $exception" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CS_integratelog.txt" "[ERROR] $exception" 
 }

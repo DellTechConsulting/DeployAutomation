@@ -40,7 +40,7 @@ $body = @"
 }
 "@
 #$response = Invoke-RestMethod "https://$($ip):8443/api/v2/login" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
-$response = Invoke-RestMethod "https://$($ip):8443/api/v2/login" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
+$response = Invoke-RestMethod "https://$($ip)/api/v2/login" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
 $response | ConvertTo-Json
 $mytoken = $response.access_token
 #Write-Output $response
@@ -57,7 +57,7 @@ $body = @"
 "@
 
 #$response1 = Invoke-RestMethod "https://$($ip):8443/api/v2/eulas/data-manager" -Method 'PATCH' -Headers $headers -Body $body -SkipCertificateCheck
-$response1 = Invoke-RestMethod "https://$($ip):8443/api/v2/eulas/data-manager" -Method 'PATCH' -Headers $headers -Body $body -SkipCertificateCheck
+$response1 = Invoke-RestMethod "https://$($ip)/api/v2/eulas/data-manager" -Method 'PATCH' -Headers $headers -Body $body -SkipCertificateCheck
 $response1| ConvertTo-Json
 #Write-Output $response1
 
@@ -67,7 +67,7 @@ $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("authorization", $mytoken)
 
 #$response2 = Invoke-RestMethod "https://$($ip):8443/api/v2/configurations" -Method 'GET' -Headers $headers -SkipCertificateCheck
-$response2 = Invoke-RestMethod "https://$($ip):8443/api/v2/configurations" -Method 'GET' -Headers $headers -SkipCertificateCheck
+$response2 = Invoke-RestMethod "https://$($ip)/api/v2/configurations" -Method 'GET' -Headers $headers -SkipCertificateCheck
 $response2 | ConvertTo-Json
 #Write-Output $response2
 
@@ -148,13 +148,13 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "Log Files\PPDMLog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
 
     if ($checkOva) {
 
-	   Write-Log "Log Files\PPDMLog.txt" "[ERROR] $VMName already exists`n"
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[ERROR] $VMName already exists`n"
            "Failed" | Out-File -FilePath $filepath
 
     }
@@ -195,7 +195,7 @@ if ($LoginCredentials) {
 
        $deployOva = Import-vApp -Source $myJson.ppdmdata.ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Location "Cluster" -InventoryLocation $myJson.ppdmdata.datacenter -Datastore $myJson.ppdmdata.Datastore -DiskStorageFormat $myJson.ppdmdata.DiskStorageFormat
        Start-VM -VM $VMName
-	   Write-Log "Log Files\PPDMLog.txt" "[INFO] PPDM Deployment is successful" 
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[INFO] PPDM Deployment is successful" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -206,7 +206,7 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\PPDMLog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[INFO] $vms"
        ppdminstall
 	   }
 
@@ -231,13 +231,13 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-	Write-Log "Log Files\PPDMLog.txt" "[INFO] $esxiServer successfully connected`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[INFO] $esxiServer successfully connected`n"
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
 
     if ($checkOva) {
 
-	   Write-Log "Log Files\PPDMLog.txt" "[ERROR] $VMName already exists`n"
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[ERROR] $VMName already exists`n"
            "Failed" | Out-File -FilePath $filepath
 
     }
@@ -283,7 +283,7 @@ if ($LoginCredentials) {
       "${PPDM_OVA}" `
       "vi://${DEPLOYMENT_TARGET_USERNAME}:${DEPLOYMENT_TARGET_PASSWORD}@${DEPLOYMENT_TARGET_ADDRESS}/"
        #Start-VM -VM $VMName
-	   Write-Log "Log Files\PPDMLog.txt" "[INFO] PPDM Deployment is successful" 
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[INFO] PPDM Deployment is successful" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -294,7 +294,7 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\PPDMLog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\PPDMLog.txt" "[INFO] $vms"
        ppdminstall
 }
     }
@@ -305,7 +305,7 @@ Remove-Item -Path $filepath -Confirm:$false -Force
 }
 catch{
       $exception = $_.Exception.Message
-       Write-Log "Log Files\PPDMLog.txt" "[ERROR] $exception"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $exception"
       "Failed" | Out-File -FilePath $filepath 
 	  sleep -s 30
       Remove-Item -Path $filepath -Confirm:$false -Force

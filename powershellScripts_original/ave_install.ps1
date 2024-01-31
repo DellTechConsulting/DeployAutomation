@@ -1,5 +1,5 @@
 ﻿param($FormInput)
-#Write-Host $FormInput
+Write-Host $FormInput
 ##################################################
 $myJson = $FormInput | ConvertFrom-Json
 $deploymentType = $myJson.deploymentType
@@ -73,7 +73,7 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "Log Files\Avamarlog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
@@ -83,20 +83,20 @@ if ($LoginCredentials) {
 
     if ($checkOva) {
 
-       Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided VMName $VMName already exists`n"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided VMName $VMName already exists`n"
        "Failed" | Out-File -FilePath $filepath
 
     }
         elseif($datastoredetail.Name -notcontains $myDatastore){
-	Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"
         "Failed" | Out-File -FilePath $filepath	
 	}
 	elseif($ipdetail.IPAddress -contains $ipv4){
-	Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($networkdetail.Name -notcontains $Network){
-	Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided network $Network is invalid`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided network $Network is invalid`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 
@@ -115,12 +115,12 @@ if ($LoginCredentials) {
           $clusterdetail = Get-Cluster -ErrorAction SilentlyContinue
           $clustervalue = $myJson.avedata.hostData.value
 	  if($clusterdetail.Name -contains $clustervalue){
-          Write-Log "Log Files\Avamarlog.txt" "[INFO] Initiating Avamar Deployment"
+          Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] Initiating Avamar Deployment"
         $esxiHost = Get-Cluster -Name $myJson.avedata.hostData.value | Get-VMHost | Get-Random
         $deployOva = Import-vApp -Source $ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myDatastore -DiskStorageFormat  $DiskStorageFormat
         }
           else{
-		 Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided cluster name $clustervalue is invalid`n"
+		 Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided cluster name $clustervalue is invalid`n"
                  "Failed" | Out-File -FilePath $filepath
                }
        }
@@ -130,11 +130,11 @@ if ($LoginCredentials) {
          $esxivalue = $myJson.avedata.hostData.value
 	 if($esxidetail.Name -contains $esxivalue){
           $esxiHost = $myJson.avedata.hostData.value
-         Write-Log "Log Files\Avamarlog.txt" "[INFO] Initiating Avamar Deployment"
+         Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] Initiating Avamar Deployment"
        $deployOva = Import-vApp -Source $ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myDatastore -DiskStorageFormat $DiskStorageFormat
         }
                else{
-		   Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided Esxi value $esxivalue is invalid`n"
+		   Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided Esxi value $esxivalue is invalid`n"
                    "Failed" | Out-File -FilePath $filepath
 		}
        }
@@ -145,12 +145,12 @@ if ($LoginCredentials) {
        New-HardDisk -VM $VMName -CapacityGB 250 -StorageFormat $DiskStorageFormat
        Start-VM -VM $VMName
        sleep -s 90
-       Copy-VMGuestFile -Destination '/root' -Source 'CRS Exp Files\Netconfig_ave.exp' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
+       Copy-VMGuestFile -Destination '/root' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\Netconfig_ave.exp' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
        $Command = "sudo expect Netconfig_ave.exp $ipv4address $gateway $fqdn $primarynameserver $ntp"
        $invoke_command=Invoke-VMScript -ScriptType Bash -ScriptText $Command -VM $VMName -GuestUser "root" -GuestPassword $defaultrootpass -ErrorAction SilentlyContinue
            if($invoke_command.ExitCode -eq "0")
            {
-              Copy-VMGuestFile -Destination '/root' -Source 'Ave config file\Installconfig_test.yaml' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
+              Copy-VMGuestFile -Destination '/root' -Source 'E:\Workspace\UIAutomation\Ave config file\Installconfig_test.yaml' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
               
              $Command1 = "sed -i -e 's/repl_password:/repl_password: $repl_password/; s/rootpass:/rootpass: $rootpass/; s/mcpass:/mcpass: $mcpass/' Installconfig_test.yaml"
              $Command2 = "sed -i -e 's/viewuserpass:/viewuserpass: $viewuserpass/; s/admin_password_os:/admin_password_os: $admin_password_os/' Installconfig_test.yaml"
@@ -175,7 +175,7 @@ if ($LoginCredentials) {
 
               Invoke-SSHCommand -Index $sessionID.sessionid -Command $Command7 -ErrorAction SilentlyContinue  # Invoke Command Over SSH
               sleep -s 1800
-              Copy-VMGuestFile -Destination '/home/admin' -Source 'CRS Exp Files\sshconfig_ave.exp' -LocalToGuest -GuestUser admin -GuestPassword $admin_password_os -VM $VMName
+              Copy-VMGuestFile -Destination '/home/admin' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\sshconfig_ave.exp' -LocalToGuest -GuestUser admin -GuestPassword $admin_password_os -VM $VMName
               $Command= "expect sshconfig_ave.exp $root_password_os"
               $sshout = Invoke-VMScript -ScriptType Bash -ScriptText $Command -VM $VMName -GuestUser admin -GuestPassword $admin_password_os
               $Command8="rm -rf /root/Installconfig_test.yaml"
@@ -186,7 +186,7 @@ if ($LoginCredentials) {
               $remove_file2 = Invoke-VMScript -ScriptType Bash -ScriptText $Command10 -VM $VMName -GuestUser admin -GuestPassword $admin_password_os -ErrorAction SilentlyContinue
 
           if($sshout.ExitCode -eq "0"){
-              Write-Log "Log Files\Avamarlog.txt" "[INFO] Avamar Deployment is successfull" 
+              Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] Avamar Deployment is successfull" 
            get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -197,7 +197,7 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\Avamarlog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] $vms"
         "Success" | Out-File -FilePath $filepath			    
 	}
 			  
@@ -207,14 +207,14 @@ if ($LoginCredentials) {
 			  
            } 
            else{
-             Write-Log "Log Files\Avamarlog.txt" "[ERROR] failed to update ave configuration"
+             Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] failed to update ave configuration"
               "Failed" | Out-File -FilePath $filepath
                }
        sleep -s 60
        }
        else
        {
-          Write-Log "Log Files\Avamarlog.txt" "[ERROR] Avamar Deployment is failed"
+          Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Avamar Deployment is failed"
           "Failed" | Out-File -FilePath $filepath
        }
 
@@ -226,13 +226,13 @@ if ($LoginCredentials) {
 
   if (!($global:DefaultVIServers.Count)) {
 
-    Write-Log "Log Files\Avamarlog.txt" "[INFO] $vCenterServer successfully disconnected`n"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] $vCenterServer successfully disconnected`n"
 
   }
 
   else {
 
-    Write-Log "Log Files\Avamarlog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
 
   }
 
@@ -289,7 +289,7 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "Log Files\Avamarlog.txt" "[INFO] esxiServer $esxiServer successfully connected`n"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] esxiServer $esxiServer successfully connected`n"
 
     $checkOva = Get-VM -Name $myJson.avedata.VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
@@ -298,25 +298,25 @@ if ($LoginCredentials) {
     Write-Host $networkdetail.Name
     if ($checkOva) {
 
-       Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided VMName $VMName already exists`n"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided VMName $VMName already exists`n"
         "Failed" | Out-File -FilePath $filepath
 
     }
         elseif($datastoredetail.Name -notcontains $myDatastore){
-	Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"
         "Failed" | Out-File -FilePath $filepath	
 	}
 	elseif($ipdetail.IPAddress -contains $ipv4){
-	Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($networkdetail.Name -notcontains $Network){
-	Write-Log "Log Files\Avamarlog.txt" "[ERROR] Provided network $Network is invalid`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Provided network $Network is invalid`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 
     else {
-      Write-Log "Log Files\Avamarlog.txt" "[INFO] Initiating Avamar Deployment"
+      Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] Initiating Avamar Deployment"
       $OVFTOOL_BIN_PATH="C:\Users\crauser\Downloads\VMware-ovftool-4.4.3-18663434-win.x86_64\ovftool\ovftool.exe"
       $FAH_OVA=$myJson.avedata.ovaPath
 
@@ -351,11 +351,11 @@ if ($LoginCredentials) {
        New-HardDisk -VM $VMName -CapacityGB 250 -StorageFormat $DiskStorageFormat
        #Start-VM -VM $VMName
        sleep -s 120
-       Copy-VMGuestFile -Destination '/root' -Source 'CRS Exp Files\Netconfig_ave.exp' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
+       Copy-VMGuestFile -Destination '/root' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\Netconfig_ave.exp' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
        $Command = "sudo expect Netconfig_ave.exp $ipv4address $gateway $fqdn $primarynameserver $ntp"
        $invoke_command=Invoke-VMScript -ScriptType Bash -ScriptText $Command -VM $VMName -GuestUser root -GuestPassword $defaultrootpass -ErrorAction SilentlyContinue
 
-             Copy-VMGuestFile -Destination '/root' -Source 'Ave config file\Installconfig_test.yaml' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
+             Copy-VMGuestFile -Destination '/root' -Source 'E:\Workspace\UIAutomation\Ave config file\Installconfig_test.yaml' -LocalToGuest -GuestUser root -GuestPassword $defaultrootpass -VM $VMName
               
              $Command1 = "sed -i -e 's/repl_password:/repl_password: $repl_password/; s/rootpass:/rootpass: $rootpass/; s/mcpass:/mcpass: $mcpass/' Installconfig_test.yaml"
              $Command2 = "sed -i -e 's/viewuserpass:/viewuserpass: $viewuserpass/; s/admin_password_os:/admin_password_os: $admin_password_os/' Installconfig_test.yaml"
@@ -380,7 +380,7 @@ if ($LoginCredentials) {
 
               Invoke-SSHCommand -Index $sessionID.sessionid -Command $Command7 -ErrorAction SilentlyContinue  # Invoke Command Over SSH
               sleep -s 1500
-              Copy-VMGuestFile -Destination '/home/admin' -Source 'CRS Exp Files\sshconfig_ave.exp' -LocalToGuest -GuestUser admin -GuestPassword $admin_password_os -VM $VMName
+              Copy-VMGuestFile -Destination '/home/admin' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\sshconfig_ave.exp' -LocalToGuest -GuestUser admin -GuestPassword $admin_password_os -VM $VMName
               $Command= "expect sshconfig_ave.exp $root_password_os"
               $sshout = Invoke-VMScript -ScriptType Bash -ScriptText $Command -VM $VMName -GuestUser admin -GuestPassword $admin_password_os
               $Command8="rm -rf /root/Installconfig_test.yaml"
@@ -393,7 +393,7 @@ if ($LoginCredentials) {
 	   #Avamar Authentication
        if($sshout.ExitCode -eq "0")
 	   {
-	      Write-Log "Log Files\Avamarlog.txt" "[INFO] Avamar Deployment is successfull" 
+	      Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] Avamar Deployment is successfull" 
            get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -404,12 +404,12 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\Avamarlog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] $vms"
             "Success" | Out-File -FilePath $filepath
 	   }
 		  else
 		      {
-			   Write-Log "Log Files\Avamarlog.txt" "[ERROR] Avamar Deployment is failed"
+			   Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] Avamar Deployment is failed"
                            "Failed" | Out-File -FilePath $filepath
 			  }
      }
@@ -418,10 +418,10 @@ if ($LoginCredentials) {
 
          if (!($global:DefaultVIServers.Count)) {
 
-           Write-Log "Log Files\Avamarlog.txt" "[INFO] $esxiServer successfully disconnected`n"
+           Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] $esxiServer successfully disconnected`n"
         }
         else {
-              Write-Log "Log Files\Avamarlog.txt" "[INFO] The connection to $esxiServer is still open!`n"
+              Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[INFO] The connection to $esxiServer is still open!`n"
   }
 
 }
@@ -431,5 +431,5 @@ if ($LoginCredentials) {
 #}
 #catch{
      # $exception = $_.Exception.Message
-      # Write-Log "Log Files\Avamarlog.txt" "[ERROR] $exception" 
+      # Write-Log "E:\Workspace\UIAutomation\Log Files\Avamarlog.txt" "[ERROR] $exception" 
 #}

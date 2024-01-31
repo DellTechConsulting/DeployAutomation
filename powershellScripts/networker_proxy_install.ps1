@@ -1,5 +1,5 @@
 ﻿param($FormInput)
-Write-Host $FormInput
+#Write-Host $FormInput
 ##################################################
 $myJson = $FormInput | ConvertFrom-Json
 $fileName = $myJson.logfile
@@ -53,7 +53,7 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
+    Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
     $ipdetail = Get-VM | Select @{N="IPAddress";E={@($_.guest.IPAddress[0])}} -ErrorAction SilentlyContinue
@@ -61,19 +61,19 @@ if ($LoginCredentials) {
 
     if ($checkOva) {
 
-       Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided VMName $VMName already exists`n"
+       Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided VMName $VMName already exists`n"
        "Failed" | Out-File -FilePath $filepath
     }
         elseif($datastoredetail.Name -notcontains $myDatastore){
-	Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"	
+	Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"	
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($ipdetail.IPAddress -contains $ipv4){
-	Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
+	Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($networkdetail.Name -notcontains $Network){
-	Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided network $Network is invalid`n"
+	Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided network $Network is invalid`n"
         "Failed" | Out-File -FilePath $filepath
 	}
     else {
@@ -109,13 +109,13 @@ if ($LoginCredentials) {
          if($myJson.nveproxydata.hostData.type -eq "cluster"){
          $clusterdetail = Get-Cluster -ErrorAction SilentlyContinue
          $clustervalue = $myJson.nveproxydata.hostData.value
-         Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] Initiating Networker Proxy Deployment"
+         Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] Initiating Networker Proxy Deployment"
 	 if($clusterdetail.Name -contains $clustervalue){
        $esxiHost = Get-Cluster -Name $myJson.nveproxydata.hostData.value | Get-VMHost | Get-Random
        $deployOva = Import-vApp -Source $ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myDatastore -DiskStorageFormat $DiskStorageFormat
          }
             else{
-		 Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided cluster name $clustervalue is invalid`n"
+		 Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided cluster name $clustervalue is invalid`n"
                  "Failed" | Out-File -FilePath $filepath
                }
        }
@@ -125,11 +125,11 @@ if ($LoginCredentials) {
          $esxivalue = $myJson.nveproxydata.hostData.value
 	 if($esxidetail.Name -contains $esxivalue){
          $esxiHost = $myJson.nveproxydata.hostData.value
-         Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] Initiating Networker Deployment"
+         Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] Initiating Networker Proxy Deployment"
          $deployOva = Import-vApp -Source $ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myDatastore -DiskStorageFormat $DiskStorageFormat
         }
         else{
-		Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided Esxi value $esxivalue is invalid`n"
+		Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided Esxi value $esxivalue is invalid`n"
                 "Failed" | Out-File -FilePath $filepath
 		}
        }
@@ -137,7 +137,7 @@ if ($LoginCredentials) {
        {
        Start-VM -VM $VMName
        sleep -s 120
-       Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] Networker Proxy Deployment is successfull" 
+       Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] Networker Proxy Deployment is successfull" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -148,13 +148,13 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-          Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] $vms"
+          Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] $vms"
              "Success" | Out-File -FilePath $filepath
             
        }
    else
        {
-           Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Networker Proxy Deployment is failed"
+           Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Networker Proxy Deployment is failed"
            "Failed" | Out-File -FilePath $filepath
        }
   }
@@ -164,10 +164,10 @@ if ($LoginCredentials) {
 
          if (!($global:DefaultVIServers.Count)) {
 
-            Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] $vCenterServer successfully disconnected`n"
+            Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] $vCenterServer successfully disconnected`n"
         }
         else {
-             Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
+             Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
   }
 
 }
@@ -201,7 +201,7 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] esxiServer $esxiServer successfully connected`n"
+    Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] esxiServer $esxiServer successfully connected`n"
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
     $ipdetail = Get-VM | Select @{N="IPAddress";E={@($_.guest.IPAddress[0])}} -ErrorAction SilentlyContinue
@@ -209,20 +209,20 @@ if ($LoginCredentials) {
 
     if ($checkOva) {
 
-       Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided VMName $VMName already exists`n"
+       Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided VMName $VMName already exists`n"
        "Failed" | Out-File -FilePath $filepath
     }
         elseif($datastoredetail.Name -notcontains $myDatastore){
-	Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"	
+	Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided datastore $myDatastore is invalid`n"	
         "Failed" | Out-File -FilePath $filepath
 
 	}
 	elseif($ipdetail.IPAddress -contains $ipv4){
-	Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
+	Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided ipaddress $ipv4 is already in use`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 	elseif($networkdetail.Name -notcontains $Network){
-	Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Provided network $Network is invalid`n"
+	Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Provided network $Network is invalid`n"
         "Failed" | Out-File -FilePath $filepath
 	}
 
@@ -276,7 +276,7 @@ if ($LoginCredentials) {
        $checkdeploy = Get-VM -Name $VMName -ErrorAction SilentlyContinue
        if($checkdeploy) {
        sleep -s 180
-       Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] Networker Deployment is successfull" 
+       Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] Networker Proxy Deployment is successfull" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -287,12 +287,12 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] $vms"
+       Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] $vms"
                "Success" | Out-File -FilePath $filepath
       }
        else{
           
-          Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] Networker Proxy Deployment is failed"
+          Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] Networker Proxy Deployment is failed"
           "Failed" | Out-File -FilePath $filepath
        }
    }
@@ -301,10 +301,10 @@ if ($LoginCredentials) {
 
          if (!($global:DefaultVIServers.Count)) {
 
-             Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] $esxiServer successfully disconnected`n"
+             Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] $esxiServer successfully disconnected`n"
         }
         else {
-             Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[INFO] The connection to $esxiServer is still open!`n"
+             Write-Log "Log Files\NetworkerProxyLog.txt" "[INFO] The connection to $esxiServer is still open!`n"
   }
 
 }
@@ -314,7 +314,7 @@ if ($LoginCredentials) {
 }
 catch{
       $exception = $_.Exception.Message
-      Write-Log "E:\Workspace\UIAutomation\Log Files\NetworkerProxyLog.txt" "[ERROR] $exception" 
+      Write-Log "Log Files\NetworkerProxyLog.txt" "[ERROR] $exception" 
       "Failed" | Out-File -FilePath $filepath
        sleep -s 30
       Remove-Item -Path $filepath -Confirm:$false -Force

@@ -237,3 +237,60 @@
 06/26/2023 05:46:01 : [INFO] CR Deployment is Successful
 06/26/2023 05:46:01 : [INFO] 10.118.168.23 successfully disconnected
 
+01/02/2024 03:51:09 : [INFO] Successfully connected to 10.118.168.23
+
+01/02/2024 03:51:10 : [ERROR] Provided ESXi detail cluster is invalid
+
+01/02/2024 03:51:10 : [ERROR] CR Deployment is failed
+01/02/2024 03:53:36 : [INFO] Successfully connected to 10.118.168.23
+
+01/02/2024 03:56:25 : [INFO] CR Deployment is successful
+01/02/2024 03:56:25 : [INFO] @{VMName=cr_19.15; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=8192; Datastore=vsanDatastore}
+01/02/2024 04:04:34 : [INFO] CR Deployment is Successful
+01/02/2024 04:04:34 : [INFO] 10.118.168.23 successfully disconnected
+
+01/02/2024 04:18:01 : [INFO] Successfully connected to 10.118.168.23
+
+01/02/2024 04:20:52 : [INFO] CR Deployment is successful
+01/02/2024 04:20:52 : [INFO] @{VMName=cr_19.14; IPAddress=10.118.168.42; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=24576; Datastore=vsanDatastore}
+01/02/2024 04:28:25 : [INFO] CR Deployment is Successful
+01/02/2024 04:28:25 : [INFO] 10.118.168.23 successfully disconnected
+
+01/02/2024 05:22:51 : [INFO] Successfully connected to 10.118.168.23
+
+01/02/2024 05:25:38 : [INFO] CR Deployment is successful
+01/02/2024 05:25:38 : [INFO] @{VMName=CR1915; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=8192; Datastore=vsanDatastore}
+01/02/2024 05:33:42 : [INFO] CR Deployment is Successful
+01/02/2024 05:33:42 : [INFO] 10.118.168.23 successfully disconnected
+
+01/02/2024 22:55:13 : [INFO] Successfully connected to 10.118.168.23
+
+01/02/2024 22:58:05 : [INFO] CR Deployment is successful
+01/02/2024 22:58:06 : [INFO] @{VMName=test_cyber_r; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=2; TotalMemoryMB=8192; Datastore=vsanDatastore}
+01/02/2024 23:05:45 : [INFO] CR Deployment is Successful
+01/02/2024 23:05:45 : [INFO] 10.118.168.23 successfully disconnected
+
+01/16/2024 01:30:06 : [INFO] Successfully connected to 10.118.168.23
+
+01/16/2024 01:30:07 : [ERROR] gateway is invalid
+
+01/16/2024 01:30:07 : [INFO] 10.118.168.23 successfully disconnected
+
+01/16/2024 01:36:24 : [INFO] Successfully connected to 10.118.168.23
+
+01/16/2024 01:36:25 : [ERROR] gateway is invalid
+
+01/16/2024 01:36:25 : [INFO] 10.118.168.23 successfully disconnected
+
+01/16/2024 01:45:07 : [INFO] Successfully connected to 10.118.168.23
+
+01/16/2024 01:45:08 : [ERROR] hgdf is invalid
+
+01/16/2024 01:45:08 : [INFO] 10.118.168.23 successfully disconnected
+
+01/21/2024 23:22:17 : [INFO] Successfully connected to 10.118.168.23
+
+01/21/2024 23:22:18 : [ERROR] Provided IPAddress 10.118.168.234 is already in use
+
+01/21/2024 23:22:18 : [INFO] 10.118.168.23 successfully disconnected
+

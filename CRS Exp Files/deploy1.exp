@@ -6,8 +6,9 @@ set crsopass [lindex $argv 3];
     spawn su -
       expect "password:"
       send "$password\r"
-      send "/opt/dellemc/cr/bin/crsetup.sh --deploy"
-      sleep 60
+      sleep 10
+      send "/opt/dellemc/cr/bin/crsetup.sh --deploy\r"
+      sleep 120
       expect {passphrase requirements:
        - new password must be different from the previous password
        - between 9-64 characters

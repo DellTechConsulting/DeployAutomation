@@ -44,13 +44,13 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-	Write-Log "Log Files\CSLog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] vCenter $vCenterServer successfully connected`n"
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
 
     if ($checkOva) {
 
-	   Write-Log "Log Files\CSLog.txt" "[ERROR] $VMName already exists`n"
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[ERROR] $VMName already exists`n"
            "Failed" | Out-File -FilePath $filepath
 
     }
@@ -98,7 +98,7 @@ if ($LoginCredentials) {
        $deployOva = Import-vApp -Source $myJson.csdata.ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myJson.csdata.Datastore -DiskStorageFormat $myJson.csdata.DiskStorageFormat
        Start-VM -VM $VMName
        sleep -s 90
-       Write-Log "Log Files\CSLog.txt" "[INFO] CS Deployment is successful" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] CS Deployment is successful" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -109,12 +109,13 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\CSLog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] $vms"
 	   $sessionID = New-SSHSession -ComputerName $ip -Credential $CSoldLoginCredentials -Force -ErrorAction SilentlyContinue #Connect Over SSH with Old Crdentials
 	   if($sessionID.Connected -eq "True")
 	   {
        try{
-       C:\Python311\python.exe Scripts\ssh_paramiko.py $ip $currentpass $changepass
+       Set-Location C:\Python311
+       python.exe E:\Workspace\UIAutomation\Scripts\ssh_paramiko.py $ip $currentpass $changepass
        }
        catch{
           Write-Output ""
@@ -122,17 +123,17 @@ if ($LoginCredentials) {
        }
        else
        {
-		 Write-Log "Log Files\CSLog.txt" "[ERROR] CS Deployment is failed"
+		 Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[ERROR] CS Deployment is failed"
                  "Failed" | Out-File -FilePath $filepath
        }
 	   $sessionID = New-SSHSession -ComputerName $ip -Credential $CSnewLoginCredentials -Force -ErrorAction SilentlyContinue #Connect Over SSH with New Crdentials
 	   if($sessionID.Connected -eq "True")
 	   {
-		Write-Log "Log Files\CSLog.txt" "[INFO] CS Deployment is completed"
+		Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] CS Deployment is completed"
                 "Success" | Out-File -FilePath $filepath
 	   }
 	   else{
-		Write-Log "Log Files\CSLog.txt" "[WARNING] CS Deployment is completed but password hasn't changed"
+		Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[WARNING] CS Deployment is completed but password hasn't changed"
                 "Failed" | Out-File -FilePath $filepath
 	   }
 
@@ -144,14 +145,14 @@ if ($LoginCredentials) {
 
   if (!($global:DefaultVIServers.Count)) {
 
-	Write-Log "Log Files\CSLog.txt" "[INFO] $vCenterServer successfully disconnected`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] $vCenterServer successfully disconnected`n"
 
   }
 
   else {
 
     Write-Output "The connection to $vCenterServer is still open!`n"
-	Write-Log "Log Files\CSLog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
 
   }
 
@@ -159,7 +160,7 @@ if ($LoginCredentials) {
 }
 catch{
       $exception = $_.Exception.Message
-       Write-Log "Log Files\CSLog.txt" "[ERROR] $exception"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[ERROR] $exception"
        "Failed" | Out-File -FilePath $filepath
         sleep -s 30
         Remove-Item -Path $filepath -Confirm:$false -Force
@@ -190,13 +191,13 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-	Write-Log "Log Files\CSLog.txt" "[INFO] $Successfully connected to Esxi Host`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] $Successfully connected to Esxi Host`n"
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
 
     if ($checkOva) {
 
-	   Write-Log "Log Files\CSLog.txt" "[ERROR] $VMName already exists`n"
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[ERROR] $VMName already exists`n"
            "Failed" | Out-File -FilePath $filepath
 
     }
@@ -204,7 +205,7 @@ if ($LoginCredentials) {
     else {
 
       $OVFTOOL_BIN_PATH="C:\Users\crauser\Downloads\VMware-ovftool-4.5.0-20459872-win.x86_64\ovftool\ovftool.exe"
-      $CS_OVA=$myJson.csdata.ovaPath
+      $FAH_OVA=$myJson.csdata.ovaPath
 
       # ESXi
       $DEPLOYMENT_TARGET_ADDRESS=$esxiServer
@@ -252,11 +253,11 @@ if ($LoginCredentials) {
       --prop:vami.NTP.brs="${FAH_NTP}" `
       --prop:vami.DNS.brs="${FAH_DNS}" `
       --prop:vami.timezone.brs="${FAH_timezone}" `
-      "${CS_OVA}" `
+      "E:\\CR_Automation_Files\\dellemc-cyber-sense-8.2.0-1.23_15.ova" `
       "vi://${DEPLOYMENT_TARGET_USERNAME}:${DEPLOYMENT_TARGET_PASSWORD}@${DEPLOYMENT_TARGET_ADDRESS}/"
       # Start-VM -VM $myJson.csdata.ovaName
        sleep -s 90
-       Write-Log "Log Files\CSLog.txt" "[INFO] CS Deployment is successful" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] CS Deployment is successful" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -267,12 +268,13 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\CSLog.txt" "[INFO] $vms"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] $vms"
        $sessionID = New-SSHSession -ComputerName $ip -Credential $CSoldLoginCredentials -Force -ErrorAction SilentlyContinue #Connect Over SSH with Old Crdentials
 	   if($sessionID.Connected -eq "True")
 	   {
-       try{ 
-       C:\Python311\python.exe Scripts\ssh_paramiko.py $ip $currentpass $changepass
+       try{
+       Set-Location C:\Python311
+       python.exe C:\Users\crauser\Documents\CS\ssh_paramiko.py $ip $currentpass $changepass
        }
        catch{
           Write-Output ""
@@ -280,17 +282,17 @@ if ($LoginCredentials) {
        }
        else
        {
-		 Write-Log "Log Files\CSLog.txt" "[ERROR] CS Deployment is failed"
+		 Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[ERROR] CS Deployment is failed"
                  "Failed" | Out-File -FilePath $filepath
        }
 	   $sessionID = New-SSHSession -ComputerName $ip -Credential $CSnewLoginCredentials -Force -ErrorAction SilentlyContinue #Connect Over SSH with New Crdentials
 	   if($sessionID.Connected -eq "True")
 	   {
-		Write-Log "Log Files\CSLog.txt" "[INFO] CS Deployment is completed"
+		Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] CS Deployment is completed"
                 "Success" | Out-File -FilePath $filepath
 	   }
 	   else{
-		Write-Log "Log Files\CSLog.txt" "[WARNING] CS Deployment is completed but password hasn't changed"
+		Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[WARNING] CS Deployment is completed but password hasn't changed"
                 "Failed" | Out-File -FilePath $filepath
 	   }
 
@@ -303,19 +305,19 @@ if ($LoginCredentials) {
 
   if (!($global:DefaultVIServers.Count)) {
 
-	Write-Log "Log Files\CSLog.txt" "[INFO] $esxiServer successfully disconnected`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] $esxiServer successfully disconnected`n"
 
   }
 
   else {
-	Write-Log "Log Files\CSLog.txt" "[INFO] The connection to $esxiServer is still open!`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[INFO] The connection to $esxiServer is still open!`n"
 
   }
 }
 
 catch{
       $exception = $_.Exception.Message
-       Write-Log "Log Files\CSLog.txt" "[ERROR] $exception"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CSLog.txt" "[ERROR] $exception"
        "Failed" | Out-File -FilePath $filepath
        sleep -s 30
        Remove-Item -Path $filepath -Confirm:$false -Force

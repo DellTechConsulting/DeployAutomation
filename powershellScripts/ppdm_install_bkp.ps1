@@ -28,7 +28,7 @@ Function Write-Log {
   }
 }
 Function ppdminstall {
-sleep -s 650
+#sleep -s 650
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Accept", "application/json")
 $headers.Add("Content-Type", "application/json")
@@ -40,7 +40,7 @@ $body = @"
 }
 "@
 #$response = Invoke-RestMethod "https://$($ip):8443/api/v2/login" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
-$response = Invoke-RestMethod "https://$($ip):8443/api/v2/login" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
+$response = Invoke-RestMethod "https://$($ip)/api/v2/login" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
 $response | ConvertTo-Json
 $mytoken = $response.access_token
 #Write-Output $response
@@ -57,7 +57,7 @@ $body = @"
 "@
 
 #$response1 = Invoke-RestMethod "https://$($ip):8443/api/v2/eulas/data-manager" -Method 'PATCH' -Headers $headers -Body $body -SkipCertificateCheck
-$response1 = Invoke-RestMethod "https://$($ip):8443/api/v2/eulas/data-manager" -Method 'PATCH' -Headers $headers -Body $body -SkipCertificateCheck
+$response1 = Invoke-RestMethod "https://$($ip)/api/v2/eulas/data-manager" -Method 'PATCH' -Headers $headers -Body $body -SkipCertificateCheck
 $response1| ConvertTo-Json
 #Write-Output $response1
 
@@ -67,7 +67,7 @@ $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("authorization", $mytoken)
 
 #$response2 = Invoke-RestMethod "https://$($ip):8443/api/v2/configurations" -Method 'GET' -Headers $headers -SkipCertificateCheck
-$response2 = Invoke-RestMethod "https://$($ip):8443/api/v2/configurations" -Method 'GET' -Headers $headers -SkipCertificateCheck
+$response2 = Invoke-RestMethod "https://$($ip)/api/v2/configurations" -Method 'GET' -Headers $headers -SkipCertificateCheck
 $response2 | ConvertTo-Json
 #Write-Output $response2
 
@@ -193,8 +193,8 @@ if ($LoginCredentials) {
          $esxiHost = $myJson.ppdmdata.hostData.value
        }
 
-       $deployOva = Import-vApp -Source $myJson.ppdmdata.ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Location "Cluster" -InventoryLocation $myJson.ppdmdata.datacenter -Datastore $myJson.ppdmdata.Datastore -DiskStorageFormat $myJson.ppdmdata.DiskStorageFormat
-       Start-VM -VM $VMName
+       #$deployOva = Import-vApp -Source $myJson.ppdmdata.ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Location "Cluster" -InventoryLocation $myJson.ppdmdata.datacenter -Datastore $myJson.ppdmdata.Datastore -DiskStorageFormat $myJson.ppdmdata.DiskStorageFormat
+       #Start-VM -VM $VMName
 	   Write-Log "Log Files\PPDMLog.txt" "[INFO] PPDM Deployment is successful" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID

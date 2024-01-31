@@ -11,3 +11,10 @@
 06/22/2023 23:15:04 : [ERROR] Avamar_Proxy Deployment is failed
 06/22/2023 23:15:04 : [INFO] 10.118.168.80 successfully disconnected
 
+01/03/2024 00:06:18 : [INFO] vCenter 10.118.168.23 successfully connected
+
+01/03/2024 00:06:19 : [INFO] Initiating Avamar_proxy Deployment
+01/03/2024 00:09:47 : [INFO] Avamar_Proxy Deployment is successfull
+01/03/2024 00:09:47 : [INFO] @{VMName=aveproxy; IPAddress=10.118.168.42; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=4096; Datastore=vsanDatastore}
+01/03/2024 00:09:47 : [INFO] 10.118.168.23 successfully disconnected
+

@@ -1,5 +1,5 @@
 ﻿param($FormInput)
-#Write-Host $FormInput
+Write-Host $FormInput
 $myJson = $FormInput | ConvertFrom-Json
 #$filepath = "C:\inetpub\wwwroot\DDVEDeploymentStatus.txt"
 #"InProgress" | Out-File -FilePath $filepath
@@ -61,7 +61,7 @@ $response = Invoke-RestMethod "https://$($ip):3009/rest/v1.0/auth" -Method 'POST
 $response | ConvertTo-Json
 $mytoken= $Headers['X-DD-AUTH-TOKEN'][0]
 write-output $mytoken
-Write-Log "Log Files\DDVElog.txt" "[INFO] DDVE Authentication is successful" 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] DDVE Authentication is successful" 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -70,8 +70,8 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] DDVE Authentication is failed" 
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception" 
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] DDVE Authentication is failed" 
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception" 
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -89,7 +89,7 @@ $headers.Add("X-DD-AUTH-TOKEN", "$mytoken")
 $response1 = Invoke-RestMethod "https://$($ip):3009/rest/v1.0/system" -Method 'GET' -Headers $headers -SkipCertificateCheck
 $response1 | ConvertTo-Json
 $systemid= $response1.uuid.Replace(':','%3A')
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully get the system id information"
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully get the system id information"
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -98,7 +98,7 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -115,7 +115,7 @@ $headers.Add("Content-Type", "application/json")
 $headers.Add("X-DD-AUTH-TOKEN", "$mytoken")
 $response2 = Invoke-RestMethod "https://$($ip):3009/rest/v2.0/dd-systems/$($systemid)/licenses" -Method 'GET' -Headers $headers -SkipCertificateCheck
 $response2 | ConvertTo-Json
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully get the license information" 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully get the license information" 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -124,7 +124,7 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -142,7 +142,7 @@ $headers.Add("X-DD-AUTH-TOKEN", "$mytoken")
 $body=$test.cradminuser | ConvertTo-Json
 $response4 = Invoke-RestMethod "https://$($ip):3009/rest/v1.0/dd-systems/$($systemid)/users" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
 $response4 | ConvertTo-Json
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully created cradmin user "
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully created cradmin user "
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -151,7 +151,7 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -170,7 +170,7 @@ $body=$test.secofficer1 | ConvertTo-Json
 $response4 = Invoke-RestMethod "https://$($ip):3009/rest/v1.0/dd-systems/$($systemid)/users" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
 $response4 | ConvertTo-Json
 
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully created secofficer1 user " 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully created secofficer1 user " 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -179,7 +179,7 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -206,7 +206,7 @@ $ip= $test.ipaddress.ddip
 $response5 = Invoke-RestMethod "https://$($ip):3009/rest/v1.0/auth" -Method 'POST' -Headers $headers -Body $body  -ResponseHeadersVariable Headers -SkipCertificateCheck 
 $response5 | ConvertTo-Json
 $mytoken1= $Headers['X-DD-AUTH-TOKEN'][0]
-Write-Log "Log Files\DDVElog.txt" "[INFO] DDVE Authentication is successful using secofficer1 credentials " 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] DDVE Authentication is successful using secofficer1 credentials " 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -215,7 +215,7 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -234,7 +234,7 @@ $requestbody= $test.secofficer2 | ConvertTo-Json
 $body=$requestbody
 $response6 = Invoke-RestMethod "https://$($ip):3009/rest/v1.0/dd-systems/$($systemid)/users" -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
 $response6 | ConvertTo-Json
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully created ddve secofficer2 user " 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully created ddve secofficer2 user " 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -243,7 +243,7 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
         $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -269,7 +269,7 @@ $body = "{
 `n}"
 $response8 = Invoke-RestMethod "https://$($ip):3009/rest/v3.0/dd-systems/$($systemid)/systems" -Method 'PUT' -Headers $headers -Body $body -SkipCertificateCheck
 $response8 | ConvertTo-Json
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully enabled ddve system passphrase " 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully enabled ddve system passphrase " 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -278,8 +278,8 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] Failed to enable ddve system passphrase "
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] Failed to enable ddve system passphrase "
     "Failed" | Out-File -FilePath $filepath 
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -297,10 +297,10 @@ $Credentials = New-Object System.Management.Automation.PSCredential($ddveusernam
 $sessionID = New-SSHSession -ComputerName $ip -Credential $Credentials -Force #Connect Over SSH
 Invoke-SSHCommand -Index $sessionID.sessionid -Command $Command  # Invoke Command Over SSH
 sleep -s 2
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully enable ddve filesys encryption" 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully enable ddve filesys encryption" 
 Invoke-SSHCommand -Index $sessionID.sessionid -Command $Command1 
 Sleep -s 2
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully enable ddve filesys restart" 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully enable ddve filesys restart" 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -309,8 +309,8 @@ catch{
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
       $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] Failed to enable ddve filesys encryption" 
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] Failed to enable ddve filesys encryption" 
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -343,7 +343,7 @@ $body = "{
                                       
 $response3 = Invoke-RestMethod "https://$($ip):3009/rest/v1.0/dd-systems/$($systemid)/protocols/ddboost" -Method 'PUT' -Headers $headers -Body $body -SkipCertificateCheck
 $response3 | ConvertTo-Json
-Write-Log "Log Files\DDVElog.txt" "[INFO] Successfully enabled ddve ddboost" 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Successfully enabled ddve ddboost" 
 #"Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -352,7 +352,7 @@ $StatusCode = $_.Exception.Response.StatusCode
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
     $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force
@@ -371,10 +371,10 @@ $Credentials = New-Object System.Management.Automation.PSCredential($secofficer1
 $sessionID = New-SSHSession -ComputerName $ip -Credential $Credentials -Force   #Connect Over SSH
 Invoke-SSHCommand -Index $sessionID.sessionid -Command $Command   # Invoke Command Over SSH
 sleep -s 2
-Write-Log "Log Files\DDVElog.txt" "[INFO] Sucessfully enabled ddve user password aging" 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Sucessfully enabled ddve user password aging" 
 Invoke-SSHCommand -Index $sessionID.sessionid -Command $Command1
 Sleep -s 2
-Write-Log "Log Files\DDVElog.txt" "[INFO] Sucessfully enabled ddve enable ddve authroization policy" 
+Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[INFO] Sucessfully enabled ddve enable ddve authroization policy" 
 "Success" | Out-File -FilePath $filepath
 }
 catch{
@@ -383,8 +383,8 @@ catch{
     $ErrorMessage = $_.ErrorDetails.Message
     Write-Error "$([int]$StatusCode) $($StatusCode) -$($ErrorMessage)"
      $exception = $_.Exception.Message
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] $exception"
-    Write-Log "Log Files\DDVElog.txt" "[ERROR] Failed to enable ddve authroization policy and user password aging"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] $exception"
+    Write-Log "E:\Workspace\UIAutomation\Log Files\DDVElog.txt" "[ERROR] Failed to enable ddve authroization policy and user password aging"
     "Failed" | Out-File -FilePath $filepath
     sleep -s 30
     Remove-Item -Path $filepath -Confirm:$false -Force

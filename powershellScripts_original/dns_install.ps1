@@ -8,14 +8,14 @@ $password = $myJson.vmwaredata.password
 $ErrorActionPreference = 'Stop'
 $SecurePassword = $password | ConvertTo-SecureString -AsPlainText -Force
 $LoginCredentials = New-Object System.Management.Automation.PSCredential -ArgumentList $username, $SecurePassword
-$vmname=$myJson.ntpdata.VMName
-$user=$myJson.ntpdata.username
-$pass=$myJson.ntpdata.password
-$ntpname=$myJson.ntpdata.NTPName
+$winname= $myJson.dnsdata.VMName
+$winusername= $myJson.dnsdata.username
+$winpassword= $myJson.dnsdata.password
+$SecurePassword1 = $winpassword | ConvertTo-SecureString -AsPlainText -Force
+$Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $winusername, $SecurePassword1
 $fileName = $myJson.logfile
 $filepath = "C:\inetpub\wwwroot\$fileName"
 "InProgress" | Out-File -FilePath $filepath
-sleep -s 180
 Function Write-Log {
  
   [CmdletBinding()]
@@ -38,21 +38,19 @@ if ($LoginCredentials) {
   $MyServer = Connect-VIServer -Server $esxiServer -Protocol https -Credential $LoginCredentials
 
   if ($MyServer) {
-       $Command = "New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Parameters -Name $ntpname -Value 1 -Type DWord"
-       $res = Invoke-VMScript -ScriptType PowerShell -ScriptText $Command -VM $vmname -GuestUser $user -GuestPassword $pass
-       if($res){
-       $vmrestart=Get-VM $vmname | Restart-VMGuest
-       Write-Log "Log Files\NTPLog.txt" "Enabled the NTP and Restarted the VM`n" 
+
+       $Command = "Install-WindowsFeature DNS"
+       $res=Invoke-VMScript -ScriptType PowerShell -ScriptText $Command -VM $winname -GuestUser $winusername -GuestPassword $winpassword 
+       Write-Output $res
+       #$vmrestart=Get-VM $winname | Restart-VMGuest
        "Success" | Out-File -FilePath $filepath
-       }
-       else{
-          Write-Log "Log Files\NTPLog.txt" "Unable to enable the NTP`n" 
+    }
+      else{
+          Write-Log "E:\Workspace\UIAutomation\Log Files\DNSLog.txt" "Unable to enable the DNS`n" 
          "Failed" | Out-File -FilePath $filepath
        }
-       
-    }
     else{
-       Write-Log "Log Files\NTPLog.txt" "Unable to connect to the server $esxiServer`n" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\DNSLog.txt" "Unable to connect to the server $esxiServer`n" 
        "Failed" | Out-File -FilePath $filepath
     }
     }
@@ -61,7 +59,7 @@ Remove-Item -Path $filepath -Confirm:$false -Force
 }
 catch{
        $exception = $_.Exception.Message
-       Write-Log "Log Files\NTPLog.txt" "[ERROR] $exception"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\DNSLog.txt" "[ERROR] $exception"
        "Failed" | Out-File -FilePath $filepath
        sleep -s 30
        Remove-Item -Path $filepath -Confirm:$false -Force

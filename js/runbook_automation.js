@@ -69,7 +69,8 @@ userItem.value="TEST"
 });*/
 
   for (var i=0; i<inputs.length; i++) {
-    if (inputs[i].type.toLowerCase() === "password" || inputs[i].type.toLowerCase() === "text") {
+    if (inputs[i].name != "vCenter" && inputs[i].name != "username" && inputs[i].name != "password")
+     if(inputs[i].type.toLowerCase() === "password" || inputs[i].type.toLowerCase() === "text") {
       inputs[i].value=inputs[i].name
     }
 	// if(inputs[i].type.toLowerCase() == "file"){

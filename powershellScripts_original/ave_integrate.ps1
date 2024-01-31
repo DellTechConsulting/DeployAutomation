@@ -1,17 +1,20 @@
 ﻿param($FormInput)
+Write-Host $FormInput
 ##################################################
 $myJson = $FormInput | ConvertFrom-Json
-$crpass = $myJson.cs_crdata.crpassword
-$cruser = $myJson.cs_crdata.cruser
-$nickname = $myJson.cs_crdata.nickName
-$hostname = $myJson.cs_crdata.cshostname
-$hostuser = $myJson.cs_crdata.cshostUsername
-$hostpass = $myJson.cs_crdata.cshostPassword
-$osType = $myJson.cs_crdata.osType
-$type = $myJson.cs_crdata.type
-$tag = $myJson.cs_crdata.tags
-$ip = $myJson.cs_crdata.cr_ip
-$port = ":14777" 
+$ip=$myJson.ave_crdata.cr_ip
+$cruser=$myJson.ave_crdata.cruser
+$crpass=$myJson.ave_crdata.crpassword
+$nickname=$myJson.ave_crdata.nickName
+$hostname=$myJson.ave_crdata.avehostname
+$hostuser=$myJson.ave_crdata.avehostUsername
+$hostpass=$myJson.ave_crdata.avehostPassword
+$osType=$myJson.ave_crdata.osType
+$type=$myJson.ave_crdata.type
+$tag=$myJson.ave_crdata.tags
+
+#######################################################################################################################
+$port = ":14777"
 $baseuri = "https://$ip$port"
 $loginuri = "$baseuri/cr/v7/login"
 $appuri = "$baseuri/cr/v5/apps"
@@ -69,14 +72,14 @@ $body = "{
 
 $response = Invoke-RestMethod $appuri -Method 'POST' -Headers $headers -Body $body -SkipCertificateCheck
 $response | ConvertTo-Json
-Write-Log "Log Files\CS_integratelog.txt" "[INFO] Cyber Sense sucessfully integrated  with Cyber Recovery"
+Write-Log "E:\Workspace\UIAutomation\Log Files\AVE_integratelog.txt" "[INFO] Avamar successfully integrated with Cyber Recovery"
 }
 else
 {
-  Write-Log "Log Files\CS_integratelog.txt" "[ERROR] Cyber Sense is unreachable"
+  Write-Log "E:\Workspace\UIAutomation\Log Files\AVE_integratelog.txt" "[ERROR] Avamar is unreachable"
 }
 }
 catch{
       $exception = $_.Exception.Message
-       Write-Log "Log Files\CS_integratelog.txt" "[ERROR] $exception" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\AVE_integratelog.txt" "[ERROR] $exception" 
 }

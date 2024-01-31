@@ -3,7 +3,7 @@
 ##################################################
 $myJson = $FormInput | ConvertFrom-Json
 #$filepath = "C:\inetpub\wwwroot\CRDeploymentStatus.txt"
-$jsonfile = "winstatus\CRStatus.json"
+$jsonfile = "E:\Workspace\UIAutomation\winstatus\CRStatus.json"
 #"InProgress" | Out-File -FilePath $filepath
 
 $fileName = $myJson.logfile
@@ -72,7 +72,7 @@ if ($LoginCredentials) {
 
   if ($MyServer) {
 
-    Write-Log "Log Files\CRLog.txt" "[INFO] Successfully connected to $vCenterServer`n" 
+    Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] Successfully connected to $vCenterServer`n" 
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
@@ -81,21 +81,21 @@ if ($LoginCredentials) {
 
     if ($checkOva) {
 
-	   Write-Log "Log Files\CRLog.txt" "[ERROR] $VMName already exists`n" 
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $VMName already exists`n" 
            "Failed" | Out-File -FilePath $filepath
            #For Windows Application
-           JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
+           JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
     }
     elseif($datastoredetail.Name -notcontains $datastore){
-          Write-Log "Log Files\CRLog.txt" "[ERROR] $datastore is invalid`n" 
+          Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $datastore is invalid`n" 
           "Failed" | Out-File -FilePath $filepath	
     }
     elseif($ipdetail.IPAddress -contains $ip){
-          Write-Log "Log Files\CRLog.txt" "[ERROR] Provided IPAddress $ip is already in use`n" 
+          Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] Provided IPAddress $ip is already in use`n" 
           "Failed" | Out-File -FilePath $filepath
     }
     elseif($networkdetail.Name -notcontains $network){
-	   Write-Log "Log Files\CRLog.txt" "[ERROR] $network is invalid`n" 
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $network is invalid`n" 
            "Failed" | Out-File -FilePath $filepath
     }
 
@@ -134,7 +134,7 @@ if ($LoginCredentials) {
 		 
 		 }
 		 else{
-	         Write-Log "Log Files\CRLog.txt" "[ERROR] Provided Cluster detail $clustervalue is invalid`n" 
+	         Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] Provided Cluster detail $clustervalue is invalid`n" 
                 "Failed" | Out-File -FilePath $filepath
 		 }
        }
@@ -148,7 +148,7 @@ if ($LoginCredentials) {
         $deployOva = Import-vApp -Source $myJson.crdata.ovaPath -OvfConfiguration $ovaConfig -Name $VMName -VMHost $esxiHost -Datastore $myJson.crdata.Datastore -DiskStorageFormat $myJson.crdata.DiskStorageFormat
 		}
         else{
-	        Write-Log "Log Files\CRLog.txt" "[ERROR] Provided ESXi detail $esxivalue is invalid`n" 
+	        Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] Provided ESXi detail $esxivalue is invalid`n" 
                 "Failed" | Out-File -FilePath $filepath
 		}
        }
@@ -156,7 +156,7 @@ if ($LoginCredentials) {
        {
        Start-VM -VM $VMName
        sleep -s 60
-       Write-Log "Log Files\CRLog.txt" "[INFO] CR Deployment is successful" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] CR Deployment is successful" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -167,33 +167,33 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\CRLog.txt" "[INFO] $vms"
-       Copy-VMGuestFile -Destination '/home/admin/' -Source 'CRS Exp Files\deploy1.exp' -LocalToGuest -GuestUser admin -GuestPassword $rootpass -VM $VMName
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] $vms"
+       Copy-VMGuestFile -Destination '/home/admin/' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\deploy1.exp' -LocalToGuest -GuestUser admin -GuestPassword $rootpass -VM $VMName
        $Command = "expect deploy1.exp $rootpass $lockbox $Mongopass $crsopass"
        Invoke-VMScript -ScriptType Bash -ScriptText $Command -VM $VMName -GuestUser admin -GuestPassword $rootpass -ErrorAction SilentlyContinue
        Sleep -s 10
        }
        else
        {
-	   Write-Log "Log Files\CRLog.txt" "[ERROR] CR Deployment is failed"
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] CR Deployment is failed"
            "Failed" | Out-File -FilePath $filepath
            #For Windows Application
-           JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
+           JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
        }
        $req = Invoke-WebRequest -uri $baseuri -SkipCertificateCheck -ErrorAction SilentlyContinue
        $statuscode = "$($req.StatusCode)"
 	   #CR Authentication
 	   if($statuscode -eq "200")
 	   {
-		  Write-Log "Log Files\CRLog.txt" "[INFO] CR Deployment is Successful"
+		  Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] CR Deployment is Successful"
                   "Success" | Out-File -FilePath $filepath
-                  JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Success"
+                  JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Success"
 	   }
 		  else
 		      {
-			   Write-Log "Log Files\CRLog.txt" "[ERROR] CR Deployment is failed"
+			   Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] CR Deployment is failed"
                            "Failed" | Out-File -FilePath $filepath
-                           JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
+                           JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
 		  	  }
          }
          Disconnect-VIServer -Server $MyServer -confirm:$false
@@ -201,10 +201,10 @@ if ($LoginCredentials) {
 
          if (!($global:DefaultVIServers.Count)) {
 
-			Write-Log "Log Files\CRLog.txt" "[INFO] $vCenterServer successfully disconnected`n"
+			Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] $vCenterServer successfully disconnected`n"
         }
         else {
-			 Write-Log "Log Files\CRLog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
+			 Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] The connection to $vCenterServer is still open!`n"
   }
 
 }
@@ -223,7 +223,7 @@ if ($LoginCredentials) {
   $MyServer = Connect-VIServer -Server $esxiServer -Protocol https -Credential $LoginCredentials
 
   if ($MyServer) {
-	Write-Log "Log Files\CRLog.txt" "[INFO] $esxiServer successfully connected`n"
+	Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] $esxiServer successfully connected`n"
 
     $checkOva = Get-VM -Name $VMName -ErrorAction SilentlyContinue
     $datastoredetail = Get-Datastore -ErrorAction SilentlyContinue
@@ -232,21 +232,21 @@ if ($LoginCredentials) {
 
     if ($checkOva) {
 
-	   Write-Log "Log Files\CRLog.txt" "[ERROR] $VMName already exists`n"
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $VMName already exists`n"
            "Failed" | Out-File -FilePath $filepath
-           JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"	   
+           JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"	   
 
     }
     elseif($datastoredetail.Name -notcontains $myJson.crdata.Datastore){
-          Write-Log "Log Files\CRLog.txt" "[ERROR] $datastore is invalid`n" 
+          Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $datastore is invalid`n" 
           "Failed" | Out-File -FilePath $filepath	
     }
     elseif($ipdetail.IPAddress -contains $ip){
-          Write-Log "Log Files\CRLog.txt" "[ERROR] Provided IPAddress $ip is already in use`n" 
+          Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] Provided IPAddress $ip is already in use`n" 
           "Failed" | Out-File -FilePath $filepath
     }
     elseif($networkdetail.Name -notcontains $myJson.crdata.Network){
-	   Write-Log "Log Files\CRLog.txt" "[ERROR] $network is invalid`n" 
+	   Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $network is invalid`n" 
            "Failed" | Out-File -FilePath $filepath
     }
 
@@ -295,7 +295,7 @@ if ($LoginCredentials) {
 
        #Start-VM -VM $VMName
        sleep -s 60
-       Write-Log "Log Files\CRLog.txt" "[INFO] CR Deployment is successful" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] CR Deployment is successful" 
        get-vm -Name $VMName | % {
                 $vm = Get-View $_.ID
                 $vms = "" | Select-Object VMName, IPAddress, VMState, NumberOfCPU, TotalMemoryMB,Datastore
@@ -306,8 +306,8 @@ if ($LoginCredentials) {
                 $vms.TotalMemoryMB = $vm.summary.config.memorysizemb
                 $vms.Datastore = [string]::Join(',',(Get-Datastore -Id $_.DatastoreIdList | Select -ExpandProperty Name))
                 }
-       Write-Log "Log Files\CRLog.txt" "[INFO] $vms"
-       Copy-VMGuestFile -Destination '/home/admin/' -Source 'CRS Exp Files\deploy.exp' -LocalToGuest -GuestUser admin -GuestPassword $rootpass -VM $VMName
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] $vms"
+       Copy-VMGuestFile -Destination '/home/admin/' -Source 'E:\Workspace\UIAutomation\CRS Exp Files\deploy.exp' -LocalToGuest -GuestUser admin -GuestPassword $rootpass -VM $VMName
        $Command = "expect deploy.exp $rootpass $lockbox $Mongopass $crsopass"
        Invoke-VMScript -ScriptType Bash -ScriptText $Command -VM $VMName -GuestUser admin -GuestPassword $rootpass -ErrorAction SilentlyContinue
        Write-Host "Test Installation"
@@ -317,16 +317,16 @@ if ($LoginCredentials) {
 	   #CR Authentication
 	   if($statuscode -eq "200")
 	   {
-		  Write-Log "Log Files\CRLog.txt" "[INFO] CR Deployment is Successful"
+		  Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] CR Deployment is Successful"
                   "Success" | Out-File -FilePath $filepath
-                  JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Success"
+                  JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Success"
 
 	   }
 		  else
 		      {
-			   Write-Log "Log Files\CRLog.txt" "[ERROR] CR Deployment is failed"
+			   Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] CR Deployment is failed"
                             "Failed" | Out-File -FilePath $filepath
-                            JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed" 
+                            JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed" 
 			  }
 		}
          Disconnect-VIServer -Server $MyServer -confirm:$false
@@ -334,10 +334,10 @@ if ($LoginCredentials) {
 
          if (!($global:DefaultVIServers.Count)) {
 
-			Write-Log "Log Files\CRLog.txt" "[INFO] $esxiServer successfully disconnected`n"
+			Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] $esxiServer successfully disconnected`n"
         }
         else {
-			 Write-Log "Log Files\CRLog.txt" "[INFO] The connection to $esxiServer is still open!`n"
+			 Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[INFO] The connection to $esxiServer is still open!`n"
   }
 }
 }
@@ -346,9 +346,9 @@ if ($LoginCredentials) {
 }
 catch{
       $exception = $_.Exception.Message
-       Write-Log "Log Files\CRLog.txt" "[ERROR] $exception"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\CRLog.txt" "[ERROR] $exception"
        "Failed" | Out-File -FilePath $filepath
-       JsonDetail "winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
+       JsonDetail "E:\Workspace\UIAutomation\winstatus\CRStatus.json" "Vcenter" "CyberRecovery" "Failed"
        sleep -s 30
        Remove-Item -Path $filepath -Confirm:$false -Force
 }

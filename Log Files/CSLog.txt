@@ -144,3 +144,28 @@
 06/22/2023 06:24:34 : [INFO] CS Deployment is completed
 06/22/2023 06:24:34 : [INFO] 10.118.168.23 successfully disconnected
 
+01/03/2024 00:16:29 : [INFO] vCenter 10.118.168.23 successfully connected
+
+01/03/2024 00:20:07 : [INFO] CS Deployment is successful
+01/03/2024 00:20:07 : [INFO] @{VMName=test_cybersense; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+01/03/2024 00:27:40 : [INFO] vCenter 10.118.168.23 successfully connected
+
+01/03/2024 00:31:13 : [INFO] CS Deployment is successful
+01/03/2024 00:31:13 : [INFO] @{VMName=test_cs; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+01/03/2024 00:31:32 : [INFO] CS Deployment is completed
+01/03/2024 00:31:32 : [INFO] 10.118.168.23 successfully disconnected
+
+01/03/2024 06:56:41 : [INFO] vCenter 10.118.168.23 successfully connected
+
+01/03/2024 07:00:12 : [INFO] CS Deployment is successful
+01/03/2024 07:00:12 : [INFO] @{VMName=test_cs; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+01/03/2024 07:00:31 : [INFO] CS Deployment is completed
+01/03/2024 07:00:32 : [INFO] 10.118.168.23 successfully disconnected
+
+01/21/2024 23:22:17 : [INFO] vCenter 10.118.168.23 successfully connected
+
+01/21/2024 23:25:57 : [INFO] CS Deployment is successful
+01/21/2024 23:25:57 : [INFO] @{VMName=test_cs; IPAddress=10.118.168.233; VMState=poweredOn; NumberOfCPU=20; TotalMemoryMB=196608; Datastore=vsanDatastore}
+01/21/2024 23:26:30 : [INFO] CS Deployment is completed
+01/21/2024 23:26:30 : [INFO] 10.118.168.23 successfully disconnected
+

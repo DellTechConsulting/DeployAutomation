@@ -38,3 +38,10 @@
 06/27/2023 07:26:48 : [INFO] @{VMName=nveproxy_test; IPAddress=10.118.168.234; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=8192; Datastore=datastore1}
 06/27/2023 07:26:48 : [INFO] 10.118.168.80 successfully disconnected
 
+01/02/2024 22:22:27 : [INFO] vCenter 10.118.168.23 successfully connected
+
+01/02/2024 22:22:28 : [INFO] Initiating Networker Deployment
+01/02/2024 22:26:32 : [INFO] Networker Deployment is successfull
+01/02/2024 22:26:33 : [INFO] @{VMName=nve1; IPAddress=10.118.168.42; VMState=poweredOn; NumberOfCPU=4; TotalMemoryMB=16384; Datastore=vsanDatastore}
+01/02/2024 22:26:33 : [INFO] 10.118.168.23 successfully disconnected
+

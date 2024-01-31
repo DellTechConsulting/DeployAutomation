@@ -42,17 +42,17 @@ if ($LoginCredentials) {
        $res = Invoke-VMScript -ScriptType PowerShell -ScriptText $Command -VM $vmname -GuestUser $user -GuestPassword $pass
        if($res){
        $vmrestart=Get-VM $vmname | Restart-VMGuest
-       Write-Log "Log Files\NTPLog.txt" "Enabled the NTP and Restarted the VM`n" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\NTPLog.txt" "Enabled the NTP and Restarted the VM`n" 
        "Success" | Out-File -FilePath $filepath
        }
        else{
-          Write-Log "Log Files\NTPLog.txt" "Unable to enable the NTP`n" 
+          Write-Log "E:\Workspace\UIAutomation\Log Files\NTPLog.txt" "Unable to enable the NTP`n" 
          "Failed" | Out-File -FilePath $filepath
        }
        
     }
     else{
-       Write-Log "Log Files\NTPLog.txt" "Unable to connect to the server $esxiServer`n" 
+       Write-Log "E:\Workspace\UIAutomation\Log Files\NTPLog.txt" "Unable to connect to the server $esxiServer`n" 
        "Failed" | Out-File -FilePath $filepath
     }
     }
@@ -61,7 +61,7 @@ Remove-Item -Path $filepath -Confirm:$false -Force
 }
 catch{
        $exception = $_.Exception.Message
-       Write-Log "Log Files\NTPLog.txt" "[ERROR] $exception"
+       Write-Log "E:\Workspace\UIAutomation\Log Files\NTPLog.txt" "[ERROR] $exception"
        "Failed" | Out-File -FilePath $filepath
        sleep -s 30
        Remove-Item -Path $filepath -Confirm:$false -Force

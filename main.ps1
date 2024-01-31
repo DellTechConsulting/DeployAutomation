@@ -2,7 +2,7 @@
 Write-Host "Running..."
 
 $FormInputArray = $TestInput2 -split "__"
-
+Write-Host
 function Get-CR-Install-Json($FormInput) {
     $jsonBase = @{}    
     $deploymentType = ($FormInput[0] -split "=")[1]
@@ -1027,6 +1027,29 @@ function Get-DNS-Install-Json ($FormInput) {
     return ($jsonBase | ConvertTo-Json -Depth 10)
 }
 
+function Get-Vcenter-Details-Json ($FormInput) {
+    $jsonBase = @{}
+
+    $vCenter = ($FormInput[0] -split "=")[1].replace("%20", " ")
+    $username = ($FormInput[1] -split "=")[1].replace("%20", " ")
+    $password = ($FormInput[2] -split "=")[1].replace("%20", " ")
+    
+    $vCenterDetails = @([pscustomobject]@{"vCenter" = $vCenter 
+            "username"                         = $username
+            "password"                         = $password             
+        })
+
+                              
+    $jsonBase.Add("vcenterdetails", $vCenterDetails)
+
+    $jsonBase.Add("datastoreFile", ($FormInput[3] -split "=")[1].replace("%20", " ")) 
+    $jsonBase.Add("networkFile", ($FormInput[4] -split "=")[1].replace("%20", " ")) 
+    $jsonBase.Add("esxiFile", ($FormInput[5] -split "=")[1].replace("%20", " ")) 
+    $jsonBase.Add("clusterFile", ($FormInput[6] -split "=")[1].replace("%20", " ")) 
+    $jsonBase.Add("file", ($FormInput[6] -split "=")[1].replace("%20", " ")) 
+    return ($jsonBase | ConvertTo-Json -Depth 10)
+}
+
 switch ($TestInput1) {
     "cr-install" {
         $crInputJson = Get-CR-Install-Json $FormInputArray
@@ -1091,6 +1114,12 @@ switch ($TestInput1) {
     "dns-install" {
         $dnsInstallInputJson = Get-DNS-Install-Json $FormInputArray
         .\powershellScripts\dns_install.ps1 -FormInput $dnsInstallInputJson
+        Break
+    }
+    "vcenter-details" {
+        $vcenterDetailsJson = Get-Vcenter-Details-Json $FormInputArray
+        Write-Output $vcenterDetailsJson
+        .\getVMdetails.ps1 -FormInput $vcenterDetailsJson
         Break
     }
     Default {

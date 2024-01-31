@@ -1,0 +1,26 @@
+{
+	"nveproxydata": [{
+		"ipv4": "10.118.168.84",
+		"DNS": "10.118.168.1",
+		"myDatastore": "datastore1",
+		"gateway": "10.118.168.1",
+		"NTP": "10.118.168.1",
+		"ovaPath": "E:\\CR_Automation_Files\\Networker_Ova\\vproxy-installer-4.3.0-41.ova",
+		"fqdn": "NetWorker_Proxy.localhost",
+		"VMName": "nveproxy_test",
+		"esxiHost": "10.118.168.21",
+		"DiskStorageFormat": "thin",
+		"timezone": "Asia/Kolkata",
+		"Network": "VM Network",
+                "netmask": "255.255.254.0",
+		"adminpass": "changeme",
+                "rootpass": "changeme"
+
+	}],
+	
+	"esxidata": [{
+		"esxiServer": "10.118.168.80",
+		"username": "root",
+		"password": "Welcome@123"
+	}],
+}
